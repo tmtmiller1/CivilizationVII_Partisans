@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The train icons of the mod's notification types, each the game's own for the nearest thing: a city losing
+     happiness for unrest, a rising and a burned settlement; a tile icon for
+     fighters arriving; a neutral icon for a rising that is over. -->
+<Database>
+    <IconDefinitions>
+        <Row>
+            <ID>NOTIFICATION_PT_BREWING</ID>
+            <Path>blp:ntf_city_unhappy_loss</Path>
+        </Row>
+        <Row>
+            <ID>NOTIFICATION_PT_RISING</ID>
+            <Path>blp:ntf_crisis</Path>
+        </Row>
+        <Row>
+            <ID>NOTIFICATION_PT_JOIN</ID>
+            <Path>blp:ntf_acquire_tile</Path>
+        </Row>
+        <Row>
+            <ID>NOTIFICATION_PT_ENDED</ID>
+            <Path>blp:ntf_great_works</Path>
+        </Row>
+        <Row>
+            <ID>NOTIFICATION_PT_LOST</ID>
+            <Path>blp:ntf_city_unhappy_loss</Path>
+        </Row>
+    </IconDefinitions>
+</Database>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Replace Tag="LOC_MOD_PARTISANS_NAME" Language="zh_Hant_HK"><Text>游擊隊</Text></Replace>
+        <Replace Tag="LOC_MOD_PARTISANS_DESCRIPTION" Language="zh_Hant_HK"><Text>當一個聚落的民眾有理由起事時，武裝游擊隊會出現在它周圍的鄉野，並在遊戲自帶的獨立勢力AI下作戰。被對手文化爭取過去的聚落（Cultural Diffusion）、受到虐待的移民聚居區（Emigration）或多年的困苦都可能引發起義；國家公園能安撫鄉野。可單獨使用，也可與這些模組一起使用。單人與熱座。</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_GROUP_PARTISANS" Language="zh_Hant_HK"><Text>游擊隊</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_FLIP" Language="zh_Hant_HK"><Text>文化易主後的起義</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_FLIP_DESCRIPTION" Language="zh_Hant_HK"><Text>因文化而加入某個文明的聚落可能起來反抗新主人。兩個文明關係越差越可能發生：盟友之間幾乎不會，交戰的文明之間幾乎必然。</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ENCLAVE" Language="zh_Hant_HK"><Text>受虐待聚居區的起義</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ENCLAVE_DESCRIPTION" Language="zh_Hant_HK"><Text>裝有Emigration時，受承認的聚居區可能為反抗所受的對待而拿起武器：東道國與該群體的故國交戰時很少發生，在Emigration的猜疑類政策卡之下則頻繁得多。保護類政策卡能讓騷動平息。</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_MISERY" Language="zh_Hant_HK"><Text>長期困苦後的起義</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_MISERY_DESCRIPTION" Language="zh_Hant_HK"><Text>任何聚落若幸福度保持在-10或更低達二十回合（標準速度），都可能起義，且困苦每多持續一回合，機率都會增加。</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ANY_MOD" Language="zh_Hant_HK"><Text>計入任何模組的文化易主</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ANY_MOD_DESCRIPTION" Language="zh_Hant_HK"><Text>開：因文化而轉讓的聚落都計入，無論由哪個模組完成。關：僅限裝有Cultural Diffusion的遊戲。</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_PARKS" Language="zh_Hant_HK"><Text>國家公園安撫鄉野</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_PARKS_DESCRIPTION" Language="zh_Hant_HK"><Text>裝有National Parks時，聚落公園地塊產出的幸福度會再計一次以抵銷困苦。僅限探索時代和現代。</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_NAME" Language="zh_Hant_HK"><Text>游擊隊集結點</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_DESCRIPTION" Language="zh_Hant_HK"><Text>游擊隊在此集結。當聚落的民眾首次拿起武器時，由游擊隊模組放置一回合；叛軍一有自己的藏身處它便消失。</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_TOOLTIP" Language="zh_Hant_HK"><Text>起義正在集結。由游擊隊模組放置和移除。</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_FALLBACK" Language="zh_Hant_HK"><Text>游擊隊</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_BREWING_TITLE" Language="zh_Hant_HK"><Text>騷動</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_RISING_TITLE" Language="zh_Hant_HK"><Text>游擊隊起義</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_JOIN_TITLE" Language="zh_Hant_HK"><Text>戰士加入起義</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_ENDED_TITLE" Language="zh_Hant_HK"><Text>起義結束</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_LOST_TITLE" Language="zh_Hant_HK"><Text>聚落被焚毀</Text></Replace>
+        <Replace Tag="LOC_PT_DECLARED" Language="zh_Hant_HK"><Text>{1_City}附近的叛軍已宣布與您為敵。</Text></Replace>
+        <Replace Tag="LOC_PT_JOIN" Language="zh_Hant_HK"><Text>{1_People}部族已派戰士前往{2_City}。</Text></Replace>
+        <Replace Tag="LOC_PT_ENDED" Language="zh_Hant_HK"><Text>{1_City}周圍的起義結束了。</Text></Replace>
+        <Replace Tag="LOC_PT_LOST" Language="zh_Hant_HK"><Text>{1_City}被游擊隊焚毀了。</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_TITLE" Language="zh_Hant_HK"><Text>游擊隊</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_CALM" Language="zh_Hant_HK"><Text>平靜</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_MISERY" Language="zh_Hant_HK"><Text>困苦：{1_Turns}/{2_Need}回合</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_TENSION" Language="zh_Hant_HK"><Text>聚居區緊張度：{1_Tension}</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_BREWING" Language="zh_Hant_HK"><Text>起義正在醞釀</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_RISING" Language="zh_Hant_HK"><Text>游擊隊活動中：{1_Count}名戰士</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_COOLING" Language="zh_Hant_HK"><Text>起義後的平靜：{1_Turns}回合</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_RISING_TITLE_CITY" Language="zh_Hant_HK"><Text>{1_City}附近游擊隊起義</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_BREWING_TITLE_CITY" Language="zh_Hant_HK"><Text>{1_City}附近出現騷動</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_MISERY" Language="zh_Hant_HK"><Text>原因：{1_City}已在幸福度-10或更低的狀態下度過{3_Turns}回合，現在為{2_Happiness}。</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_FLIP" Language="zh_Hant_HK"><Text>原因：{1_City}的民眾被{2_Adjective}文化爭取過去，而兩個文明的關係是{3_Relation}。</Text></Replace>
+        <Replace Tag="LOC_PT_REL_WAR" Language="zh_Hant_HK"><Text>交戰</Text></Replace>
+        <Replace Tag="LOC_PT_REL_HOSTILE" Language="zh_Hant_HK"><Text>敵對</Text></Replace>
+        <Replace Tag="LOC_PT_REL_UNFRIENDLY" Language="zh_Hant_HK"><Text>不友好</Text></Replace>
+        <Replace Tag="LOC_PT_REL_NEUTRAL" Language="zh_Hant_HK"><Text>中立</Text></Replace>
+        <Replace Tag="LOC_PT_REL_FRIENDLY" Language="zh_Hant_HK"><Text>友好</Text></Replace>
+        <Replace Tag="LOC_PT_WHEN" Language="zh_Hant_HK"><Text>時間：游擊隊將在{2_Turns}回合後出現在{1_City}周圍。</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_LOYALISTS_TITLE_CITY" Language="zh_Hant_HK"><Text>{1_City}附近的{2_Adjective}效忠派游擊隊</Text></Replace>
+        <Replace Tag="LOC_PT_FLIP_OUTLOOK" Language="zh_Hant_HK"><Text>並非人人都願意。{1_City}附近正有游擊隊聚集。</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_ENCLAVE_POLICY" Language="zh_Hant_HK"><Text>原因：在{1_Policy}之下，{2_City}中祖籍{3_Civ}的家庭一直被當作嫌疑人對待。</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_ENCLAVE_WAR" Language="zh_Hant_HK"><Text>原因：自與{2_Civ}開戰以來，{1_City}中祖籍那裡的家庭一直被當作嫌疑人對待。</Text></Replace>
+    </LocalizedText>
+</Database>

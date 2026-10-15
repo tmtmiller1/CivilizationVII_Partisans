@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Workshop / identity emblem for the Partisans mod. Matches the Tower-mods family look (dark ground, gold frame,
+     parchment art, serif wordmark), and shares the Canals, Dams and National Parks hex geometry so they sit together.
+     Motif: one tile of countryside at dusk, a fire on the horizon behind the hills, and three partisans, plain bareheaded silhouettes, on the near
+     ridge under the stars, the middle one raising a red banner. Mirrored about the
+     centre line, bar the banner. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#243042"/>
+      <stop offset="100%" stop-color="#121821"/>
+    </linearGradient>
+    <linearGradient id="parchment" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f7eed1"/>
+      <stop offset="100%" stop-color="#e7d4a3"/>
+    </linearGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1b3a50"/>
+      <stop offset="70%" stop-color="#2f5d7a"/>
+      <stop offset="100%" stop-color="#7a5a3a"/>
+    </linearGradient>
+    <radialGradient id="fire" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f7eed1"/>
+      <stop offset="45%" stop-color="#e7a24c"/>
+      <stop offset="100%" stop-color="#A8201A"/>
+    </radialGradient>
+    <radialGradient id="fireglow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e7a24c" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#A8201A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e7d4a3" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#e7d4a3" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cloak" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a3546"/>
+      <stop offset="100%" stop-color="#141b26"/>
+    </linearGradient>
+    <clipPath id="hexclip">
+      <polygon points="812,430 662,689.8 362,689.8 212,430 362,170.2 662,170.2"/>
+    </clipPath>
+    <!-- One partisan, as abstract as Emigration's figures: a round head over a round-shouldered body, origin at the
+         top of the head. No hood, no face, nothing that reads as any group's dress. -->
+    <g id="figure" fill="url(#cloak)" stroke="#c9a24c" stroke-width="5" stroke-linejoin="round">
+      <path d="M-44,290 L-44,100 A44,44 0 0 1 44,100 L44,290 Z"/>
+      <circle cx="0" cy="30" r="30"/>
+    </g>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <!-- Gold frame to echo the in-game parchment/gold palette -->
+  <rect x="26" y="26" width="972" height="972" rx="30" fill="none" stroke="#c9a24c" stroke-width="4" opacity="0.5"/>
+
+  <!-- Light over the tile -->
+  <circle cx="512" cy="430" r="340" fill="url(#glow)"/>
+
+  <g clip-path="url(#hexclip)">
+    <!-- Dusk sky -->
+    <rect x="200" y="150" width="624" height="560" fill="url(#sky)"/>
+    <!-- A few stars over the hills -->
+    <g fill="#f7eed1">
+      <circle cx="452" cy="214" r="3.5" opacity="0.8"/>
+      <circle cx="610" cy="200" r="3" opacity="0.7"/>
+      <circle cx="702" cy="250" r="3.5" opacity="0.75"/>
+      <circle cx="318" cy="318" r="2.5" opacity="0.6"/>
+      <circle cx="736" cy="330" r="2.5" opacity="0.55"/>
+      <circle cx="560" cy="262" r="2" opacity="0.5"/>
+    </g>
+    <!-- The fire on the horizon -->
+    <circle cx="512" cy="500" r="230" fill="url(#fireglow)"/>
+    <circle cx="512" cy="492" r="92" fill="url(#fire)" stroke="#c9a24c" stroke-width="5"/>
+
+    <!-- Far hills, left and right -->
+    <path d="M200,510 Q300,438 404,492 Q448,512 470,540 L200,560 Z"
+          fill="url(#parchment)" stroke="#c9a24c" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M824,510 Q724,438 620,492 Q576,512 554,540 L824,560 Z"
+          fill="url(#parchment)" stroke="#c9a24c" stroke-width="6" stroke-linejoin="round"/>
+    <!-- The middle ground, a valley the fire burns beyond -->
+    <path d="M200,560 Q512,520 824,560 L824,700 L200,700 Z"
+          fill="url(#parchment)" stroke="#c9a24c" stroke-width="6" stroke-linejoin="round" opacity="0.92"/>
+    <!-- Furrows across the fields -->
+    <g fill="none" stroke="#c9a24c" stroke-width="3" stroke-linecap="round" opacity="0.45">
+      <path d="M262,586 Q512,560 762,586"/>
+      <path d="M240,612 Q512,588 784,612"/>
+    </g>
+    <!-- The near ridge the partisans stand on -->
+    <path d="M200,662 Q512,628 824,662 L824,700 L200,700 Z"
+          fill="url(#parchment)" stroke="#c9a24c" stroke-width="6" stroke-linejoin="round"/>
+
+    <!-- Spears of the two flanking partisans, angled outward -->
+    <g stroke="#c9a24c" stroke-width="6" stroke-linecap="round">
+      <path d="M398,640 L362,404"/>
+      <path d="M626,640 L662,404"/>
+    </g>
+    <g fill="url(#parchment)" stroke="#c9a24c" stroke-width="4" stroke-linejoin="round">
+      <path d="M362,404 L351,376 L359,356 L370,376 Z" transform="rotate(-9 362 404)"/>
+      <path d="M662,404 L673,376 L665,356 L654,376 Z" transform="rotate(9 662 404)"/>
+    </g>
+    <!-- The banner pole and the banner, red as the Rising pill -->
+    <path d="M548,646 L548,300" stroke="#c9a24c" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="548" cy="296" r="8" fill="url(#parchment)" stroke="#c9a24c" stroke-width="4"/>
+    <path d="M552,308 C588,300 616,320 656,312 L634,346 L658,378 C620,388 588,368 552,374 Z"
+          fill="#A8201A" stroke="#FF7A66" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M566,326 C592,322 610,334 632,328" stroke="#FFF3E3" stroke-width="3" fill="none" opacity="0.5"
+          stroke-linecap="round"/>
+
+    <!-- Their shadows on the ridge -->
+    <g fill="#7a5a3a" opacity="0.35">
+      <ellipse cx="414" cy="664" rx="50" ry="7"/>
+      <ellipse cx="610" cy="664" rx="50" ry="7"/>
+      <ellipse cx="512" cy="663" rx="62" ry="8"/>
+    </g>
+    <!-- The three partisans -->
+    <use href="#figure" transform="translate(414,502) scale(0.56)"/>
+    <use href="#figure" transform="translate(610,502) scale(0.56)"/>
+    <use href="#figure" transform="translate(512,452) scale(0.72)"/>
+  </g>
+
+  <!-- The tile's edge, over the art -->
+  <polygon points="812,430 662,689.8 362,689.8 212,430 362,170.2 662,170.2"
+           fill="none" stroke="#c9a24c" stroke-width="6" stroke-linejoin="round"/>
+
+  <!-- Wordmark -->
+  <text x="512" y="846" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif" font-size="96"
+        font-weight="bold" fill="#e7d4a3" letter-spacing="3">PARTISANS</text>
+</svg>

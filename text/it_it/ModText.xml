@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Replace Tag="LOC_MOD_PARTISANS_NAME" Language="it_IT"><Text>Partigiani</Text></Replace>
+        <Replace Tag="LOC_MOD_PARTISANS_DESCRIPTION" Language="it_IT"><Text>Quando la gente di un insediamento ha un motivo per insorgere, partigiani armati compaiono nelle campagne circostanti e combattono sotto l'IA delle potenze indipendenti del gioco. Un insediamento conquistato dalla cultura di un rivale (Cultural Diffusion), un'enclave maltrattata (Emigration) o anni di miseria possono scatenare una rivolta; un parco nazionale calma le campagne. Funziona da solo o con quei mod. Giocatore singolo e hotseat.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_GROUP_PARTISANS" Language="it_IT"><Text>Partigiani</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_FLIP" Language="it_IT"><Text>Rivolte dopo un passaggio culturale</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_FLIP_DESCRIPTION" Language="it_IT"><Text>Un insediamento che si unisce a una civiltà per via della cultura può insorgere contro il nuovo proprietario. Peggio vanno d'accordo le due civiltà, più è probabile: quasi mai tra alleati, quasi sempre tra civiltà in guerra.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ENCLAVE" Language="it_IT"><Text>Rivolte in un'enclave maltrattata</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ENCLAVE_DESCRIPTION" Language="it_IT"><Text>Con Emigration, un'enclave riconosciuta può prendere le armi contro il modo in cui è trattata: di rado mentre chi la ospita è in guerra con la patria della comunità, molto più spesso sotto una delle carte del sospetto di Emigration. Una carta di tutela lascia che il fermento si plachi.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_MISERY" Language="it_IT"><Text>Rivolte dopo una lunga miseria</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_MISERY_DESCRIPTION" Language="it_IT"><Text>Qualsiasi insediamento che resti a -10 di felicità o peggio per venti turni (a velocità standard) può insorgere, e la probabilità cresce a ogni turno di miseria in più.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ANY_MOD" Language="it_IT"><Text>Conta i passaggi culturali di qualsiasi mod</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ANY_MOD_DESCRIPTION" Language="it_IT"><Text>Attivo: un insediamento trasferito per via della cultura conta, qualunque mod lo abbia fatto. Disattivo: solo nelle partite con Cultural Diffusion.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_PARKS" Language="it_IT"><Text>I parchi nazionali calmano le campagne</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_PARKS_DESCRIPTION" Language="it_IT"><Text>Con National Parks, la felicità che le caselle di parco di un insediamento producono conta una seconda volta contro la miseria. Solo nelle ere dell'esplorazione e moderna.</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_NAME" Language="it_IT"><Text>Adunata dei partigiani</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_DESCRIPTION" Language="it_IT"><Text>Qui si radunano i partigiani. Collocato dal mod Partigiani per un turno quando la gente di un insediamento prende le armi per la prima volta; scompare non appena i ribelli hanno un nascondiglio tutto loro.</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_TOOLTIP" Language="it_IT"><Text>Una rivolta si sta preparando. Collocato e rimosso dal mod Partigiani.</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_FALLBACK" Language="it_IT"><Text>Partigiani</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_BREWING_TITLE" Language="it_IT"><Text>Fermento</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_RISING_TITLE" Language="it_IT"><Text>Rivolta partigiana</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_JOIN_TITLE" Language="it_IT"><Text>Combattenti si uniscono alla rivolta</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_ENDED_TITLE" Language="it_IT"><Text>Rivolta finita</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_LOST_TITLE" Language="it_IT"><Text>Insediamento bruciato</Text></Replace>
+        <Replace Tag="LOC_PT_DECLARED" Language="it_IT"><Text>I ribelli presso {1_City} si sono dichiarati contro di voi.</Text></Replace>
+        <Replace Tag="LOC_PT_JOIN" Language="it_IT"><Text>Il popolo {1_People} ha inviato combattenti a {2_City}.</Text></Replace>
+        <Replace Tag="LOC_PT_ENDED" Language="it_IT"><Text>La rivolta intorno a {1_City} è finita.</Text></Replace>
+        <Replace Tag="LOC_PT_LOST" Language="it_IT"><Text>{1_City} è stata bruciata dai partigiani.</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_TITLE" Language="it_IT"><Text>Partigiani</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_CALM" Language="it_IT"><Text>Calma</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_MISERY" Language="it_IT"><Text>Miseria: {1_Turns} turni su {2_Need}</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_TENSION" Language="it_IT"><Text>Tensione dell'enclave: {1_Tension}</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_BREWING" Language="it_IT"><Text>Una rivolta si sta preparando</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_RISING" Language="it_IT"><Text>Partigiani in campo: {1_Count} combattenti</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_COOLING" Language="it_IT"><Text>Calma dopo una rivolta: {1_Turns} turni</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_RISING_TITLE_CITY" Language="it_IT"><Text>Rivolta partigiana presso {1_City}</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_BREWING_TITLE_CITY" Language="it_IT"><Text>Fermento presso {1_City}</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_MISERY" Language="it_IT"><Text>Perché: {1_City} ha passato {3_Turns} turni a -10 di felicità o peggio, e ora è a {2_Happiness}.</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_FLIP" Language="it_IT"><Text>Perché: la gente di {1_City} è stata conquistata dalla cultura {2_Adjective}, e le due civiltà sono {3_Relation}.</Text></Replace>
+        <Replace Tag="LOC_PT_REL_WAR" Language="it_IT"><Text>in guerra</Text></Replace>
+        <Replace Tag="LOC_PT_REL_HOSTILE" Language="it_IT"><Text>ostili</Text></Replace>
+        <Replace Tag="LOC_PT_REL_UNFRIENDLY" Language="it_IT"><Text>poco amichevoli</Text></Replace>
+        <Replace Tag="LOC_PT_REL_NEUTRAL" Language="it_IT"><Text>neutrali</Text></Replace>
+        <Replace Tag="LOC_PT_REL_FRIENDLY" Language="it_IT"><Text>amiche</Text></Replace>
+        <Replace Tag="LOC_PT_WHEN" Language="it_IT"><Text>Quando: i partigiani scenderanno in campo intorno a {1_City} tra {2_Turns} turni.</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_LOYALISTS_TITLE_CITY" Language="it_IT"><Text>Partigiani lealisti {2_Adjective} presso {1_City}</Text></Replace>
+        <Replace Tag="LOC_PT_FLIP_OUTLOOK" Language="it_IT"><Text>Non tutti lo volevano. Dei partigiani si radunano vicino a {1_City}.</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_ENCLAVE_POLICY" Language="it_IT"><Text>Perché: sotto {1_Policy}, le famiglie di {2_City} con radici in {3_Civ} sono state trattate da sospette.</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_ENCLAVE_WAR" Language="it_IT"><Text>Perché: da quando è iniziata la guerra con {2_Civ}, le famiglie di {1_City} con radici lì sono state trattate da sospette.</Text></Replace>
+    </LocalizedText>
+</Database>

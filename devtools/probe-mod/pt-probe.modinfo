@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Throwaway probe for the Partisans acceptance checks. Installed for a lab run and removed afterwards. -->
+<Mod id="pt-probe" version="1" xmlns="ModInfo">
+    <Properties>
+        <Name>Partisans Probe (dev)</Name>
+        <Description>Throwaway probe data: a culture-flip marker per leader and an unhappiness marker.</Description>
+        <Authors>Tower</Authors>
+        <Package>PartisansProbe</Package>
+        <PackageSortIndex>9998</PackageSortIndex>
+        <Version>0.0.1</Version>
+        <AffectsSavedGames>1</AffectsSavedGames>
+    </Properties>
+    <Dependencies>
+        <Mod id="base-standard" title="LOC_MODULE_BASE_STANDARD_NAME" />
+    </Dependencies>
+    <ActionCriteria>
+        <Criteria id="always"><AlwaysMet></AlwaysMet></Criteria>
+    </ActionCriteria>
+    <ActionGroups>
+        <ActionGroup id="pt-probe-game" scope="game" criteria="always">
+            <Properties><LoadOrder>9000</LoadOrder></Properties>
+            <Actions><UpdateDatabase><Item>data/pt-probe.sql</Item></UpdateDatabase></Actions>
+        </ActionGroup>
+    </ActionGroups>
+</Mod>

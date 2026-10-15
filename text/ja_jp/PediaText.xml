@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Replace Tag="LOC_PEDIA_PARTISANS_TITLE" Language="ja_JP"><Text>パルチザン</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PT_GROUP_START_TITLE" Language="ja_JP"><Text>はじめに</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PT_GROUP_RULES_TITLE" Language="ja_JP"><Text>仕組み</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_OVERVIEW_TITLE" Language="ja_JP"><Text>パルチザン</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_OVERVIEW_CHAPTER_CONTENT_PARA_1" Language="ja_JP"><Text>集落の住民に蜂起する理由があるとき、その周辺の田園に武装したパルチザンが現れます。彼らは独立勢力の民に属し、ゲーム本来の独立勢力の規則に従って戦います。略奪し、包囲し、誰も応じなければ集落を奪い、ゲームはその集落をマップから取り除きます。鎮圧は通常の戦闘です。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_OVERVIEW_CHAPTER_CONTENT_PARA_2" Language="ja_JP"><Text>同じ規則が、あなたの文明にもAIの文明にも適用されます。都市国家、独立勢力の民、首都が蜂起することはありません。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_OVERVIEW_CHAPTER_SEE_TITLE" Language="ja_JP"><Text>表示されるもの</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_OVERVIEW_CHAPTER_SEE_PARA_1" Language="ja_JP"><Text>[BLIST][LI]不穏が始まったときとパルチザンが武器を取ったときの通知（それぞれ理由つき）、そして隣人が戦士を送ったとき、蜂起が終わったとき、集落を失ったときの通知。クリックすると集落に移動します。[LI]都市詳細パネルの[B]パルチザン[/B]欄に、集落の困窮ターン数、移民居住区の緊張、蜂起の状態。[/LIST]</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_TITLE" Language="ja_JP"><Text>蜂起のきっかけ</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_CONTENT_PARA_1" Language="ja_JP"><Text>蜂起のきっかけは三つあります。二つは別のModが必要で、三つ目はどのゲームでも働きます。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_FLIP_TITLE" Language="ja_JP"><Text>文化による集落の帰属変更</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_FLIP_PARA_1" Language="ja_JP"><Text>Cultural Diffusionがあると、隣国の文化に取り込まれた集落が新しい所有者に対して蜂起することがあります。ただし、移った人々の多くは自ら望んでそうしたのです。蜂起はまれで、両文明の関係を双方から見て決まります。同盟や友好の間柄では起こらず、中立なら100分の3ほど、非友好なら100分の8、敵対なら100分の15、交戦中ならおよそ3分の1です。判定は帰属変更時に一度だけ行われ、成立すると不穏の通知がすぐ届き、1〜3ターン後にパルチザンが戦場に現れます。その間に関係が悪化すれば、より高い確率で判定し直されます。両文明が同盟を結べば、住民は武器を置きます。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_ENCLAVE_TITLE" Language="ja_JP"><Text>虐げられた移民居住区</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_ENCLAVE_PARA_1" Language="ja_JP"><Text>Emigrationがあると、承認された飛び地を持つ集落は0から30の緊張度を持ち、受け入れ国の共同体への扱いで決まります。Emigrationの監視カードのもとでは、受け入れ国が共同体の故国と交戦中なら毎ターン3、敵対的な平和なら2、非友好的な平和なら1上がります。扱いのカードがなければ、故国との戦争のときだけ毎ターン1上がり、14を超えることはありません。保護カードのもとでは、戦争中でも毎ターン1下がり、ほかの場合も同じです。10以上になると毎ターン蜂起の可能性があり、監視カードなしでは最大10分の1、監視カードのもとでは30で最大2分の1です。蜂起の激しさは、その扱いがどれだけ続いたかで決まり、そこに住む人の数では決まりません。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_ENCLAVE_PARA_2" Language="ja_JP"><Text>移民居住区の蜂起は受け入れ側による共同体への虐待であって、共同体の不忠ではありません。故国が罰せられることはありません。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_MISERY_TITLE" Language="ja_JP"><Text>長年の困窮</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_MISERY_PARA_1" Language="ja_JP"><Text>幸福度が-10以下の集落は困窮ターンを1つ数え、-5より上なら一度に2ターン分回復します。困窮が20ターン（標準速度。遅い速度ではより長く）続くと10分の1の確率で蜂起が起こり、以後1ターンごとに100分の2ずつ、最大2分の1まで上がります。蜂起が起こると数は半分になります。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_PARKS_TITLE" Language="ja_JP"><Text>国立公園</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_PARKS_PARA_1" Language="ja_JP"><Text>National Parksがあると、探検の時代と近代では集落の公園タイルが生む幸福度を困窮に対してもう一度数えるため、公園のある集落は蜂起しにくくなります。原生地域は幸福度ではなく影響力を生むので、効果はありません。パルチザンが公園の土地に現れることはありません。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_TITLE" Language="ja_JP"><Text>蜂起</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_CONTENT_PARA_1" Language="ja_JP"><Text>蜂起とは、集落から2〜4タイル離れた場所に置かれるパルチザンの一団で、集落の所有者に敵対する独立勢力の民に属します。一つの集落で同時に進む蜂起は一つまで、一つの文明に対しては二つまで、マップ全体では六つまでで、蜂起のあと集落は20ターン休みます。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_WHO_TITLE" Language="ja_JP"><Text>戦うのは誰か</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_WHO_PARA_1" Language="ja_JP"><Text>各文明は時代ごとに一度、自らに対する最初の蜂起のときに独自の反乱者の民を得ます。反乱者はその文明の集落の一つから数タイル離れた隠れ家に集まり、誰かが追い散らすまで補充され続ける小さな一団を持ちます。その文明に対する以後の蜂起は同じ民を使います。反乱者がたまたまあなたに友好的なら、蜂起が始まると敵対を宣言します。AI文明に対しては、代わりに近くの敵対的な独立勢力の村が反乱者の側につくか、蜂起は立ち消えになります。反乱者の民は、ゲームに独立勢力の民をもう一つ入れる余地がある間しか現れません。探検の時代と近代では、その余地は時代の開始から1〜2ターンでなくなるため、その時点で反乱者を持たない文明の蜂起は12タイル以内の敵対的な村が担うか、立ち消えになります。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_BAND_TITLE" Language="ja_JP"><Text>一団</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_BAND_PARA_1" Language="ja_JP"><Text>一団の規模は原因の強さと集落の人口で大きくなり、古代と探検の時代では最大3ユニット、近代では2ユニットです。近接2に対して遠隔1で、時代の進み具合が許す階級の通常歩兵から選ばれます。古代の初期なら戦士、探検の時代の中盤なら武装歩兵、近代の終盤なら歩兵です。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_NEIGHBOURS_TITLE" Language="ja_JP"><Text>隣人の加勢</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_NEIGHBOURS_PARA_1" Language="ja_JP"><Text>文化による帰属変更のあと、6タイル以内にある、誰も宗主国でなく、新しい所有者に敵対的な独立勢力の村は、自らの戦士を1人か2人送ることがあります。村が近いほど起こりやすく、一つの蜂起に加わる村は二つまでです。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_END_TITLE" Language="ja_JP"><Text>終わり方</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_END_PARA_1" Language="ja_JP"><Text>蜂起は一団のユニットがすべていなくなるか、20ターン経つと終わります。パルチザンが集落を奪った場合、独立勢力の民が奪った集落と同じく、ゲームがマップから取り除きます。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_ANSWERS_TITLE" Language="ja_JP"><Text>できること</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_ANSWERS_CHAPTER_CONTENT_PARA_1" Language="ja_JP"><Text>[BLIST][LI]不穏の印が出た集落に守備隊を置く。一団は1ターン分離れた所に現れるので、その場の1〜2ユニットで迎え撃てます。[LI]集落を長年の困窮から遠ざけ、移民居住区の故国と和平を結ぶか関係を改善する。[LI]反乱者の隠れ家をほかの独立勢力の野営地と同じように追い散らせば、一団の補充は止まります。[LI]不穏な集落に国立公園を設立する。[/LIST]</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_ANSWERS_CHAPTER_OPTIONS_TITLE" Language="ja_JP"><Text>オプション</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_ANSWERS_CHAPTER_OPTIONS_PARA_1" Language="ja_JP"><Text>オプションのMod、パルチザンの項目で、各原因を個別に切り替え、Cultural Diffusion以外のModによる文化帰属変更を無視し、National Parksの効果をオフにできます。設定は起動をまたいで保持されます。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_TITLE" Language="ja_JP"><Text>できないこと</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_CHAPTER_CONTENT_PARA_1" Language="ja_JP"><Text>ゲームはプレイヤーをゲーム開始時に作り、その後は作らないため、蜂起が新しい文明を建てることはありません。独立勢力の民は集落を保持できないため、集落を奪ったパルチザンはそれを焼きます。Modはパルチザンを所有しません。動かすのはゲームの独立勢力AIで、いつ攻撃するかもAIが決めます。シングルプレイヤーとホットシートのみで、ネットワーク対戦では以前のセッションが記録したものを表示するだけです。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_CHAPTER_MUSTER_TITLE" Language="ja_JP"><Text>パルチザンの集結地</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_CHAPTER_MUSTER_PARA_1" Language="ja_JP"><Text>反乱者の民はゲーム本来の危機の規則によって生まれ、それには目印が必要です。蜂起が始まる集落には1ターンだけ、パルチザンの集結地という隠れた建物が置かれます。建設も購入もできず、それ自体は何もせず、反乱者が隠れ家を得るとすぐに取り除かれます。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_CHAPTER_SAVES_TITLE" Language="ja_JP"><Text>セーブと時代</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_CHAPTER_SAVES_PARA_1" Language="ja_JP"><Text>不穏の数値、迫っている蜂起、反乱者の民はゲームと一緒に保存されます。時代の移行で独立勢力の民はすべて消えるため、蜂起と反乱者は消去され、困窮と緊張は半分になって引き継がれます。このModで作ったセーブを読み込むにはこのModが必要です。</Text></Replace>
+    </LocalizedText>
+</Database>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Replace Tag="LOC_PEDIA_PARTISANS_TITLE" Language="zh_Hans_CN"><Text>游击队</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PT_GROUP_START_TITLE" Language="zh_Hans_CN"><Text>入门</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PT_GROUP_RULES_TITLE" Language="zh_Hans_CN"><Text>运作方式</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_OVERVIEW_TITLE" Language="zh_Hans_CN"><Text>游击队</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_OVERVIEW_CHAPTER_CONTENT_PARA_1" Language="zh_Hans_CN"><Text>当一个定居点的民众有理由起事时，武装游击队会出现在它周围的乡野。他们属于一个独立部族，按游戏为独立势力设定的规则作战：劫掠、围城，若无人应对，便攻占定居点，游戏随后会把它从地图上移除。镇压他们是普通的战斗。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_OVERVIEW_CHAPTER_CONTENT_PARA_2" Language="zh_Hans_CN"><Text>同样的规则适用于每个文明，您的和AI的都一样。城邦、独立部族和首都永远不会起义。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_OVERVIEW_CHAPTER_SEE_TITLE" Language="zh_Hans_CN"><Text>您看到的</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_OVERVIEW_CHAPTER_SEE_PARA_1" Language="zh_Hans_CN"><Text>[BLIST][LI]骚动开始和游击队拿起武器时的通知，各附原因；以及邻居派出战士、起义结束和失去定居点时的通知。点击即可跳转到该定居点。[LI]城市详情面板中的[B]游击队[/B]栏，列出定居点的困苦回合数、聚居区紧张度和起义状态。[/LIST]</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_TITLE" Language="zh_Hans_CN"><Text>起义的起因</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_CONTENT_PARA_1" Language="zh_Hans_CN"><Text>有三件事可以引发起义。其中两件需要另一个模组；第三件在任何游戏中都有效。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_FLIP_TITLE" Language="zh_Hans_CN"><Text>定居点因文化易主</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_FLIP_PARA_1" Language="zh_Hans_CN"><Text>装有Cultural Diffusion时，民众被邻国文化争取过去的定居点可能起来反抗新主人，不过多数归附的人本就心甘情愿。起事很少见，取决于两个文明从双方看来的关系：盟友或朋友之间不会发生，中立时约百分之三，不友好时百分之八，敌对时百分之十五，交战时约三分之一。判定在易主时进行一次；若成功，骚动通知立即送达，游击队在一到三回合后出现在野外。若这段时间内关系恶化，会按更高的几率再判定一次；若两个文明结为盟友，民众就会放下武器。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_ENCLAVE_TITLE" Language="zh_Hans_CN"><Text>受虐待的聚居区</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_ENCLAVE_PARA_1" Language="zh_Hans_CN"><Text>装有Emigration时，拥有受承认聚居区的定居点会有一个0到30的紧张度，取决于东道国如何对待该群体。在Emigration的猜疑类政策卡之下，东道国与该群体的故国交战时每回合升3，敌对的和平时升2，不友好的和平时升1。没有对待类政策卡时，只有与故国的战争会让它每回合升1，且不会超过14。在保护类政策卡之下，无论是否交战，它每回合降1，其他情况也是如此。从10起每回合都有起事的可能：没有猜疑卡时最多十分之一，有猜疑卡时在30可达二分之一。起事的激烈程度取决于这种对待持续了多久，而不是那里住了多少人。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_ENCLAVE_PARA_2" Language="zh_Hans_CN"><Text>聚居区起义是收容方对社群的虐待，而绝非社群的不忠。故国永远不会因此受到惩罚。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_MISERY_TITLE" Language="zh_Hans_CN"><Text>长期困苦</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_MISERY_PARA_1" Language="zh_Hans_CN"><Text>任何幸福度为-10或更低的定居点计一回合困苦；高于-5时一次恢复两回合。困苦满二十回合后（标准速度；较慢速度下更长）有十分之一的起义几率，此后每回合增加百分之二，最高二分之一。起义会把计数减半。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_PARKS_TITLE" Language="zh_Hans_CN"><Text>国家公园</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_PARKS_PARA_1" Language="zh_Hans_CN"><Text>装有National Parks时，在探索时代和现代，定居点公园地块产出的幸福度会再计一次以抵消困苦，因此有公园的定居点更不易起义。荒野保护区产出影响力而非幸福度，没有这一效果。游击队永远不会出现在公园土地上。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_TITLE" Language="zh_Hans_CN"><Text>起义</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_CONTENT_PARA_1" Language="zh_Hans_CN"><Text>起义是一支部署在距定居点两到四格处的游击队，属于与定居点主人敌对的独立部族。一个定居点同时最多一场起义，针对一个文明最多两场，全地图最多六场，起义后定居点休整二十回合。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_WHO_TITLE" Language="zh_Hans_CN"><Text>谁来作战</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_WHO_PARA_1" Language="zh_Hans_CN"><Text>每个文明每个时代获得一次属于自己的叛军部族，即在针对它的第一场起义时：叛军在距其某个定居点几格处的藏身处集结，并拥有一支会不断补充的小队，直到有人将其驱散。此后针对该文明的起义都使用同一个部族。如果叛军碰巧对您友好，起义开始时他们会宣布与您为敌；针对AI文明时，则由附近敌对的独立村落站到叛军一边，否则起义就此消散。叛军部族只有在游戏还有空位容纳一个新的独立部族时才会出现：在探索时代和现代，这个空位在时代开始后一两回合内就会用完，因此届时还没有叛军的文明，其起义由十二格内的敌对村落承担，否则就此消散。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_BAND_TITLE" Language="zh_Hans_CN"><Text>队伍</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_BAND_PARA_1" Language="zh_Hans_CN"><Text>队伍规模随起因强度和定居点人口增长，远古和探索时代最多三个单位，现代最多两个。两个近战配一个远程，取自该时代进度所允许等级的普通步兵：远古早期是勇士，探索中期是武装步兵，现代晚期是步兵。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_NEIGHBOURS_TITLE" Language="zh_Hans_CN"><Text>邻居加入</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_NEIGHBOURS_PARA_1" Language="zh_Hans_CN"><Text>文化易主之后，六格内无人宗主、且对新主人敌对的独立村落可能派出一两名自己的战士。村落越近越可能。最多两个村落加入一场起义。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_END_TITLE" Language="zh_Hans_CN"><Text>如何结束</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_END_PARA_1" Language="zh_Hans_CN"><Text>队伍的所有单位消失或二十回合过去，起义即告结束。若游击队攻占了定居点，游戏会把它从地图上移除，正如对任何被独立部族占领的定居点一样。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_ANSWERS_TITLE" Language="zh_Hans_CN"><Text>您能做什么</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_ANSWERS_CHAPTER_CONTENT_PARA_1" Language="zh_Hans_CN"><Text>[BLIST][LI]在显示骚动的定居点驻军：队伍在一回合路程外出现，就地的一两个单位就能迎击。[LI]让定居点远离长期困苦，并与聚居区的故国媾和或改善关系。[LI]像对付任何独立营地一样驱散叛军藏身处，他们的队伍就不再补充。[LI]在动荡的定居点建立国家公园。[/LIST]</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_ANSWERS_CHAPTER_OPTIONS_TITLE" Language="zh_Hans_CN"><Text>选项</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_ANSWERS_CHAPTER_OPTIONS_PARA_1" Language="zh_Hans_CN"><Text>在选项的模组、游击队一栏，每种起因都有独立开关，可以忽略Cultural Diffusion以外模组造成的文化易主，也可以关闭National Parks的安抚效果。设置在每次启动之间保持不变。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_TITLE" Language="zh_Hans_CN"><Text>止步之处</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_CHAPTER_CONTENT_PARA_1" Language="zh_Hans_CN"><Text>游戏在开局时创建玩家，此后不再创建，所以起义无法建立新文明。独立部族无法据有定居点，所以攻占定居点的游击队会将其焚毁。模组并不拥有游击队：游戏的独立势力AI移动他们，并决定何时进攻。仅限单人与热座；在网络对局中，模组只显示先前会话记录的内容。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_CHAPTER_MUSTER_TITLE" Language="zh_Hans_CN"><Text>游击队集结点</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_CHAPTER_MUSTER_PARA_1" Language="zh_Hans_CN"><Text>叛军部族由游戏自带的危机规则生成，而它需要一个标记：起义开始的定居点会在一回合内持有一座隐藏建筑，即游击队集结点。它无法建造或购买，本身不起任何作用，叛军一有藏身处便会被移除。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_CHAPTER_SAVES_TITLE" Language="zh_Hans_CN"><Text>存档与时代</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_CHAPTER_SAVES_PARA_1" Language="zh_Hans_CN"><Text>骚动计数、酝酿中的起义和叛军部族随游戏一起保存。时代更替时所有独立部族都会消失，因此起义和叛军被清除；困苦和紧张度减半保留。使用本模组创建的存档需要本模组才能加载。</Text></Replace>
+    </LocalizedText>
+</Database>

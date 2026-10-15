@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- English Civilopedia text for Partisans. Markup: [B]..[/B] bold, [BLIST][LI]..[/LIST] bullets. Translations live
+     in text/<locale>/PediaText.xml as <Replace Tag=... Language=...> rows. -->
+<Database>
+    <EnglishText>
+        <Row Tag="LOC_PEDIA_PARTISANS_TITLE"><Text>Partisans</Text></Row>
+        <Row Tag="LOC_PEDIA_PT_GROUP_START_TITLE"><Text>Getting Started</Text></Row>
+        <Row Tag="LOC_PEDIA_PT_GROUP_RULES_TITLE"><Text>How It Works</Text></Row>
+
+        <!-- Overview -->
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_OVERVIEW_TITLE"><Text>Partisans</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_OVERVIEW_CHAPTER_CONTENT_PARA_1"><Text>When a settlement's people have a reason to rise, armed partisans appear in the countryside around it. They belong to an independent people and fight under the game's own rules for independents: they raid, pillage, besiege and, if nobody answers them, take the settlement, which the game then removes from the map. Putting them down is ordinary combat.</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_OVERVIEW_CHAPTER_CONTENT_PARA_2"><Text>The same rules run for every civilization, yours and the AI's. City-states, independent peoples and capitals never rise.</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_OVERVIEW_CHAPTER_SEE_TITLE"><Text>What You See</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_OVERVIEW_CHAPTER_SEE_PARA_1"><Text>[BLIST][LI]A notification when unrest starts and when partisans take up arms, each saying why; others when neighbours send fighters, when a rising is over and when a settlement is lost. Click one to jump to the settlement.[LI]A [B]Partisans[/B] section in the City Details panel with the settlement's misery turns, enclave tension and the state of any rising.[/LIST]</Text></Row>
+
+        <!-- Causes -->
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_TITLE"><Text>What Starts a Rising</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_CONTENT_PARA_1"><Text>Three things can start a rising. Two of them need another mod; the third works in any game.</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_FLIP_TITLE"><Text>A Settlement Changes Hands by Culture</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_FLIP_PARA_1"><Text>With Cultural Diffusion, a settlement whose people were won over by a neighbour's culture may rise against its new owner, though most people who come over wanted to. A rising is rare and depends on how the two civilizations get on, read from both sides: never between allies or friends, about 3 in 100 when they're neutral, 8 in 100 when unfriendly, 15 in 100 when hostile and about 1 in 3 at war. The roll happens once, at the flip; on a hit, the unrest notice arrives at once and the partisans take the field one to three turns later. If relations get worse in that time, the higher chance is rolled again; if the two civilizations become allies, the people stand down.</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_ENCLAVE_TITLE"><Text>A Mistreated Enclave</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_ENCLAVE_PARA_1"><Text>With Emigration, a settlement holding a recognised enclave keeps a tension score from 0 to 30, set by how the host treats the community. Under one of Emigration's suspicion cards it rises by 3 each turn while the host is at war with the community's homeland, by 2 in a hostile peace and by 1 in an unfriendly one. With no treatment card, only a war with the homeland raises it, by 1 a turn and never past 14. Under a protective card it falls by 1 every turn, war or not, as it does in any other case. From 10 upward there's a chance of a rising each turn: at most 1 in 10 without a suspicion card, and up to 1 in 2 at 30 under one. How hard a rising comes depends on how long the treatment went on, not on how many people live there.</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_ENCLAVE_PARA_2"><Text>An enclave rising is the host's mistreatment of a community, never the community's disloyalty. The homeland is never penalised for it.</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_MISERY_TITLE"><Text>Long Misery</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_MISERY_PARA_1"><Text>Any settlement at -10 Happiness or worse counts a turn of misery; above -5 it recovers two turns at a time. After twenty turns of misery (at Standard speed; longer on slower speeds) there is a 1 in 10 chance of a rising, rising by 2 in 100 each further turn up to 1 in 2. A rising halves the count.</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_PARKS_TITLE"><Text>National Parks</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_PARKS_PARA_1"><Text>With National Parks, in the Exploration and Modern Ages, the Happiness a settlement's park tiles pay counts a second time against misery, so a settlement with a park is slower to rise. Wilderness Areas pay Influence, not Happiness, and give no relief. Partisans never appear on park land.</Text></Row>
+
+        <!-- A rising -->
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_TITLE"><Text>A Rising</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_CONTENT_PARA_1"><Text>A rising is a band of partisans placed two to four tiles out from the settlement, owned by an independent people that is hostile to the settlement's owner. At most one rising runs in a settlement at a time, two against one civilization and six on the whole map, and a settlement rests for twenty turns after one.</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_WHO_TITLE"><Text>Who Fights</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_WHO_PARA_1"><Text>Each civilization gets its own rebel people once per age, the first time a rising happens against it: rebels gather in a hideout a few tiles from one of its settlements, with a small band of their own that keeps respawning until someone disperses it. Later risings against that civilization use the same people. If the rebels happen to be friendly to you, they declare themselves against you when a rising starts; against an AI civilization a nearby hostile independent village takes the rebels' side instead, or the rising fizzles. A rebel people can only appear while the game has room for one more independent people: in the Exploration and Modern Ages that room is gone a turn or two into the age, so a civilization without rebels by then gets its risings from a hostile village within twelve tiles, or they fizzle.</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_BAND_TITLE"><Text>The Band</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_BAND_PARA_1"><Text>The band's size grows with the cause's strength and the settlement's population, up to three units in the Antiquity and Exploration Ages and two in the Modern Age. Two melee units to one ranged, of the age's ordinary infantry at the tier the age's progress allows: Warriors early in Antiquity, Men-at-Arms in mid Exploration, Infantry late in the Modern Age.</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_NEIGHBOURS_TITLE"><Text>Neighbours Join</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_NEIGHBOURS_PARA_1"><Text>After a culture flip, independent villages within six tiles that nobody is suzerain of and that are hostile to the new owner may send a fighter or two of their own. The closer the village, the likelier. At most two villages join one rising.</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_END_TITLE"><Text>How It Ends</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_END_PARA_1"><Text>A rising is over when every unit of the band is gone or after twenty turns. If the partisans take the settlement, the game removes it from the map, as it does for any settlement an independent people captures.</Text></Row>
+
+        <!-- Answers -->
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_ANSWERS_TITLE"><Text>What You Can Do</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_ANSWERS_CHAPTER_CONTENT_PARA_1"><Text>[BLIST][LI]Garrison a settlement that shows Unrest: the band lands a turn out, so a unit or two in place meets it.[LI]Keep settlements out of long misery, and make peace or mend relations with an enclave's homeland.[LI]Disperse a rebel hideout as you would any independent camp, and their band stops respawning.[LI]Found a National Park in a restive settlement.[/LIST]</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_ANSWERS_CHAPTER_OPTIONS_TITLE"><Text>Options</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_ANSWERS_CHAPTER_OPTIONS_PARA_1"><Text>Under Options, Mods, Partisans each cause has its own switch, culture flips from mods other than Cultural Diffusion can be ignored, and the National Parks relief can be turned off. Settings keep their values from one launch to the next.</Text></Row>
+
+        <!-- Limits -->
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_TITLE"><Text>Where It Stops</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_CHAPTER_CONTENT_PARA_1"><Text>The game creates its players when a game starts and never afterwards, so a rising can't found a new civilization. An independent people can't hold a settlement, so partisans that take one burn it. The mod doesn't own the partisans: the game's independent-power AI moves them, and it decides when they attack. Single-player and hotseat only; in a network game the mod only shows what an earlier session recorded.</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_CHAPTER_MUSTER_TITLE"><Text>The Partisan Muster</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_CHAPTER_MUSTER_PARA_1"><Text>A rebel people is spawned by the game's own crisis rule, which needs a marker: for one turn the settlement where the rising starts holds a hidden building, the Partisan Muster. It can't be built or bought, does nothing on its own, and is removed as soon as the rebels have their hideout.</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_CHAPTER_SAVES_TITLE"><Text>Saves and Ages</Text></Row>
+        <Row Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_CHAPTER_SAVES_PARA_1"><Text>Unrest counters, brewing risings and the rebel peoples are saved with the game. At an age transition every independent people goes, so risings and rebels are cleared; misery and tension carry over at half strength. A save made with the mod needs it to load.</Text></Row>
+    </EnglishText>
+</Database>

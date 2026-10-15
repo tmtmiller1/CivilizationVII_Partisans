@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Replace Tag="LOC_MOD_PARTISANS_NAME" Language="ja_JP"><Text>パルチザン</Text></Replace>
+        <Replace Tag="LOC_MOD_PARTISANS_DESCRIPTION" Language="ja_JP"><Text>集落の住民に蜂起する理由があるとき、その周辺の田園に武装したパルチザンが現れ、ゲーム本来の独立勢力AIの下で戦います。ライバルの文化に取り込まれた集落（Cultural Diffusion）、虐げられた移民居住区（Emigration）、長年の困窮が蜂起のきっかけになり、国立公園は田園を落ち着かせます。単体でも、これらのModと一緒でも動作します。シングルプレイヤーとホットシート向け。</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_GROUP_PARTISANS" Language="ja_JP"><Text>パルチザン</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_FLIP" Language="ja_JP"><Text>文化による帰属変更後の蜂起</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_FLIP_DESCRIPTION" Language="ja_JP"><Text>文化によって他の文明に加わった集落は、新しい所有者に対して蜂起することがあります。両文明の仲が悪いほど起こりやすく、同盟国同士ではほぼ起こらず、交戦中の文明同士ではほぼ必ず起こります。</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ENCLAVE" Language="ja_JP"><Text>虐げられた移民居住区の蜂起</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ENCLAVE_DESCRIPTION" Language="ja_JP"><Text>Emigrationがあると、承認された飛び地が自分たちへの扱いに抗して武器を取ることがあります。受け入れ国が共同体の故国と交戦中ならまれに、Emigrationの監視カードのもとではずっと頻繁に起こります。保護カードがあれば不穏は収まります。</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_MISERY" Language="ja_JP"><Text>長年の困窮後の蜂起</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_MISERY_DESCRIPTION" Language="ja_JP"><Text>幸福度が-10以下のまま20ターン（標準速度）続いた集落はどれも蜂起することがあり、困窮が続くターンごとに確率が上がります。</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ANY_MOD" Language="ja_JP"><Text>どのModの文化帰属変更も数える</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ANY_MOD_DESCRIPTION" Language="ja_JP"><Text>オン：文化によって移譲された集落は、どのModが行ったものでも数えます。オフ：Cultural Diffusionのあるゲームのみ。</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_PARKS" Language="ja_JP"><Text>国立公園が田園を落ち着かせる</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_PARKS_DESCRIPTION" Language="ja_JP"><Text>National Parksがある場合、集落の公園タイルが生む幸福度を困窮に対してもう一度数えます。探検の時代と近代のみ。</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_NAME" Language="ja_JP"><Text>パルチザンの集結地</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_DESCRIPTION" Language="ja_JP"><Text>ここにパルチザンが集まります。集落の住民が初めて武器を取ったとき、パルチザンModが1ターンだけ置くもので、反乱者が自分たちの隠れ家を得るとすぐに消えます。</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_TOOLTIP" Language="ja_JP"><Text>蜂起が集結しつつあります。パルチザンModが設置し、取り除きます。</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_FALLBACK" Language="ja_JP"><Text>パルチザン</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_BREWING_TITLE" Language="ja_JP"><Text>不穏</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_RISING_TITLE" Language="ja_JP"><Text>パルチザン蜂起</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_JOIN_TITLE" Language="ja_JP"><Text>戦士が蜂起に加わる</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_ENDED_TITLE" Language="ja_JP"><Text>蜂起の終結</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_LOST_TITLE" Language="ja_JP"><Text>集落が焼かれた</Text></Replace>
+        <Replace Tag="LOC_PT_DECLARED" Language="ja_JP"><Text>{1_City}近くの反乱者があなたに敵対を宣言しました。</Text></Replace>
+        <Replace Tag="LOC_PT_JOIN" Language="ja_JP"><Text>{1_People}の民が{2_City}へ戦士を送りました。</Text></Replace>
+        <Replace Tag="LOC_PT_ENDED" Language="ja_JP"><Text>{1_City}周辺の蜂起は終わりました。</Text></Replace>
+        <Replace Tag="LOC_PT_LOST" Language="ja_JP"><Text>{1_City}はパルチザンに焼かれました。</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_TITLE" Language="ja_JP"><Text>パルチザン</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_CALM" Language="ja_JP"><Text>平穏</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_MISERY" Language="ja_JP"><Text>困窮：{2_Need}ターン中{1_Turns}ターン</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_TENSION" Language="ja_JP"><Text>移民居住区の緊張：{1_Tension}</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_BREWING" Language="ja_JP"><Text>蜂起が迫っている</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_RISING" Language="ja_JP"><Text>パルチザンが展開中：戦士{1_Count}人</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_COOLING" Language="ja_JP"><Text>蜂起後の平穏：{1_Turns}ターン</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_RISING_TITLE_CITY" Language="ja_JP"><Text>{1_City}の近くでパルチザン蜂起</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_BREWING_TITLE_CITY" Language="ja_JP"><Text>{1_City}の近くで不穏な動き</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_MISERY" Language="ja_JP"><Text>理由：{1_City}は幸福度-10以下で{3_Turns}ターンを過ごし、現在は{2_Happiness}です。</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_FLIP" Language="ja_JP"><Text>理由：{1_City}の住民は{2_Adjective}の文化に取り込まれ、両文明の関係は{3_Relation}です。</Text></Replace>
+        <Replace Tag="LOC_PT_REL_WAR" Language="ja_JP"><Text>交戦中</Text></Replace>
+        <Replace Tag="LOC_PT_REL_HOSTILE" Language="ja_JP"><Text>敵対</Text></Replace>
+        <Replace Tag="LOC_PT_REL_UNFRIENDLY" Language="ja_JP"><Text>非友好</Text></Replace>
+        <Replace Tag="LOC_PT_REL_NEUTRAL" Language="ja_JP"><Text>中立</Text></Replace>
+        <Replace Tag="LOC_PT_REL_FRIENDLY" Language="ja_JP"><Text>友好</Text></Replace>
+        <Replace Tag="LOC_PT_WHEN" Language="ja_JP"><Text>時期：{2_Turns}ターン後に{1_City}の周辺にパルチザンが現れます。</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_LOYALISTS_TITLE_CITY" Language="ja_JP"><Text>{1_City}の近くで{2_Adjective}派パルチザン</Text></Replace>
+        <Replace Tag="LOC_PT_FLIP_OUTLOOK" Language="ja_JP"><Text>誰もが望んだわけではありません。{1_City}の近くでパルチザンが集まっています。</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_ENCLAVE_POLICY" Language="ja_JP"><Text>理由：{1_Policy}のもとで、{3_Civ}にルーツを持つ{2_City}の家族が容疑者のように扱われてきました。</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_ENCLAVE_WAR" Language="ja_JP"><Text>理由：{2_Civ}との戦争が始まって以来、そこにルーツを持つ{1_City}の家族が容疑者のように扱われてきました。</Text></Replace>
+    </LocalizedText>
+</Database>

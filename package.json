@@ -1,0 +1,17 @@
+{
+  "name": "partisans-mod-dev",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lint, syntax check and tests for the Partisans Civ VII mod. Not shipped.",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint ui tests scripts",
+    "check": "for f in ui/*.js scripts/*.mjs; do node --check \"$f\" || exit 1; done",
+    "test": "node --test tests/*.test.mjs",
+    "verify": "npm run lint && npm run check && npm run test",
+    "gen-data": "node scripts/gen-data.mjs"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0"
+  }
+}

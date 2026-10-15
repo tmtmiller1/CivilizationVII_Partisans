@@ -1,0 +1,23 @@
+[h1]Partisans[/h1]
+
+When a settlement's people have a reason to rise, armed partisans appear in the countryside around it. They belong to an independent people and fight under the game's own rules: they raid, besiege and, if nobody answers them, take the settlement, which the game then removes from the map. Putting them down is ordinary combat.
+
+[h2]What starts a rising[/h2]
+[list]
+[*][b]A settlement changes hands by culture.[/b] With Cultural Diffusion, a settlement won over by a neighbour's culture may rise against its new owner, though that's rare, since most people who come over wanted to. It never happens between allies or friends, a few times in a hundred between neutral civilizations, and about one time in three at war. You get an Unrest notice first, and the partisans take the field one to three turns later.
+[*][b]A mistreated enclave.[/b] With Emigration, a recognised enclave may take up arms against how it's treated. A war with the community's homeland is the trigger, and the host's treatment card sets the risk: rare with no card, much likelier under one of Emigration's suspicion cards, and a protective card lets the unrest settle.
+[*][b]Long misery.[/b] Any settlement that stays at -10 Happiness or worse for twenty turns may rise, and the chance grows each turn it stays miserable. Works with no other mod.
+[/list]
+
+Each civilization gets its own rebel people once per age, camped a few tiles from one of its settlements, with a small band that keeps respawning until someone disperses it. Hostile independent villages near a culture flip may send fighters of their own. With National Parks, a settlement's park tiles calm its countryside.
+
+[h2]What you see[/h2]
+A notification titled with the place, "Partisan uprising near Mutsu" or "Partisan Greek loyalists near Mutsu" after a culture flip, says why the people rose; click it to jump there. A Partisans section in the City Details panel shows the settlement's misery turns and enclave tension.
+
+[h2]Options[/h2]
+Under Options, Mods, Partisans: each cause on or off, culture flips from other mods on or off, the park relief on or off. Settings keep their values between launches.
+
+[h2]Limits[/h2]
+Capitals, city-states and independent peoples never rise. The same rules run for the AI. Single-player and hotseat; in a network game the mod only shows what an earlier session recorded. A save made with the mod needs it to load.
+
+Eleven languages besides English. Source and issues on GitHub.

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Civilopedia entries for Partisans: a "Partisans" section with its own pages. The pedia resolves each chapter's title
+  and paragraphs by key convention (LOC_PEDIA_<section>_PAGE_<page>_CHAPTER_<chapter>_TITLE and ..._PARA_1, _PARA_2,
+  ... until the first gap); the text lives in text/en_us/PediaText.xml. Page ids carry a PT_ prefix because the
+  pedia's search matches a bare page id across every section. CivilopediaPageLayouts must come before the tables that
+  point at it.
+-->
+<Database>
+    <CivilopediaSections>
+        <Row SectionID="PARTISANS" Name="LOC_PEDIA_PARTISANS_TITLE" Icon="pedia_military" SortIndex="166"/>
+    </CivilopediaSections>
+
+    <CivilopediaPageGroups>
+        <Row SectionID="PARTISANS" PageGroupID="PT_START" Name="LOC_PEDIA_PT_GROUP_START_TITLE" SortIndex="10"/>
+        <Row SectionID="PARTISANS" PageGroupID="PT_RULES" Name="LOC_PEDIA_PT_GROUP_RULES_TITLE" SortIndex="20"/>
+    </CivilopediaPageGroups>
+
+    <CivilopediaPageLayouts>
+        <Row PageLayoutID="PT_OVERVIEW" UseSidebar="false"/>
+        <Row PageLayoutID="PT_CAUSES" UseSidebar="false"/>
+        <Row PageLayoutID="PT_RISING" UseSidebar="false"/>
+        <Row PageLayoutID="PT_ANSWERS" UseSidebar="false"/>
+        <Row PageLayoutID="PT_LIMITS" UseSidebar="false"/>
+    </CivilopediaPageLayouts>
+
+    <CivilopediaPageLayoutChapters>
+        <Row PageLayoutID="PT_OVERVIEW" ChapterID="CONTENT" SortIndex="10"/>
+        <Row PageLayoutID="PT_OVERVIEW" ChapterID="SEE" SortIndex="20"/>
+
+        <Row PageLayoutID="PT_CAUSES" ChapterID="CONTENT" SortIndex="10"/>
+        <Row PageLayoutID="PT_CAUSES" ChapterID="FLIP" SortIndex="20"/>
+        <Row PageLayoutID="PT_CAUSES" ChapterID="ENCLAVE" SortIndex="30"/>
+        <Row PageLayoutID="PT_CAUSES" ChapterID="MISERY" SortIndex="40"/>
+        <Row PageLayoutID="PT_CAUSES" ChapterID="PARKS" SortIndex="50"/>
+
+        <Row PageLayoutID="PT_RISING" ChapterID="CONTENT" SortIndex="10"/>
+        <Row PageLayoutID="PT_RISING" ChapterID="WHO" SortIndex="20"/>
+        <Row PageLayoutID="PT_RISING" ChapterID="BAND" SortIndex="30"/>
+        <Row PageLayoutID="PT_RISING" ChapterID="NEIGHBOURS" SortIndex="40"/>
+        <Row PageLayoutID="PT_RISING" ChapterID="END" SortIndex="50"/>
+
+        <Row PageLayoutID="PT_ANSWERS" ChapterID="CONTENT" SortIndex="10"/>
+        <Row PageLayoutID="PT_ANSWERS" ChapterID="OPTIONS" SortIndex="20"/>
+
+        <Row PageLayoutID="PT_LIMITS" ChapterID="CONTENT" SortIndex="10"/>
+        <Row PageLayoutID="PT_LIMITS" ChapterID="MUSTER" SortIndex="20"/>
+        <Row PageLayoutID="PT_LIMITS" ChapterID="SAVES" SortIndex="30"/>
+    </CivilopediaPageLayoutChapters>
+
+    <CivilopediaPages>
+        <Row SectionID="PARTISANS" PageID="PT_OVERVIEW" PageGroupID="PT_START" PageLayoutID="PT_OVERVIEW" Name="LOC_PEDIA_PARTISANS_PAGE_PT_OVERVIEW_TITLE" SortIndex="10"/>
+        <Row SectionID="PARTISANS" PageID="PT_CAUSES" PageGroupID="PT_RULES" PageLayoutID="PT_CAUSES" Name="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_TITLE" SortIndex="10"/>
+        <Row SectionID="PARTISANS" PageID="PT_RISING" PageGroupID="PT_RULES" PageLayoutID="PT_RISING" Name="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_TITLE" SortIndex="20"/>
+        <Row SectionID="PARTISANS" PageID="PT_ANSWERS" PageGroupID="PT_RULES" PageLayoutID="PT_ANSWERS" Name="LOC_PEDIA_PARTISANS_PAGE_PT_ANSWERS_TITLE" SortIndex="30"/>
+        <Row SectionID="PARTISANS" PageID="PT_LIMITS" PageGroupID="PT_RULES" PageLayoutID="PT_LIMITS" Name="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_TITLE" SortIndex="40"/>
+    </CivilopediaPages>
+</Database>

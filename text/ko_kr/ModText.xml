@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Replace Tag="LOC_MOD_PARTISANS_NAME" Language="ko_KR"><Text>파르티잔</Text></Replace>
+        <Replace Tag="LOC_MOD_PARTISANS_DESCRIPTION" Language="ko_KR"><Text>정착지의 주민에게 봉기할 이유가 생기면 주변 시골에 무장한 파르티잔이 나타나 게임 자체의 독립 세력 AI 아래에서 싸웁니다. 경쟁 문명의 문화에 넘어간 정착지(Cultural Diffusion), 학대받는 이주민 구역(Emigration), 오랜 궁핍이 봉기를 일으킬 수 있고, 국립공원은 시골을 진정시킵니다. 단독으로도, 해당 모드들과 함께도 작동합니다. 싱글 플레이어와 핫시트용.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_GROUP_PARTISANS" Language="ko_KR"><Text>파르티잔</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_FLIP" Language="ko_KR"><Text>문화 전향 후 봉기</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_FLIP_DESCRIPTION" Language="ko_KR"><Text>문화로 다른 문명에 합류한 정착지는 새 주인에게 맞서 봉기할 수 있습니다. 두 문명의 사이가 나쁠수록 가능성이 커집니다. 동맹 사이에서는 거의 없고, 전쟁 중인 문명 사이에서는 거의 항상 일어납니다.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ENCLAVE" Language="ko_KR"><Text>학대받는 이주민 구역의 봉기</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ENCLAVE_DESCRIPTION" Language="ko_KR"><Text>Emigration이 있으면 승인된 거주지가 자신들이 받는 대우에 맞서 무기를 들 수 있습니다. 수용국이 공동체의 고국과 전쟁 중이면 드물게, Emigration의 감시 카드 아래에서는 훨씬 자주 일어납니다. 보호 카드가 있으면 소요가 가라앉습니다.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_MISERY" Language="ko_KR"><Text>오랜 궁핍 후 봉기</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_MISERY_DESCRIPTION" Language="ko_KR"><Text>행복도 -10 이하가 20턴(표준 속도 기준) 이어진 정착지는 봉기할 수 있으며, 궁핍이 이어지는 턴마다 확률이 커집니다.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ANY_MOD" Language="ko_KR"><Text>모든 모드의 문화 전향 계산</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ANY_MOD_DESCRIPTION" Language="ko_KR"><Text>켬: 어떤 모드가 했든 문화로 이전된 정착지를 계산합니다. 끔: Cultural Diffusion이 있는 게임에서만.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_PARKS" Language="ko_KR"><Text>국립공원이 시골을 진정시킴</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_PARKS_DESCRIPTION" Language="ko_KR"><Text>National Parks가 있으면 정착지의 공원 타일이 주는 행복도를 궁핍에 대해 한 번 더 계산합니다. 탐험 시대와 현대만.</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_NAME" Language="ko_KR"><Text>파르티잔 집결지</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_DESCRIPTION" Language="ko_KR"><Text>파르티잔이 여기에 모입니다. 정착지의 주민이 처음 무기를 들 때 파르티잔 모드가 한 턴 동안 두는 것으로, 반란군이 자기 은신처를 얻는 즉시 사라집니다.</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_TOOLTIP" Language="ko_KR"><Text>봉기가 모이고 있습니다. 파르티잔 모드가 두고 치웁니다.</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_FALLBACK" Language="ko_KR"><Text>파르티잔</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_BREWING_TITLE" Language="ko_KR"><Text>소요</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_RISING_TITLE" Language="ko_KR"><Text>파르티잔 봉기</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_JOIN_TITLE" Language="ko_KR"><Text>전사들이 봉기에 합류</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_ENDED_TITLE" Language="ko_KR"><Text>봉기 종료</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_LOST_TITLE" Language="ko_KR"><Text>정착지 소실</Text></Replace>
+        <Replace Tag="LOC_PT_DECLARED" Language="ko_KR"><Text>{1_City} 근처의 반란군이 당신에게 적대를 선언했습니다.</Text></Replace>
+        <Replace Tag="LOC_PT_JOIN" Language="ko_KR"><Text>{1_People} 부족이 {2_City}로 전사들을 보냈습니다.</Text></Replace>
+        <Replace Tag="LOC_PT_ENDED" Language="ko_KR"><Text>{1_City} 주변의 봉기가 끝났습니다.</Text></Replace>
+        <Replace Tag="LOC_PT_LOST" Language="ko_KR"><Text>{1_City}이(가) 파르티잔에게 불탔습니다.</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_TITLE" Language="ko_KR"><Text>파르티잔</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_CALM" Language="ko_KR"><Text>평온</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_MISERY" Language="ko_KR"><Text>궁핍: {2_Need}턴 중 {1_Turns}턴</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_TENSION" Language="ko_KR"><Text>이주민 구역 긴장: {1_Tension}</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_BREWING" Language="ko_KR"><Text>봉기가 임박함</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_RISING" Language="ko_KR"><Text>파르티잔 활동 중: 전사 {1_Count}명</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_COOLING" Language="ko_KR"><Text>봉기 후 평온: {1_Turns}턴</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_RISING_TITLE_CITY" Language="ko_KR"><Text>{1_City} 근처 파르티잔 봉기</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_BREWING_TITLE_CITY" Language="ko_KR"><Text>{1_City} 근처의 소요</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_MISERY" Language="ko_KR"><Text>이유: {1_City}은(는) 행복도 -10 이하로 {3_Turns}턴을 보냈고, 지금은 {2_Happiness}입니다.</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_FLIP" Language="ko_KR"><Text>이유: {1_City}의 주민이 {2_Adjective} 문화에 넘어갔고, 두 문명의 관계는 {3_Relation}입니다.</Text></Replace>
+        <Replace Tag="LOC_PT_REL_WAR" Language="ko_KR"><Text>전쟁 중</Text></Replace>
+        <Replace Tag="LOC_PT_REL_HOSTILE" Language="ko_KR"><Text>적대적</Text></Replace>
+        <Replace Tag="LOC_PT_REL_UNFRIENDLY" Language="ko_KR"><Text>비우호적</Text></Replace>
+        <Replace Tag="LOC_PT_REL_NEUTRAL" Language="ko_KR"><Text>중립</Text></Replace>
+        <Replace Tag="LOC_PT_REL_FRIENDLY" Language="ko_KR"><Text>우호적</Text></Replace>
+        <Replace Tag="LOC_PT_WHEN" Language="ko_KR"><Text>시기: {2_Turns}턴 뒤 {1_City} 주변에 파르티잔이 나타납니다.</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_LOYALISTS_TITLE_CITY" Language="ko_KR"><Text>{1_City} 근처 {2_Adjective} 충성파 파르티잔</Text></Replace>
+        <Replace Tag="LOC_PT_FLIP_OUTLOOK" Language="ko_KR"><Text>모두가 원한 것은 아닙니다. {1_City} 근처에 파르티잔이 모이고 있습니다.</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_ENCLAVE_POLICY" Language="ko_KR"><Text>이유: {1_Policy} 아래에서 {3_Civ}에 뿌리를 둔 {2_City}의 가족들이 용의자처럼 취급받아 왔습니다.</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_ENCLAVE_WAR" Language="ko_KR"><Text>이유: {2_Civ}와의 전쟁이 시작된 뒤로, 그곳에 뿌리를 둔 {1_City}의 가족들이 용의자처럼 취급받아 왔습니다.</Text></Replace>
+    </LocalizedText>
+</Database>

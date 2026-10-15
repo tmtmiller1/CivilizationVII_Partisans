@@ -1,0 +1,6 @@
+dist/
+node_modules/
+coverage/
+reports/
+.DS_Store
+devtools/runs/

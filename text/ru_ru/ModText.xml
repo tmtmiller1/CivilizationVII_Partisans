@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Replace Tag="LOC_MOD_PARTISANS_NAME" Language="ru_RU"><Text>Партизаны</Text></Replace>
+        <Replace Tag="LOC_MOD_PARTISANS_DESCRIPTION" Language="ru_RU"><Text>Когда у жителей поселения есть причина восстать, в его окрестностях появляются вооружённые партизаны и сражаются под управлением собственного ИИ независимых держав игры. Поселение, перешедшее под культуру соперника (Cultural Diffusion), притесняемый анклав (Emigration) или годы нищеты могут вызвать восстание; национальный парк успокаивает округу. Работает отдельно или вместе с этими модами. Одиночная игра и hotseat.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_GROUP_PARTISANS" Language="ru_RU"><Text>Партизаны</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_FLIP" Language="ru_RU"><Text>Восстания после культурного перехода</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_FLIP_DESCRIPTION" Language="ru_RU"><Text>Поселение, присоединившееся к цивилизации через культуру, может восстать против нового владельца. Чем хуже ладят две цивилизации, тем вероятнее: между союзниками почти никогда, между воюющими цивилизациями почти всегда.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ENCLAVE" Language="ru_RU"><Text>Восстания в притесняемом анклаве</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ENCLAVE_DESCRIPTION" Language="ru_RU"><Text>С модом Emigration признанный анклав может взяться за оружие против того, как с ним обращаются: редко, пока хозяин воюет с родиной общины, и гораздо чаще при одной из карт подозрительности из Emigration. Карта защиты даёт волнениям утихнуть.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_MISERY" Language="ru_RU"><Text>Восстания после долгой нищеты</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_MISERY_DESCRIPTION" Language="ru_RU"><Text>Любое поселение, которое двадцать ходов (на стандартной скорости) остаётся при -10 довольства или хуже, может восстать, и шанс растёт с каждым новым ходом нищеты.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ANY_MOD" Language="ru_RU"><Text>Учитывать культурные переходы от любого мода</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ANY_MOD_DESCRIPTION" Language="ru_RU"><Text>Вкл.: поселение, переданное через культуру, учитывается, какой бы мод это ни сделал. Выкл.: только в играх с Cultural Diffusion.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_PARKS" Language="ru_RU"><Text>Национальные парки успокаивают округу</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_PARKS_DESCRIPTION" Language="ru_RU"><Text>С модом National Parks довольство, которое приносят клетки парка поселения, учитывается второй раз против нищеты. Только в эпохи исследований и современности.</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_NAME" Language="ru_RU"><Text>Сбор партизан</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_DESCRIPTION" Language="ru_RU"><Text>Здесь собираются партизаны. Ставится модом Партизаны на один ход, когда жители поселения впервые берутся за оружие; исчезает, как только у повстанцев появляется собственное укрытие.</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_TOOLTIP" Language="ru_RU"><Text>Назревает восстание. Ставится и убирается модом Партизаны.</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_FALLBACK" Language="ru_RU"><Text>Партизаны</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_BREWING_TITLE" Language="ru_RU"><Text>Волнения</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_RISING_TITLE" Language="ru_RU"><Text>Партизанское восстание</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_JOIN_TITLE" Language="ru_RU"><Text>Бойцы присоединяются к восстанию</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_ENDED_TITLE" Language="ru_RU"><Text>Восстание окончено</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_LOST_TITLE" Language="ru_RU"><Text>Поселение сожжено</Text></Replace>
+        <Replace Tag="LOC_PT_DECLARED" Language="ru_RU"><Text>Повстанцы у поселения {1_City} выступили против вас.</Text></Replace>
+        <Replace Tag="LOC_PT_JOIN" Language="ru_RU"><Text>Народ {1_People} послал бойцов к поселению {2_City}.</Text></Replace>
+        <Replace Tag="LOC_PT_ENDED" Language="ru_RU"><Text>Восстание вокруг поселения {1_City} окончено.</Text></Replace>
+        <Replace Tag="LOC_PT_LOST" Language="ru_RU"><Text>Поселение {1_City} сожжено партизанами.</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_TITLE" Language="ru_RU"><Text>Партизаны</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_CALM" Language="ru_RU"><Text>Спокойно</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_MISERY" Language="ru_RU"><Text>Нищета: {1_Turns} из {2_Need} ходов</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_TENSION" Language="ru_RU"><Text>Напряжённость в анклаве: {1_Tension}</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_BREWING" Language="ru_RU"><Text>Назревает восстание</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_RISING" Language="ru_RU"><Text>Партизаны в поле: бойцов — {1_Count}</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_COOLING" Language="ru_RU"><Text>Затишье после восстания: {1_Turns} ходов</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_RISING_TITLE_CITY" Language="ru_RU"><Text>Партизанское восстание у поселения {1_City}</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_BREWING_TITLE_CITY" Language="ru_RU"><Text>Волнения у поселения {1_City}</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_MISERY" Language="ru_RU"><Text>Почему: поселение {1_City} провело {3_Turns} ходов при -10 довольства или хуже, сейчас у него {2_Happiness}.</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_FLIP" Language="ru_RU"><Text>Почему: жители поселения {1_City} перешли под культуру {2_Adjective}, а отношения двух цивилизаций: {3_Relation}.</Text></Replace>
+        <Replace Tag="LOC_PT_REL_WAR" Language="ru_RU"><Text>война</Text></Replace>
+        <Replace Tag="LOC_PT_REL_HOSTILE" Language="ru_RU"><Text>враждебные</Text></Replace>
+        <Replace Tag="LOC_PT_REL_UNFRIENDLY" Language="ru_RU"><Text>недружелюбные</Text></Replace>
+        <Replace Tag="LOC_PT_REL_NEUTRAL" Language="ru_RU"><Text>нейтральные</Text></Replace>
+        <Replace Tag="LOC_PT_REL_FRIENDLY" Language="ru_RU"><Text>дружеские</Text></Replace>
+        <Replace Tag="LOC_PT_WHEN" Language="ru_RU"><Text>Когда: партизаны выйдут в поле вокруг поселения {1_City} через {2_Turns} ходов.</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_LOYALISTS_TITLE_CITY" Language="ru_RU"><Text>Партизаны-лоялисты культуры {2_Adjective} у поселения {1_City}</Text></Replace>
+        <Replace Tag="LOC_PT_FLIP_OUTLOOK" Language="ru_RU"><Text>Этого хотели не все. У {1_City} собираются партизаны.</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_ENCLAVE_POLICY" Language="ru_RU"><Text>Почему: при политике «{1_Policy}» семьи в {2_City}, чьи корни в {3_Civ}, считают подозреваемыми.</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_ENCLAVE_WAR" Language="ru_RU"><Text>Почему: с начала войны с {2_Civ} семьи в {1_City}, чьи корни там, считают подозреваемыми.</Text></Replace>
+    </LocalizedText>
+</Database>

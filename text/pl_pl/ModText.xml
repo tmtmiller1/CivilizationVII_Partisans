@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Replace Tag="LOC_MOD_PARTISANS_NAME" Language="pl_PL"><Text>Partyzanci</Text></Replace>
+        <Replace Tag="LOC_MOD_PARTISANS_DESCRIPTION" Language="pl_PL"><Text>Gdy ludność osady ma powód do buntu, w okolicy pojawiają się uzbrojeni partyzanci i walczą pod własną SI niezależnych mocarstw gry. Osada przejęta przez kulturę rywala (Cultural Diffusion), źle traktowana enklawa (Emigration) albo lata nędzy mogą wywołać powstanie; park narodowy uspokaja okolicę. Działa samodzielnie lub z tymi modami. Jeden gracz i hotseat.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_GROUP_PARTISANS" Language="pl_PL"><Text>Partyzanci</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_FLIP" Language="pl_PL"><Text>Powstania po przejęciu kulturowym</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_FLIP_DESCRIPTION" Language="pl_PL"><Text>Osada, która dołącza do cywilizacji przez kulturę, może powstać przeciw nowemu właścicielowi. Im gorzej obie cywilizacje się dogadują, tym bardziej prawdopodobne: między sojusznikami prawie nigdy, między cywilizacjami w stanie wojny prawie zawsze.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ENCLAVE" Language="pl_PL"><Text>Powstania w źle traktowanej enklawie</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ENCLAVE_DESCRIPTION" Language="pl_PL"><Text>Z modem Emigration uznana enklawa może chwycić za broń przeciw temu, jak jest traktowana: rzadko, gdy gospodarz prowadzi wojnę z ojczyzną społeczności, znacznie częściej pod jedną z kart podejrzliwości z Emigration. Karta ochrony pozwala niepokojom opaść.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_MISERY" Language="pl_PL"><Text>Powstania po długiej nędzy</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_MISERY_DESCRIPTION" Language="pl_PL"><Text>Każda osada, która przez dwadzieścia tur (przy standardowej szybkości) utrzymuje się na -10 zadowolenia lub gorzej, może powstać, a szansa rośnie z każdą kolejną turą nędzy.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ANY_MOD" Language="pl_PL"><Text>Liczyć przejęcia kulturowe z każdego moda</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ANY_MOD_DESCRIPTION" Language="pl_PL"><Text>Włączone: osada przekazana przez kulturę liczy się niezależnie od tego, który mod to zrobił. Wyłączone: tylko w grach z Cultural Diffusion.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_PARKS" Language="pl_PL"><Text>Parki narodowe uspokajają okolicę</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_PARKS_DESCRIPTION" Language="pl_PL"><Text>Z modem National Parks zadowolenie, które dają pola parku danej osady, liczy się drugi raz przeciw nędzy. Tylko w erze odkryć i erze nowożytnej.</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_NAME" Language="pl_PL"><Text>Zbiórka partyzantów</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_DESCRIPTION" Language="pl_PL"><Text>Tu zbierają się partyzanci. Umieszczany przez mod Partyzanci na jedną turę, gdy ludność osady po raz pierwszy chwyta za broń; znika, gdy tylko buntownicy mają własną kryjówkę.</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_TOOLTIP" Language="pl_PL"><Text>Zbiera się powstanie. Umieszczany i usuwany przez mod Partyzanci.</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_FALLBACK" Language="pl_PL"><Text>Partyzanci</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_BREWING_TITLE" Language="pl_PL"><Text>Niepokoje</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_RISING_TITLE" Language="pl_PL"><Text>Powstanie partyzanckie</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_JOIN_TITLE" Language="pl_PL"><Text>Wojownicy dołączają do powstania</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_ENDED_TITLE" Language="pl_PL"><Text>Powstanie zakończone</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_LOST_TITLE" Language="pl_PL"><Text>Osada spalona</Text></Replace>
+        <Replace Tag="LOC_PT_DECLARED" Language="pl_PL"><Text>Buntownicy pod osadą {1_City} wystąpili przeciwko tobie.</Text></Replace>
+        <Replace Tag="LOC_PT_JOIN" Language="pl_PL"><Text>Lud {1_People} wysłał wojowników do osady {2_City}.</Text></Replace>
+        <Replace Tag="LOC_PT_ENDED" Language="pl_PL"><Text>Powstanie wokół osady {1_City} dobiegło końca.</Text></Replace>
+        <Replace Tag="LOC_PT_LOST" Language="pl_PL"><Text>Osada {1_City} została spalona przez partyzantów.</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_TITLE" Language="pl_PL"><Text>Partyzanci</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_CALM" Language="pl_PL"><Text>Spokój</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_MISERY" Language="pl_PL"><Text>Nędza: {1_Turns} z {2_Need} tur</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_TENSION" Language="pl_PL"><Text>Napięcie w enklawie: {1_Tension}</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_BREWING" Language="pl_PL"><Text>Zbiera się powstanie</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_RISING" Language="pl_PL"><Text>Partyzanci w polu: {1_Count} wojowników</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_COOLING" Language="pl_PL"><Text>Spokój po powstaniu: {1_Turns} tur</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_RISING_TITLE_CITY" Language="pl_PL"><Text>Powstanie partyzanckie pod osadą {1_City}</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_BREWING_TITLE_CITY" Language="pl_PL"><Text>Niepokoje pod osadą {1_City}</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_MISERY" Language="pl_PL"><Text>Dlaczego: osada {1_City} spędziła {3_Turns} tur na -10 zadowolenia lub gorzej, a teraz ma {2_Happiness}.</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_FLIP" Language="pl_PL"><Text>Dlaczego: ludność osady {1_City} przejęła kultura {2_Adjective}, a stosunki obu cywilizacji: {3_Relation}.</Text></Replace>
+        <Replace Tag="LOC_PT_REL_WAR" Language="pl_PL"><Text>wojna</Text></Replace>
+        <Replace Tag="LOC_PT_REL_HOSTILE" Language="pl_PL"><Text>wrogie</Text></Replace>
+        <Replace Tag="LOC_PT_REL_UNFRIENDLY" Language="pl_PL"><Text>nieprzyjazne</Text></Replace>
+        <Replace Tag="LOC_PT_REL_NEUTRAL" Language="pl_PL"><Text>neutralne</Text></Replace>
+        <Replace Tag="LOC_PT_REL_FRIENDLY" Language="pl_PL"><Text>przyjazne</Text></Replace>
+        <Replace Tag="LOC_PT_WHEN" Language="pl_PL"><Text>Kiedy: partyzanci wyjdą w pole wokół osady {1_City} za {2_Turns} tur.</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_LOYALISTS_TITLE_CITY" Language="pl_PL"><Text>Partyzanci lojalni kulturze {2_Adjective} pod osadą {1_City}</Text></Replace>
+        <Replace Tag="LOC_PT_FLIP_OUTLOOK" Language="pl_PL"><Text>Nie wszyscy tego chcieli. W pobliżu {1_City} gromadzą się partyzanci.</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_ENCLAVE_POLICY" Language="pl_PL"><Text>Dlaczego: pod rządami {1_Policy} rodziny w {2_City} wywodzące się z {3_Civ} traktowano jak podejrzanych.</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_ENCLAVE_WAR" Language="pl_PL"><Text>Dlaczego: odkąd zaczęła się wojna z {2_Civ}, rodziny w {1_City} stamtąd się wywodzące traktowano jak podejrzanych.</Text></Replace>
+    </LocalizedText>
+</Database>

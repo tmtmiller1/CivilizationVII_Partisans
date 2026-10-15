@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Replace Tag="LOC_MOD_PARTISANS_NAME" Language="de_DE"><Text>Partisanen</Text></Replace>
+        <Replace Tag="LOC_MOD_PARTISANS_DESCRIPTION" Language="de_DE"><Text>Wenn die Bevölkerung einer Siedlung einen Grund zum Aufstand hat, erscheinen bewaffnete Partisanen im Umland und kämpfen unter der eigenen KI des Spiels für unabhängige Mächte. Eine Siedlung, die von der Kultur eines Rivalen gewonnen wurde (Cultural Diffusion), eine misshandelte Enklave (Emigration) oder Jahre des Elends können einen Aufstand auslösen; ein Nationalpark beruhigt das Umland. Funktioniert allein oder mit diesen Mods. Einzelspieler und Hotseat.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_GROUP_PARTISANS" Language="de_DE"><Text>Partisanen</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_FLIP" Language="de_DE"><Text>Aufstände nach einem Kulturwechsel</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_FLIP_DESCRIPTION" Language="de_DE"><Text>Eine Siedlung, die durch Kultur zu einer Zivilisation übergeht, kann sich gegen ihren neuen Besitzer erheben. Je schlechter die beiden Zivilisationen miteinander auskommen, desto wahrscheinlicher: bei Verbündeten fast nie, bei Zivilisationen im Krieg fast immer.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ENCLAVE" Language="de_DE"><Text>Aufstände in einer misshandelten Enklave</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ENCLAVE_DESCRIPTION" Language="de_DE"><Text>Mit Emigration kann eine anerkannte Enklave gegen ihre Behandlung zu den Waffen greifen: selten, solange ihr Gastland mit der Heimat der Gemeinschaft im Krieg liegt, viel häufiger unter einer der Verdachtskarten von Emigration. Eine Schutzkarte lässt die Unruhe abklingen.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_MISERY" Language="de_DE"><Text>Aufstände nach langem Elend</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_MISERY_DESCRIPTION" Language="de_DE"><Text>Jede Siedlung, die zwanzig Runden lang (bei normaler Geschwindigkeit) bei -10 Zufriedenheit oder schlechter bleibt, kann sich erheben, und die Wahrscheinlichkeit wächst mit jeder weiteren Runde im Elend.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ANY_MOD" Language="de_DE"><Text>Kulturwechsel aus jeder Mod zählen</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ANY_MOD_DESCRIPTION" Language="de_DE"><Text>An: Eine durch Kultur übertragene Siedlung zählt, egal welche Mod es getan hat. Aus: Nur in Spielen mit Cultural Diffusion.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_PARKS" Language="de_DE"><Text>Nationalparks beruhigen das Umland</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_PARKS_DESCRIPTION" Language="de_DE"><Text>Mit National Parks zählt die Zufriedenheit, die die Parkfelder einer Siedlung einbringen, ein zweites Mal gegen das Elend. Nur im Zeitalter der Erkundung und in der Moderne.</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_NAME" Language="de_DE"><Text>Partisanensammlung</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_DESCRIPTION" Language="de_DE"><Text>Hier sammeln sich Partisanen. Wird von der Mod Partisanen für eine Runde gesetzt, wenn die Bevölkerung einer Siedlung zum ersten Mal zu den Waffen greift; verschwindet, sobald die Rebellen ein eigenes Versteck haben.</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_TOOLTIP" Language="de_DE"><Text>Ein Aufstand sammelt sich. Von der Mod Partisanen gesetzt und entfernt.</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_FALLBACK" Language="de_DE"><Text>Partisanen</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_BREWING_TITLE" Language="de_DE"><Text>Unruhen</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_RISING_TITLE" Language="de_DE"><Text>Partisanenaufstand</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_JOIN_TITLE" Language="de_DE"><Text>Kämpfer schließen sich dem Aufstand an</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_ENDED_TITLE" Language="de_DE"><Text>Aufstand vorbei</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_LOST_TITLE" Language="de_DE"><Text>Siedlung niedergebrannt</Text></Replace>
+        <Replace Tag="LOC_PT_DECLARED" Language="de_DE"><Text>Die Rebellen bei {1_City} haben sich gegen Euch erklärt.</Text></Replace>
+        <Replace Tag="LOC_PT_JOIN" Language="de_DE"><Text>Das Volk {1_People} hat Kämpfer nach {2_City} entsandt.</Text></Replace>
+        <Replace Tag="LOC_PT_ENDED" Language="de_DE"><Text>Der Aufstand rund um {1_City} ist vorbei.</Text></Replace>
+        <Replace Tag="LOC_PT_LOST" Language="de_DE"><Text>{1_City} wurde von Partisanen niedergebrannt.</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_TITLE" Language="de_DE"><Text>Partisanen</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_CALM" Language="de_DE"><Text>Ruhig</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_MISERY" Language="de_DE"><Text>Elend: {1_Turns} von {2_Need} Runden</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_TENSION" Language="de_DE"><Text>Spannung in der Enklave: {1_Tension}</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_BREWING" Language="de_DE"><Text>Ein Aufstand braut sich zusammen</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_RISING" Language="de_DE"><Text>Partisanen stehen im Feld: {1_Count} Kämpfer</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_COOLING" Language="de_DE"><Text>Ruhe nach einem Aufstand: {1_Turns} Runden</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_RISING_TITLE_CITY" Language="de_DE"><Text>Partisanenaufstand bei {1_City}</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_BREWING_TITLE_CITY" Language="de_DE"><Text>Unruhen bei {1_City}</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_MISERY" Language="de_DE"><Text>Warum: {1_City} war {3_Turns} Runden lang bei -10 Zufriedenheit oder schlechter und steht jetzt bei {2_Happiness}.</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_FLIP" Language="de_DE"><Text>Warum: Die Bevölkerung von {1_City} wurde von der Kultur {2_Adjective} gewonnen, und die beiden Zivilisationen sind {3_Relation}.</Text></Replace>
+        <Replace Tag="LOC_PT_REL_WAR" Language="de_DE"><Text>im Krieg</Text></Replace>
+        <Replace Tag="LOC_PT_REL_HOSTILE" Language="de_DE"><Text>verfeindet</Text></Replace>
+        <Replace Tag="LOC_PT_REL_UNFRIENDLY" Language="de_DE"><Text>unfreundlich</Text></Replace>
+        <Replace Tag="LOC_PT_REL_NEUTRAL" Language="de_DE"><Text>neutral</Text></Replace>
+        <Replace Tag="LOC_PT_REL_FRIENDLY" Language="de_DE"><Text>freundlich</Text></Replace>
+        <Replace Tag="LOC_PT_WHEN" Language="de_DE"><Text>Wann: Partisanen betreten in {2_Turns} Runden das Feld rund um {1_City}.</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_LOYALISTS_TITLE_CITY" Language="de_DE"><Text>Partisanen, Loyalisten der Kultur {2_Adjective}, bei {1_City}</Text></Replace>
+        <Replace Tag="LOC_PT_FLIP_OUTLOOK" Language="de_DE"><Text>Nicht alle wollten das. In der Nähe von {1_City} sammeln sich Partisanen.</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_ENCLAVE_POLICY" Language="de_DE"><Text>Warum: Unter {1_Policy} werden die Familien in {2_City}, deren Wurzeln in {3_Civ} liegen, wie Verdächtige behandelt.</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_ENCLAVE_WAR" Language="de_DE"><Text>Warum: Seit dem Beginn des Krieges mit {2_Civ} werden die Familien in {1_City}, deren Wurzeln dort liegen, wie Verdächtige behandelt.</Text></Replace>
+    </LocalizedText>
+</Database>

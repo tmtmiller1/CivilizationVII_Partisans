@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- English text for Partisans: the source of truth. Translations live in text/<locale>/ModText.xml as
+     <Replace Tag=... Language=...> rows (see text/README.md). -->
+<Database>
+    <EnglishText>
+        <Row Tag="LOC_MOD_PARTISANS_NAME"><Text>Partisans</Text></Row>
+        <Row Tag="LOC_MOD_PARTISANS_DESCRIPTION"><Text>When a settlement's people have a reason to rise, armed partisans appear in the countryside around it and fight under the game's own independent-power AI. A settlement won over by a rival's culture (Cultural Diffusion), a mistreated enclave (Emigration) or years of misery can start a rising; a National Park calms the countryside. Works alone or with those mods. Single-player and hotseat.</Text></Row>
+
+        <!-- Options -->
+        <Row Tag="LOC_OPTIONS_GROUP_PARTISANS"><Text>Partisans</Text></Row>
+        <Row Tag="LOC_OPTIONS_PT_FLIP"><Text>Risings after a culture flip</Text></Row>
+        <Row Tag="LOC_OPTIONS_PT_FLIP_DESCRIPTION"><Text>A settlement that joins a civilization by culture may rise against its new owner. The worse the two civilizations get on, the more likely it is; allies almost never, civilizations at war almost always.</Text></Row>
+        <Row Tag="LOC_OPTIONS_PT_ENCLAVE"><Text>Risings in a mistreated enclave</Text></Row>
+        <Row Tag="LOC_OPTIONS_PT_ENCLAVE_DESCRIPTION"><Text>With Emigration, a recognised enclave may take up arms against how it's treated: rarely while its host is at war with the community's homeland, much more often under one of Emigration's suspicion cards. A protective card lets the unrest settle.</Text></Row>
+        <Row Tag="LOC_OPTIONS_PT_MISERY"><Text>Risings after long misery</Text></Row>
+        <Row Tag="LOC_OPTIONS_PT_MISERY_DESCRIPTION"><Text>Any settlement that stays at -10 Happiness or worse for twenty turns (at Standard speed) may rise, and the chance grows each turn it stays miserable.</Text></Row>
+        <Row Tag="LOC_OPTIONS_PT_ANY_MOD"><Text>Count culture flips from any mod</Text></Row>
+        <Row Tag="LOC_OPTIONS_PT_ANY_MOD_DESCRIPTION"><Text>On: a settlement transferred by culture counts whichever mod did it. Off: only in games with Cultural Diffusion.</Text></Row>
+        <Row Tag="LOC_OPTIONS_PT_PARKS"><Text>National Parks calm the countryside</Text></Row>
+        <Row Tag="LOC_OPTIONS_PT_PARKS_DESCRIPTION"><Text>With National Parks, the Happiness a settlement's park tiles pay counts a second time against misery. Exploration and Modern Ages only.</Text></Row>
+
+        <!-- The muster marker -->
+        <Row Tag="LOC_BUILDING_PARTISANS_MUSTER_NAME"><Text>Partisan Muster</Text></Row>
+        <Row Tag="LOC_BUILDING_PARTISANS_MUSTER_DESCRIPTION"><Text>Partisans gather here. Placed by the Partisans mod for one turn when a settlement's people first take up arms; it leaves as soon as the rebels have a hideout of their own.</Text></Row>
+        <Row Tag="LOC_BUILDING_PARTISANS_MUSTER_TOOLTIP"><Text>A rising is gathering. Placed and removed by the Partisans mod.</Text></Row>
+
+        <!-- Notifications -->
+        <Row Tag="LOC_PT_NOTIFY_FALLBACK"><Text>Partisans</Text></Row>
+        <Row Tag="LOC_PT_NOTIFY_BREWING_TITLE"><Text>Unrest</Text></Row>
+        <Row Tag="LOC_PT_NOTIFY_RISING_TITLE"><Text>Partisan uprising</Text></Row>
+        <Row Tag="LOC_PT_NOTIFY_JOIN_TITLE"><Text>Fighters join the rising</Text></Row>
+        <Row Tag="LOC_PT_NOTIFY_ENDED_TITLE"><Text>Rising over</Text></Row>
+        <Row Tag="LOC_PT_NOTIFY_LOST_TITLE"><Text>Settlement burned</Text></Row>
+        <Row Tag="LOC_PT_DECLARED"><Text>The rebels near {1_City} have declared themselves against you.</Text></Row>
+        <Row Tag="LOC_PT_JOIN"><Text>The {1_People} people have sent fighters to {2_City}.</Text></Row>
+        <Row Tag="LOC_PT_ENDED"><Text>The rising around {1_City} is over.</Text></Row>
+        <Row Tag="LOC_PT_LOST"><Text>{1_City} was burned by partisans.</Text></Row>
+
+        <!-- The settlement section -->
+        <Row Tag="LOC_PT_PANEL_TITLE"><Text>Partisans</Text></Row>
+        <Row Tag="LOC_PT_PANEL_CALM"><Text>Calm</Text></Row>
+        <Row Tag="LOC_PT_PANEL_MISERY"><Text>Misery: {1_Turns} of {2_Need} turns</Text></Row>
+        <Row Tag="LOC_PT_PANEL_TENSION"><Text>Enclave tension: {1_Tension}</Text></Row>
+        <Row Tag="LOC_PT_PANEL_BREWING"><Text>A rising is brewing</Text></Row>
+        <Row Tag="LOC_PT_PANEL_RISING"><Text>Partisans are in the field: {1_Count} fighters</Text></Row>
+        <Row Tag="LOC_PT_PANEL_COOLING"><Text>Quiet after a rising: {1_Turns} turns</Text></Row>
+
+        <!-- Why and where, in the rising and unrest notices -->
+        <Row Tag="LOC_PT_NOTIFY_RISING_TITLE_CITY"><Text>Partisan uprising near {1_City}</Text></Row>
+        <Row Tag="LOC_PT_NOTIFY_BREWING_TITLE_CITY"><Text>Unrest near {1_City}</Text></Row>
+        <Row Tag="LOC_PT_WHY_MISERY"><Text>Why: {1_City} has spent {3_Turns} turns at -10 Happiness or worse, and stands at {2_Happiness} now.</Text></Row>
+        <Row Tag="LOC_PT_WHY_FLIP"><Text>Why: the people of {1_City} were won over by {2_Adjective} culture, and the two civilizations are {3_Relation}.</Text></Row>
+        <Row Tag="LOC_PT_REL_WAR"><Text>at war</Text></Row>
+        <Row Tag="LOC_PT_REL_HOSTILE"><Text>hostile</Text></Row>
+        <Row Tag="LOC_PT_REL_UNFRIENDLY"><Text>unfriendly</Text></Row>
+        <Row Tag="LOC_PT_REL_NEUTRAL"><Text>neutral</Text></Row>
+        <Row Tag="LOC_PT_REL_FRIENDLY"><Text>friendly</Text></Row>
+        <Row Tag="LOC_PT_WHEN"><Text>When: partisans take the field around {1_City} in {2_Turns} turns.</Text></Row>
+        <Row Tag="LOC_PT_NOTIFY_LOYALISTS_TITLE_CITY"><Text>Partisan {2_Adjective} loyalists near {1_City}</Text></Row>
+        <Row Tag="LOC_PT_FLIP_OUTLOOK"><Text>Not everyone wanted this. Partisans are gathering near {1_City}.</Text></Row>
+        <Row Tag="LOC_PT_WHY_ENCLAVE_POLICY"><Text>Why: under {1_Policy}, the families in {2_City} with roots in {3_Civ} have been treated as suspects.</Text></Row>
+        <Row Tag="LOC_PT_WHY_ENCLAVE_WAR"><Text>Why: since the war with {2_Civ} began, the families in {1_City} with roots there have been treated as suspects.</Text></Row>
+    </EnglishText>
+</Database>

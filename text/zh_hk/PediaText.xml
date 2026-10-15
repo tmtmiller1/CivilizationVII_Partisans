@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Replace Tag="LOC_PEDIA_PARTISANS_TITLE" Language="zh_Hant_HK"><Text>游擊隊</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PT_GROUP_START_TITLE" Language="zh_Hant_HK"><Text>入門</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PT_GROUP_RULES_TITLE" Language="zh_Hant_HK"><Text>運作方式</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_OVERVIEW_TITLE" Language="zh_Hant_HK"><Text>游擊隊</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_OVERVIEW_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK"><Text>當一個聚落的民眾有理由起事時，武裝游擊隊會出現在它周圍的鄉野。他們屬於一個獨立部族，按遊戲為獨立勢力設定的規則作戰：劫掠、圍城，若無人應對，便攻佔聚落，遊戲隨後會把它從地圖上移除。鎮壓他們是普通的戰鬥。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_OVERVIEW_CHAPTER_CONTENT_PARA_2" Language="zh_Hant_HK"><Text>同樣的規則適用於每個文明，您的和AI的都一樣。城邦、獨立部族和首都永遠不會起義。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_OVERVIEW_CHAPTER_SEE_TITLE" Language="zh_Hant_HK"><Text>您看到的</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_OVERVIEW_CHAPTER_SEE_PARA_1" Language="zh_Hant_HK"><Text>[BLIST][LI]騷動開始和游擊隊拿起武器時的通知，各附原因；以及鄰居派出戰士、起義結束和失去聚落時的通知。點擊即可跳轉到該聚落。[LI]城市詳情面板中的[B]游擊隊[/B]欄，列出聚落的困苦回合數、聚居區緊張度和起義狀態。[/LIST]</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_TITLE" Language="zh_Hant_HK"><Text>起義的起因</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK"><Text>有三件事可以引發起義。其中兩件需要另一個模組；第三件在任何遊戲中都有效。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_FLIP_TITLE" Language="zh_Hant_HK"><Text>聚落因文化易主</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_FLIP_PARA_1" Language="zh_Hant_HK"><Text>裝有Cultural Diffusion時，民眾被鄰國文化爭取過去的聚落可能起來反抗新主人，不過多數歸附的人本就心甘情願。起事很少見，取決於兩個文明從雙方看來的關係：盟友或朋友之間不會發生，中立時約百分之三，不友好時百分之八，敵對時百分之十五，交戰時約三分之一。判定在易主時進行一次；若成功，騷動通知立即送達，游擊隊在一到三回合後出現在野外。若這段時間內關係惡化，會按更高的機率再判定一次；若兩個文明結為盟友，民眾就會放下武器。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_ENCLAVE_TITLE" Language="zh_Hant_HK"><Text>受虐待的聚居區</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_ENCLAVE_PARA_1" Language="zh_Hant_HK"><Text>裝有Emigration時，擁有受承認聚居區的聚落會有一個0到30的緊張度，取決於東道國如何對待該群體。在Emigration的猜疑類政策卡之下，東道國與該群體的故國交戰時每回合升3，敵對的和平時升2，不友好的和平時升1。沒有對待類政策卡時，只有與故國的戰爭會讓它每回合升1，且不會超過14。在保護類政策卡之下，無論是否交戰，它每回合降1，其他情況也是如此。從10起每回合都有起事的可能：沒有猜疑卡時最多十分之一，有猜疑卡時在30可達二分之一。起事的激烈程度取決於這種對待持續了多久，而不是那裡住了多少人。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_ENCLAVE_PARA_2" Language="zh_Hant_HK"><Text>聚居區起義是收容方對社群的虐待，而絕非社群的不忠。故國永遠不會因此受到懲罰。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_MISERY_TITLE" Language="zh_Hant_HK"><Text>長期困苦</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_MISERY_PARA_1" Language="zh_Hant_HK"><Text>任何幸福度為-10或更低的聚落計一回合困苦；高於-5時一次恢復兩回合。困苦滿二十回合後（標準速度；較慢速度下更長）有十分之一的起義機率，此後每回合增加百分之二，最高二分之一。起義會把計數減半。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_PARKS_TITLE" Language="zh_Hant_HK"><Text>國家公園</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_PARKS_PARA_1" Language="zh_Hant_HK"><Text>裝有National Parks時，在探索時代和現代，聚落公園地塊產出的幸福度會再計一次以抵銷困苦，因此有公園的聚落更不易起義。荒野保護區產出影響力而非幸福度，沒有這一效果。游擊隊永遠不會出現在公園土地上。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_TITLE" Language="zh_Hant_HK"><Text>起義</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK"><Text>起義是一支部署在距聚落兩到四格處的游擊隊，屬於與聚落主人敵對的獨立部族。一個聚落同時最多一場起義，針對一個文明最多兩場，全地圖最多六場，起義後聚落休整二十回合。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_WHO_TITLE" Language="zh_Hant_HK"><Text>誰來作戰</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_WHO_PARA_1" Language="zh_Hant_HK"><Text>每個文明每個時代獲得一次屬於自己的叛軍部族，即在針對它的第一場起義時：叛軍在距其某個聚落幾格處的藏身處集結，並擁有一支會不斷補充的小隊，直到有人將其驅散。此後針對該文明的起義都使用同一個部族。如果叛軍碰巧對您友好，起義開始時他們會宣布與您為敵；針對AI文明時，則由附近敵對的獨立村落站到叛軍一邊，否則起義就此消散。叛軍部族只有在遊戲還有空位容納一個新的獨立部族時才會出現：在探索時代和現代，這個空位在時代開始後一兩回合內就會用完，因此屆時還沒有叛軍的文明，其起義由十二格內的敵對村落承擔，否則就此消散。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_BAND_TITLE" Language="zh_Hant_HK"><Text>隊伍</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_BAND_PARA_1" Language="zh_Hant_HK"><Text>隊伍規模隨起因強度和聚落人口增長，遠古和探索時代最多三個單位，現代最多兩個。兩個近戰配一個遠程，取自該時代進度所允許等級的普通步兵：遠古早期是勇士，探索中期是武裝步兵，現代晚期是步兵。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_NEIGHBOURS_TITLE" Language="zh_Hant_HK"><Text>鄰居加入</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_NEIGHBOURS_PARA_1" Language="zh_Hant_HK"><Text>文化易主之後，六格內無人宗主、且對新主人敵對的獨立村落可能派出一兩名自己的戰士。村落越近越可能。最多兩個村落加入一場起義。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_END_TITLE" Language="zh_Hant_HK"><Text>如何結束</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_END_PARA_1" Language="zh_Hant_HK"><Text>隊伍的所有單位消失或二十回合過去，起義即告結束。若游擊隊攻佔了聚落，遊戲會把它從地圖上移除，正如對任何被獨立部族佔領的聚落一樣。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_ANSWERS_TITLE" Language="zh_Hant_HK"><Text>您能做什麼</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_ANSWERS_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK"><Text>[BLIST][LI]在顯示騷動的聚落駐軍：隊伍在一回合路程外出現，就地的一兩個單位就能迎擊。[LI]讓聚落遠離長期困苦，並與聚居區的故國媾和或改善關係。[LI]像對付任何獨立營地一樣驅散叛軍藏身處，他們的隊伍就不再補充。[LI]在動盪的聚落建立國家公園。[/LIST]</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_ANSWERS_CHAPTER_OPTIONS_TITLE" Language="zh_Hant_HK"><Text>選項</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_ANSWERS_CHAPTER_OPTIONS_PARA_1" Language="zh_Hant_HK"><Text>在選項的模組、游擊隊一欄，每種起因都有獨立開關，可以忽略Cultural Diffusion以外模組造成的文化易主，也可以關閉National Parks的安撫效果。設定在每次啟動之間保持不變。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_TITLE" Language="zh_Hant_HK"><Text>止步之處</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK"><Text>遊戲在開局時建立玩家，此後不再建立，所以起義無法建立新文明。獨立部族無法據有聚落，所以攻佔聚落的游擊隊會將其焚毀。模組並不擁有游擊隊：遊戲的獨立勢力AI移動他們，並決定何時進攻。僅限單人與熱座；在網絡對局中，模組只顯示先前會話記錄的內容。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_CHAPTER_MUSTER_TITLE" Language="zh_Hant_HK"><Text>游擊隊集結點</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_CHAPTER_MUSTER_PARA_1" Language="zh_Hant_HK"><Text>叛軍部族由遊戲自帶的危機規則生成，而它需要一個標記：起義開始的聚落會在一回合內持有一座隱藏建築，即游擊隊集結點。它無法建造或購買，本身不起任何作用，叛軍一有藏身處便會被移除。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_CHAPTER_SAVES_TITLE" Language="zh_Hant_HK"><Text>存檔與時代</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_LIMITS_CHAPTER_SAVES_PARA_1" Language="zh_Hant_HK"><Text>騷動計數、醞釀中的起義和叛軍部族隨遊戲一起保存。時代更替時所有獨立部族都會消失，因此起義和叛軍被清除；困苦和緊張度減半保留。使用本模組建立的存檔需要本模組才能載入。</Text></Replace>
+    </LocalizedText>
+</Database>

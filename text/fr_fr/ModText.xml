@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Replace Tag="LOC_MOD_PARTISANS_NAME" Language="fr_FR"><Text>Partisans</Text></Replace>
+        <Replace Tag="LOC_MOD_PARTISANS_DESCRIPTION" Language="fr_FR"><Text>Quand la population d'une colonie a une raison de se soulever, des partisans armés apparaissent dans la campagne alentour et combattent sous l'IA des puissances indépendantes du jeu. Une colonie gagnée par la culture d'un rival (Cultural Diffusion), une enclave maltraitée (Emigration) ou des années de misère peuvent déclencher un soulèvement ; un parc national apaise la campagne. Fonctionne seul ou avec ces mods. Solo et hotseat.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_GROUP_PARTISANS" Language="fr_FR"><Text>Partisans</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_FLIP" Language="fr_FR"><Text>Soulèvements après un basculement culturel</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_FLIP_DESCRIPTION" Language="fr_FR"><Text>Une colonie qui rejoint une civilisation par la culture peut se soulever contre son nouveau propriétaire. Plus les deux civilisations s'entendent mal, plus c'est probable : presque jamais entre alliés, presque toujours entre civilisations en guerre.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ENCLAVE" Language="fr_FR"><Text>Soulèvements dans une enclave maltraitée</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ENCLAVE_DESCRIPTION" Language="fr_FR"><Text>Avec Emigration, une enclave reconnue peut prendre les armes contre la façon dont elle est traitée : rarement tant que son hôte est en guerre avec la patrie de la communauté, bien plus souvent sous l'une des cartes de suspicion d'Emigration. Une carte de protection laisse l'agitation retomber.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_MISERY" Language="fr_FR"><Text>Soulèvements après une longue misère</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_MISERY_DESCRIPTION" Language="fr_FR"><Text>Toute colonie qui reste à -10 de bonheur ou pire pendant vingt tours (à vitesse standard) peut se soulever, et la probabilité grandit à chaque tour de misère supplémentaire.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ANY_MOD" Language="fr_FR"><Text>Compter les basculements culturels de tout mod</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ANY_MOD_DESCRIPTION" Language="fr_FR"><Text>Activé : une colonie transférée par la culture compte, quel que soit le mod qui l'a fait. Désactivé : seulement dans les parties avec Cultural Diffusion.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_PARKS" Language="fr_FR"><Text>Les parcs nationaux apaisent la campagne</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_PARKS_DESCRIPTION" Language="fr_FR"><Text>Avec National Parks, le bonheur que rapportent les cases de parc d'une colonie compte une seconde fois contre la misère. Ères de l'exploration et moderne seulement.</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_NAME" Language="fr_FR"><Text>Rassemblement des partisans</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_DESCRIPTION" Language="fr_FR"><Text>Les partisans se rassemblent ici. Placé par le mod Partisans pour un tour quand la population d'une colonie prend les armes pour la première fois ; il disparaît dès que les rebelles ont un repaire à eux.</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_TOOLTIP" Language="fr_FR"><Text>Un soulèvement se prépare. Placé et retiré par le mod Partisans.</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_FALLBACK" Language="fr_FR"><Text>Partisans</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_BREWING_TITLE" Language="fr_FR"><Text>Agitation</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_RISING_TITLE" Language="fr_FR"><Text>Soulèvement de partisans</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_JOIN_TITLE" Language="fr_FR"><Text>Des combattants rejoignent le soulèvement</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_ENDED_TITLE" Language="fr_FR"><Text>Soulèvement terminé</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_LOST_TITLE" Language="fr_FR"><Text>Colonie incendiée</Text></Replace>
+        <Replace Tag="LOC_PT_DECLARED" Language="fr_FR"><Text>Les rebelles près de {1_City} se sont déclarés contre vous.</Text></Replace>
+        <Replace Tag="LOC_PT_JOIN" Language="fr_FR"><Text>Le peuple {1_People} a envoyé des combattants à {2_City}.</Text></Replace>
+        <Replace Tag="LOC_PT_ENDED" Language="fr_FR"><Text>Le soulèvement autour de {1_City} est terminé.</Text></Replace>
+        <Replace Tag="LOC_PT_LOST" Language="fr_FR"><Text>{1_City} a été incendiée par des partisans.</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_TITLE" Language="fr_FR"><Text>Partisans</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_CALM" Language="fr_FR"><Text>Calme</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_MISERY" Language="fr_FR"><Text>Misère : {1_Turns} tours sur {2_Need}</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_TENSION" Language="fr_FR"><Text>Tension dans l'enclave : {1_Tension}</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_BREWING" Language="fr_FR"><Text>Un soulèvement se prépare</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_RISING" Language="fr_FR"><Text>Des partisans sont en campagne : {1_Count} combattants</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_COOLING" Language="fr_FR"><Text>Calme après un soulèvement : {1_Turns} tours</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_RISING_TITLE_CITY" Language="fr_FR"><Text>Soulèvement de partisans près de {1_City}</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_BREWING_TITLE_CITY" Language="fr_FR"><Text>Agitation près de {1_City}</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_MISERY" Language="fr_FR"><Text>Pourquoi : {1_City} a passé {3_Turns} tours à -10 de bonheur ou pire, et en est maintenant à {2_Happiness}.</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_FLIP" Language="fr_FR"><Text>Pourquoi : la population de {1_City} a été gagnée par la culture {2_Adjective}, et les deux civilisations sont {3_Relation}.</Text></Replace>
+        <Replace Tag="LOC_PT_REL_WAR" Language="fr_FR"><Text>en guerre</Text></Replace>
+        <Replace Tag="LOC_PT_REL_HOSTILE" Language="fr_FR"><Text>hostiles</Text></Replace>
+        <Replace Tag="LOC_PT_REL_UNFRIENDLY" Language="fr_FR"><Text>inamicales</Text></Replace>
+        <Replace Tag="LOC_PT_REL_NEUTRAL" Language="fr_FR"><Text>neutres</Text></Replace>
+        <Replace Tag="LOC_PT_REL_FRIENDLY" Language="fr_FR"><Text>amies</Text></Replace>
+        <Replace Tag="LOC_PT_WHEN" Language="fr_FR"><Text>Quand : des partisans entreront en campagne autour de {1_City} dans {2_Turns} tours.</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_LOYALISTS_TITLE_CITY" Language="fr_FR"><Text>Partisans loyalistes {2_Adjective} près de {1_City}</Text></Replace>
+        <Replace Tag="LOC_PT_FLIP_OUTLOOK" Language="fr_FR"><Text>Tout le monde ne le voulait pas. Des partisans se rassemblent près de {1_City}.</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_ENCLAVE_POLICY" Language="fr_FR"><Text>Pourquoi : sous {1_Policy}, les familles de {2_City} originaires de {3_Civ} sont traitées en suspectes.</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_ENCLAVE_WAR" Language="fr_FR"><Text>Pourquoi : depuis le début de la guerre avec {2_Civ}, les familles de {1_City} qui en sont originaires sont traitées en suspectes.</Text></Replace>
+    </LocalizedText>
+</Database>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The notification types ui/pt-notify.js raises in the game's train, one per message kind (the engine keeps one
+     live notification of a type at a time). Each ends with the turn and never holds it up. The script composes the
+     text and passes it with the send; the Message and Summary tags here are the fallback. -->
+<Database>
+    <Types>
+        <Row Type="NOTIFICATION_PT_BREWING" Kind="KIND_NOTIFICATION"/>
+        <Row Type="NOTIFICATION_PT_RISING" Kind="KIND_NOTIFICATION"/>
+        <Row Type="NOTIFICATION_PT_JOIN" Kind="KIND_NOTIFICATION"/>
+        <Row Type="NOTIFICATION_PT_ENDED" Kind="KIND_NOTIFICATION"/>
+        <Row Type="NOTIFICATION_PT_LOST" Kind="KIND_NOTIFICATION"/>
+    </Types>
+    <Notifications>
+        <Row NotificationType="NOTIFICATION_PT_BREWING" SeverityType="MID" ExpiresEndOfTurn="True" AutoNotify="False" Message="LOC_PT_NOTIFY_BREWING_TITLE" Summary="LOC_PT_NOTIFY_FALLBACK" Priority="2"/>
+        <Row NotificationType="NOTIFICATION_PT_RISING" SeverityType="HIGH" ExpiresEndOfTurn="True" AutoNotify="False" Message="LOC_PT_NOTIFY_RISING_TITLE" Summary="LOC_PT_NOTIFY_FALLBACK" Priority="2"/>
+        <Row NotificationType="NOTIFICATION_PT_JOIN" SeverityType="MID" ExpiresEndOfTurn="True" AutoNotify="False" Message="LOC_PT_NOTIFY_JOIN_TITLE" Summary="LOC_PT_NOTIFY_FALLBACK" Priority="2"/>
+        <Row NotificationType="NOTIFICATION_PT_ENDED" SeverityType="LOW" ExpiresEndOfTurn="True" AutoNotify="False" Message="LOC_PT_NOTIFY_ENDED_TITLE" Summary="LOC_PT_NOTIFY_FALLBACK" Priority="2"/>
+        <Row NotificationType="NOTIFICATION_PT_LOST" SeverityType="HIGH" ExpiresEndOfTurn="True" AutoNotify="False" Message="LOC_PT_NOTIFY_LOST_TITLE" Summary="LOC_PT_NOTIFY_FALLBACK" Priority="2"/>
+    </Notifications>
+    <NotificationSounds>
+        <Row NotificationType="NOTIFICATION_PT_BREWING" Context="Add" Audio="notif-City_Near_Unhappiness_Loss"/>
+        <Row NotificationType="NOTIFICATION_PT_RISING" Context="Add" Audio="notif-City_Near_Unhappiness_Loss"/>
+        <Row NotificationType="NOTIFICATION_PT_JOIN" Context="Add" Audio="notif-GenericNeutral"/>
+        <Row NotificationType="NOTIFICATION_PT_ENDED" Context="Add" Audio="notif-GenericNeutral"/>
+        <Row NotificationType="NOTIFICATION_PT_LOST" Context="Add" Audio="notif-City_Near_Unhappiness_Loss"/>
+    </NotificationSounds>
+</Database>

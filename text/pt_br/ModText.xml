@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Replace Tag="LOC_MOD_PARTISANS_NAME" Language="pt_BR"><Text>Partisans</Text></Replace>
+        <Replace Tag="LOC_MOD_PARTISANS_DESCRIPTION" Language="pt_BR"><Text>Quando o povo de um assentamento tem motivo para se levantar, partisans armados surgem no campo ao redor e lutam sob a própria IA de potências independentes do jogo. Um assentamento conquistado pela cultura de um rival (Cultural Diffusion), um enclave maltratado (Emigration) ou anos de miséria podem iniciar um levante; um parque nacional acalma o campo. Funciona sozinho ou com esses mods. Um jogador e hotseat.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_GROUP_PARTISANS" Language="pt_BR"><Text>Partisans</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_FLIP" Language="pt_BR"><Text>Levantes após uma virada cultural</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_FLIP_DESCRIPTION" Language="pt_BR"><Text>Um assentamento que se une a uma civilização pela cultura pode se levantar contra o novo dono. Quanto pior as duas civilizações se dão, mais provável: quase nunca entre aliados, quase sempre entre civilizações em guerra.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ENCLAVE" Language="pt_BR"><Text>Levantes em um enclave maltratado</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ENCLAVE_DESCRIPTION" Language="pt_BR"><Text>Com Emigration, um enclave reconhecido pode pegar em armas contra o tratamento que recebe: raramente enquanto o anfitrião está em guerra com a terra natal da comunidade, muito mais vezes sob uma das cartas de suspeita de Emigration. Uma carta de proteção deixa a agitação se acalmar.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_MISERY" Language="pt_BR"><Text>Levantes após longa miséria</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_MISERY_DESCRIPTION" Language="pt_BR"><Text>Qualquer assentamento que fique em -10 de felicidade ou pior por vinte turnos (na velocidade padrão) pode se levantar, e a chance cresce a cada turno a mais de miséria.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ANY_MOD" Language="pt_BR"><Text>Contar viradas culturais de qualquer mod</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_ANY_MOD_DESCRIPTION" Language="pt_BR"><Text>Ligado: um assentamento transferido pela cultura conta, seja qual for o mod que fez isso. Desligado: só em partidas com Cultural Diffusion.</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_PARKS" Language="pt_BR"><Text>Parques nacionais acalmam o campo</Text></Replace>
+        <Replace Tag="LOC_OPTIONS_PT_PARKS_DESCRIPTION" Language="pt_BR"><Text>Com National Parks, a felicidade que as casas de parque de um assentamento rendem conta uma segunda vez contra a miséria. Só nas eras da exploração e moderna.</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_NAME" Language="pt_BR"><Text>Reunião de partisans</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_DESCRIPTION" Language="pt_BR"><Text>Aqui os partisans se reúnem. Colocado pelo mod Partisans por um turno quando o povo de um assentamento pega em armas pela primeira vez; some assim que os rebeldes têm um esconderijo próprio.</Text></Replace>
+        <Replace Tag="LOC_BUILDING_PARTISANS_MUSTER_TOOLTIP" Language="pt_BR"><Text>Um levante está se formando. Colocado e removido pelo mod Partisans.</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_FALLBACK" Language="pt_BR"><Text>Partisans</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_BREWING_TITLE" Language="pt_BR"><Text>Agitação</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_RISING_TITLE" Language="pt_BR"><Text>Levante partisan</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_JOIN_TITLE" Language="pt_BR"><Text>Combatentes se juntam ao levante</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_ENDED_TITLE" Language="pt_BR"><Text>Levante encerrado</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_LOST_TITLE" Language="pt_BR"><Text>Assentamento incendiado</Text></Replace>
+        <Replace Tag="LOC_PT_DECLARED" Language="pt_BR"><Text>Os rebeldes perto de {1_City} se declararam contra você.</Text></Replace>
+        <Replace Tag="LOC_PT_JOIN" Language="pt_BR"><Text>O povo {1_People} enviou combatentes para {2_City}.</Text></Replace>
+        <Replace Tag="LOC_PT_ENDED" Language="pt_BR"><Text>O levante ao redor de {1_City} terminou.</Text></Replace>
+        <Replace Tag="LOC_PT_LOST" Language="pt_BR"><Text>{1_City} foi incendiado por partisans.</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_TITLE" Language="pt_BR"><Text>Partisans</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_CALM" Language="pt_BR"><Text>Calmo</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_MISERY" Language="pt_BR"><Text>Miséria: {1_Turns} de {2_Need} turnos</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_TENSION" Language="pt_BR"><Text>Tensão do enclave: {1_Tension}</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_BREWING" Language="pt_BR"><Text>Um levante está se formando</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_RISING" Language="pt_BR"><Text>Partisans em campo: {1_Count} combatentes</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_COOLING" Language="pt_BR"><Text>Calma após um levante: {1_Turns} turnos</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_RISING_TITLE_CITY" Language="pt_BR"><Text>Levante partisan perto de {1_City}</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_BREWING_TITLE_CITY" Language="pt_BR"><Text>Agitação perto de {1_City}</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_MISERY" Language="pt_BR"><Text>Por quê: {1_City} passou {3_Turns} turnos em -10 de felicidade ou pior, e agora está em {2_Happiness}.</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_FLIP" Language="pt_BR"><Text>Por quê: o povo de {1_City} foi conquistado pela cultura {2_Adjective}, e as duas civilizações estão {3_Relation}.</Text></Replace>
+        <Replace Tag="LOC_PT_REL_WAR" Language="pt_BR"><Text>em guerra</Text></Replace>
+        <Replace Tag="LOC_PT_REL_HOSTILE" Language="pt_BR"><Text>hostis</Text></Replace>
+        <Replace Tag="LOC_PT_REL_UNFRIENDLY" Language="pt_BR"><Text>pouco amigáveis</Text></Replace>
+        <Replace Tag="LOC_PT_REL_NEUTRAL" Language="pt_BR"><Text>neutras</Text></Replace>
+        <Replace Tag="LOC_PT_REL_FRIENDLY" Language="pt_BR"><Text>amigáveis</Text></Replace>
+        <Replace Tag="LOC_PT_WHEN" Language="pt_BR"><Text>Quando: partisans entram em campo ao redor de {1_City} em {2_Turns} turnos.</Text></Replace>
+        <Replace Tag="LOC_PT_NOTIFY_LOYALISTS_TITLE_CITY" Language="pt_BR"><Text>Partisans legalistas {2_Adjective} perto de {1_City}</Text></Replace>
+        <Replace Tag="LOC_PT_FLIP_OUTLOOK" Language="pt_BR"><Text>Nem todos queriam isso. Partisans estão se reunindo perto de {1_City}.</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_ENCLAVE_POLICY" Language="pt_BR"><Text>Por quê: sob {1_Policy}, as famílias de {2_City} com raízes em {3_Civ} têm sido tratadas como suspeitas.</Text></Replace>
+        <Replace Tag="LOC_PT_WHY_ENCLAVE_WAR" Language="pt_BR"><Text>Por quê: desde que a guerra com {2_Civ} começou, as famílias de {1_City} com raízes lá têm sido tratadas como suspeitas.</Text></Replace>
+    </LocalizedText>
+</Database>
