@@ -5,7 +5,7 @@
 
 import { CONFIG } from "./pt-config.js";
 import { placementOrder } from "./pt-model.js";
-import { createUnit, destroyUnit, distance, plotOpen, plotOwner, ring, sleep, unitIds, unitLocation, safe }
+import { createUnit, destroyUnit, distance, plotOpen, plotOwner, ring, sleep, unitIds, unitLocation, unitType, safe }
   from "./pt-engine.js";
 import { isParkTile } from "./pt-parks.js";
 import { dlog } from "./pt-log.js";
@@ -55,43 +55,59 @@ function orderedPlots(center, cityOwner, opt) {
 }
 
 /**
- * Send one unit and read back whether it landed on the plot asked for. The engine sometimes creates a unit for an
- * independent that hasn't met the settlement's owner next to the independent's own camp instead (watched
- * 2026-10-15, eleven tiles off); such a unit is removed and the plot counts as refused.
- * @returns {Promise<{owner:number, id:number}[]>} the new units standing on the plot
+ * Read the independent's units that are new since the last read and sort them. A unit standing on any plot this band
+ * has asked for is the band's, even when it came up after its own read: when the game rolls a turn during the
+ * placement the engine answers late, and a unit read a plot or two later is still one the mod asked for (watched
+ * 2026-10-16, block 1 L2: 14 refusals while three turns rolled). A unit of a type the band asked for that stands
+ * elsewhere is one the engine put by the independent's own camp instead (watched 2026-10-15, eleven tiles off) and is
+ * removed; any other new unit is the independent's own and left alone.
+ * @returns {{owner:number, id:number}[]} the band's new units
  */
-async function tryPlot(ip, type, plot, known) {
-  createUnit(type, plot, ip);
-  await sleep(CONFIG.placementWaitMs);
+function readNew(ip, asked, types, known) {
   const landed = [];
   for (const id of unitIds(ip).filter((id) => !known.has(id))) {
     known.add(id);
     const at = unitLocation(ip, id);
-    if (at && at.x === plot.x && at.y === plot.y) { landed.push({ owner: ip, id }); continue; }
-    dlog(`${type} for ${ip} came up at ${at ? at.x + "," + at.y : "?"} instead of ${plot.x},${plot.y}; removed`);
+    const plot = at && asked.get(`${at.x},${at.y}`);
+    if (plot) { landed.push({ owner: ip, id }); dlog(`${plot.type} for ${ip} landed at ${at.x},${at.y} (ring ${plot.ring})`); continue; }
+    if (!types.includes(unitType(ip, id))) continue;
+    dlog(`a unit for ${ip} came up at ${at ? at.x + "," + at.y : "?"}, off the plots asked for; removed`);
     destroyUnit({ owner: ip, id });
   }
+  return landed;
+}
+
+/** Send one unit to a plot, wait, and read back what landed on the plots asked for so far. */
+async function tryPlot(ip, type, plot, band) {
+  band.asked.set(`${plot.x},${plot.y}`, { ...plot, type });
+  createUnit(type, plot, ip);
+  await sleep(CONFIG.placementWaitMs);
+  const landed = readNew(ip, band.asked, band.types, band.known);
   if (!landed.length) dlog(`plot ${plot.x},${plot.y} refused a ${type}`);
-  else dlog(`${type} for ${ip} landed at ${plot.x},${plot.y} (ring ${plot.ring})`);
   return landed;
 }
 
 /**
- * Place a band of `types` for `ip` around a settlement, one unit per plot, verifying each.
+ * Place a band of `types` for `ip` around a settlement, one unit per plot, verifying each. A last read after the
+ * attempts picks up a unit the engine created late; one beyond the band's size is removed.
  * @param {{x:number, y:number}} center @param {number} cityOwner @param {number} ip @param {string[]} types
  * @param {{rings?:number[], towards?:{x:number, y:number}}} [opt] `towards` sorts the plots nearest a camp first
  * @returns {Promise<{units:{owner:number, id:number}[], attempts:number, refused:number}>}
  */
 export async function placeBand(center, cityOwner, ip, types, opt = {}) {
   const known = new Set(unitIds(ip));
+  const asked = new Map();
   const units = [];
-  let attempts = 0, refused = 0;
+  let attempts = 0;
   for (const plot of orderedPlots(center, cityOwner, opt)) {
     if (units.length >= types.length) break;
     attempts++;
-    const landed = await tryPlot(ip, types[units.length], plot, known);
-    if (!landed.length) refused++;
-    units.push(...landed);
+    units.push(...await tryPlot(ip, types[units.length], plot, { asked, types, known }));
   }
-  return { units, attempts, refused };
+  if (attempts > units.length) {
+    await sleep(CONFIG.placementWaitMs);
+    units.push(...readNew(ip, asked, types, known));
+  }
+  for (const extra of units.splice(types.length)) destroyUnit(extra);
+  return { units, attempts, refused: Math.max(0, attempts - units.length) };
 }

@@ -23,7 +23,8 @@ export function makeWorld(opt = {}) {
     players: new Map(), store: { ...(opt.store || {}) }, requests: [], slotted: new Set(), traditionDefs: new Set(), multiplayer: !!opt.multiplayer,
     speed: opt.speed ?? 100, progress: opt.progress ?? 0.1, nextUnit: 100, notifications: [], refuse: new Set(),
     plotOwner: new Map(), constructibles: new Map(), water: new Set(), districts: new Map(), hostility: new Map(), stray: new Map(),
-    relations: new Map(), wars: new Set(), allies: new Set(), unitTable: [], tagTable: [], constructibleDefs: new Map()
+    relations: new Map(), wars: new Set(), allies: new Set(), unitTable: [], tagTable: [], constructibleDefs: new Map(),
+    lagReads: 0, lagged: []
   };
   for (const p of opt.players || []) addPlayer(world, p);
   install(world);
@@ -98,7 +99,7 @@ function playerObject(world, p) {
     id: p.id, isAlive: p.alive, isMajor: p.kind === "major", isIndependent: p.kind === "independent", isMinor: p.kind === "minor",
     civilizationName: p.name, civilizationAdjective: p.adjective, civilizationType: p.civ,
     Cities: { getCities: () => p.cities.map((c) => cityObject(world, c)) },
-    Units: { getUnitIds: () => p.units.map((u) => ({ owner: p.id, id: u.id })), getUnits: () => p.units.map((u) => ({ ...u, id: { owner: p.id, id: u.id }, location: { x: u.x, y: u.y } })) },
+    Units: { getUnitIds: () => { landLagged(world, p.id); return p.units.map((u) => ({ owner: p.id, id: u.id })); }, getUnits: () => p.units.map((u) => ({ ...u, id: { owner: p.id, id: u.id }, location: { x: u.x, y: u.y } })) },
     Diplomacy: {
       getRelationshipLevel: (b) => world.relations.get(`${p.id}:${b}`) ?? 0,
       isAtWarWith: (b) => world.wars.has(`${p.id}:${b}`),
@@ -117,13 +118,24 @@ function constructibleAt(world, x, y) {
   return list;
 }
 
+/** Count one read of an owner's units against each lagged unit of theirs, and land those whose time has come. */
+function landLagged(world, owner) {
+  for (const l of world.lagged.filter((q) => q.owner === owner)) {
+    if (--l.reads > 0) continue;
+    world.lagged.splice(world.lagged.indexOf(l), 1);
+    addUnit(world, owner, { x: l.x, y: l.y, type: l.type });
+  }
+}
+
 function handleRequest(world, kind, args) {
   world.requests.push({ kind, args });
   if (kind === "CREATE_ELEMENT" && args.Kind === "UNIT") {
     const key = `${args.Location.x},${args.Location.y}`;
     if (world.refuse.has(key)) return;
     const at = world.stray.get(args.Owner) || args.Location;   // an owner in `stray` gets its units at that spot instead
-    addUnit(world, args.Owner, { x: at.x, y: at.y, type: args.Type });
+    // With `lagReads` set the engine answers late: the unit lands only after that many reads of the owner's unit list.
+    if (world.lagReads > 0) world.lagged.push({ owner: args.Owner, x: at.x, y: at.y, type: args.Type, reads: world.lagReads });
+    else addUnit(world, args.Owner, { x: at.x, y: at.y, type: args.Type });
   }
   if (kind === "DESTROY_ELEMENT" && args.Kind === "UNIT") {
     const p = world.players.get(args.Owner);

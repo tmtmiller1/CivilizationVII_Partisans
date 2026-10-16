@@ -181,6 +181,39 @@ test("a unit the engine puts somewhere else is removed and the plot counts as re
   assert.deepEqual(ctx.placements, { attempts: 16, refused: 16 });
 });
 
+test("a unit the engine creates late still counts when it stands on a plot the band asked for", async () => {
+  // Watched 2026-10-16 (block 1 L2): with three turns rolling during the placement, Heijo's band landed 2 of 3 after
+  // 14 refusals. Each unit here shows up one read late, as when the engine answers after the turn roll.
+  const { w, ctx } = setup({ happiness: 5 });
+  addPlayer(w, { id: 24, kind: "independent" });
+  addCamp(w, 24, 23, 14, "IMPROVEMENT_ENCAMPMENT");
+  w.hostility.set("24:0", "HOSTILE");
+  ctx.state.rebels["0"] = { ip: 24, age: 100, mustered: true };
+  w.lagReads = 2;
+  const { runRising } = await import("../ui/pt-rising.js");
+  const out = await runRising(ctx, ctx.state, { key: "20,10", owner: 0, cause: "misery", I: 0.6 });
+  assert.equal(out, "rising");
+  const rising = ctx.state.cities["20,10"].risings[0];
+  assert.equal(rising.units.length, 3, "the full band");
+  assert.equal(w.players.get(24).units.length, 3, "the one that landed after the band was full is removed");
+  assert.equal(w.requests.filter((q) => q.kind === "DESTROY_ELEMENT" && q.args.Kind === "UNIT").length, 1);
+  assert.deepEqual(ctx.placements, { attempts: 4, refused: 1 });
+});
+
+test("a unit of the independent's own that comes up during the placement is left alone", async () => {
+  const { w, ctx } = setup({ happiness: 5 });
+  addPlayer(w, { id: 24, kind: "independent" });
+  addCamp(w, 24, 23, 14, "IMPROVEMENT_ENCAMPMENT");
+  w.hostility.set("24:0", "HOSTILE");
+  ctx.state.rebels["0"] = { ip: 24, age: 100, mustered: true };
+  w.lagged.push({ owner: 24, x: 30, y: 14, type: "UNIT_SCOUT", reads: 2 });   // trained at its own camp on its turn
+  const { runRising } = await import("../ui/pt-rising.js");
+  await runRising(ctx, ctx.state, { key: "20,10", owner: 0, cause: "misery", I: 0.6 });
+  assert.equal(ctx.state.cities["20,10"].risings[0].units.length, 3);
+  assert.ok(w.players.get(24).units.some((u) => u.type === "UNIT_SCOUT" && u.x === 30), "its scout is still there");
+  assert.equal(w.requests.filter((q) => q.kind === "DESTROY_ELEMENT").length, 0);
+});
+
 test("a culture flip's rising is titled for the civ that lost it; misery's is an uprising", async () => {
   const { w, ctx } = setup({ happiness: 5 });
   addPlayer(w, { id: 24, kind: "independent" });

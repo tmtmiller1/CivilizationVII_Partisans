@@ -148,7 +148,9 @@ Candidates are read from the loaded database once per boot: land, military, no c
 skirmish, grouped by tier. Placement tries ring 3, then 4, then 2, unowned plots first, then the settlement's own,
 then any; never water, impassable, a unit, a settlement, an urban district, a wonder, a park tile or a plot Cultural
 Diffusion has a write pending on. Each unit is sent, the owner's unit list re-read after 900 ms, and the next plot
-tried on a refusal; at most 16 attempts. A band that lands nothing fizzles.
+tried on a refusal; at most 16 attempts, then one more read for a late unit. A band that lands nothing fizzles.
+Within a ring the plots go in map order, lowest row first, so the band lands on whichever side of the settlement
+has the lower rows; nothing in the order looks at where the owner's capital is (see section 11).
 
 After a flip rising lands, independent villages within 6 tiles that are hostile to the owner and aren't the band's
 owner may join: chance `p * (1 - d / 7)` each, at most two, sending 2 units within 3 tiles and 1 beyond, placed on
@@ -209,6 +211,16 @@ do the turns stored.
   owner, `CREATE_ELEMENT` created the units next to the village's own camp, eleven tiles from the settlement, and the
   owner's unit list alone read them as landed. A unit that comes up anywhere but the plot asked for is removed with
   `DESTROY_ELEMENT` and the plot counts as refused.
+- **A late unit still counts** (block 1 L2, 2026-10-16): Heijo's band landed "2 of 3 units for 6 (rebel), 14
+  refusal(s)" while three turns rolled during its 17-second placement (the pass for turn 21 finished at turn 24).
+  Every other landing in the watch logs took 0 refusals with no turn rolling during it, except overnight L5's Asuka
+  landing (6 refusals, one turn rolled). The read was strict: a unit read anywhere but the plot just asked for was
+  removed, so one the engine created a read late, on the plot asked for one attempt earlier, was destroyed as a
+  stray. A new unit on any plot the band asked for now counts; one more read after the attempts picks up a last late
+  unit, and any beyond the band's size is removed. Only a unit of a type the band asked for is removed as a stray; the
+  independent's own units (one it trains on its turn) are left alone. Pinned by two tests in `pt-pass.test.mjs` (a
+  world that answers a read late; a scout of the independent's own), both failing on the old read. Not yet watched
+  in a game.
 - **Capitals don't roll.** A capital's misery and tension counters are kept for the panel, but the per-turn roll is
   skipped: the rising gate would refuse it anyway, and a hit would only halve the counter for nothing (watched at Ise
   once it had become the capital).

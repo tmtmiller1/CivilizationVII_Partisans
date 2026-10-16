@@ -274,6 +274,14 @@ export function unitLocation(owner, id) {
   return l && typeof l.x === "number" ? { x: l.x, y: l.y } : null;
 }
 
+/** A unit's type ("UNIT_WARRIOR"), or "" when it's gone. @param {number} owner @param {number} id */
+export function unitType(owner, id) {
+  const p = player(owner);
+  const u = p && (safe(() => p.Units.getUnits(), []) || []).find((x) => x.id && x.id.id === id);
+  if (!u) return "";
+  return typeof u.type === "string" ? u.type : safe(() => String(GameInfo.Units.lookup(u.type).UnitType), "") || "";
+}
+
 /** Remove a unit the mod created somewhere it didn't ask for. @param {{owner:number, id:number}} unit */
 export function destroyUnit(unit) {
   return request("DESTROY_ELEMENT", { Kind: "UNIT", Owner: unit.owner, LocalID: unit.id });
