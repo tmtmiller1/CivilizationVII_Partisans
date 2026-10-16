@@ -21,7 +21,7 @@
         <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_PARKS_TITLE" Language="zh_Hant_HK"><Text>國家公園</Text></Replace>
         <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_PARKS_PARA_1" Language="zh_Hant_HK"><Text>裝有National Parks時，在探索時代和現代，聚落公園地塊產出的幸福度會再計一次以抵銷困苦，因此有公園的聚落更不易起義。荒野保護區產出影響力而非幸福度，沒有這一效果。游擊隊永遠不會出現在公園土地上。</Text></Replace>
         <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_TITLE" Language="zh_Hant_HK"><Text>起義</Text></Replace>
-        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK"><Text>起義是一支部署在距聚落兩到四格處的游擊隊，屬於與聚落主人敵對的獨立部族。一個聚落同時最多一場起義，針對一個文明最多兩場，全地圖最多六場，起義後聚落休整二十回合。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK"><Text>起義是一支部署在距聚落兩到四格處的游擊隊，屬於與聚落主人敵對的獨立部族。游擊隊會出現在起義的聚落周圍，無論是哪個聚落；之後由獨立部族的AI決定其去向，它可以進攻該聚落或附近其他聚落，包括您的首都。一個聚落同時最多一場起義，針對一個文明最多兩場，全地圖最多六場，起義後聚落休整二十回合。</Text></Replace>
         <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_WHO_TITLE" Language="zh_Hant_HK"><Text>誰來作戰</Text></Replace>
         <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_WHO_PARA_1" Language="zh_Hant_HK"><Text>每個文明每個時代獲得一次屬於自己的叛軍部族，即在針對它的第一場起義時：叛軍在距其某個聚落幾格處的藏身處集結，並擁有一支會不斷補充的小隊，直到有人將其驅散。此後針對該文明的起義都使用同一個部族。如果叛軍碰巧對您友好，起義開始時他們會宣布與您為敵；針對AI文明時，則由附近敵對的獨立村落站到叛軍一邊，否則起義就此消散。叛軍部族只有在遊戲還有空位容納一個新的獨立部族時才會出現：在探索時代和現代，這個空位在時代開始後一兩回合內就會用完，因此屆時還沒有叛軍的文明，其起義由十二格內的敵對村落承擔，否則就此消散。</Text></Replace>
         <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_BAND_TITLE" Language="zh_Hant_HK"><Text>隊伍</Text></Replace>

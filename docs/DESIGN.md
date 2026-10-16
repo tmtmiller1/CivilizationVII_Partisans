@@ -236,6 +236,18 @@ do the turns stored.
 - A band's units are the independent's: the mod can't move them, and the independent AI decides when they attack.
   Ordinary independents' units loitered by a town for three turns in the probes; the rebel people's attacked.
 - Rebels can't hold a settlement; one they take is removed by the game.
+- **A band can take the owner's capital.** "Capitals never rise" is the rising gate: a rising never starts at a
+  capital. Once a band has landed it goes wherever the independent AI sends it, and a nearby capital with nobody in
+  it is as open as any other settlement. Block 1 L2 (2026-10-16, Antiquity seed 4242, fast setup, Settler,
+  usual set): Mutsu's 3-unit band from turn 2 took the ungarrisoned population-1 capital Heian-Kyo, about 4 tiles
+  away, at turn 7, and the game removed it; A9's earlier run saw the crisis tribe's own band take Heian-Kyo too.
+  The Mutsu rising was forced at turn 1 by the probe; a natural misery rising needs 20 turns at -10, by which time a
+  capital usually has a garrison. **The owner's call (2026-10-16): option 1, words only.** The README, the
+  Civilopedia's "A Rising" page (every language), the Workshop text and the changelog now say the band lands around
+  the settlement that rose, city or town, and can go on to attack other settlements nearby, the capital included.
+  Options 2 to 5 (landing plots ordered away from the capital, plots near it skipped, a grace window while it's
+  empty, a warning in the notice) weren't built; they're in `tools/plans/watch2-block1-parallel-fix-notes.md`,
+  section 5.
 - **The muster needs a free independent slot** (watched 2026-10-15, `engine-closed.md`). The crisis spawn fired at
   Antiquity turn 6 and at Exploration turn 1, and spawned nothing in Exploration from turn 4 on, with or without
   other mods, once the age's independents (two per major civ) were all on the map. So in the Exploration and Modern
@@ -270,7 +282,7 @@ it only touches the camera. Settlements were founded by script (the lab game sta
 | A10 | Exploration settlement with a 16-tile National Park: relief counted | needs National Parks | Watched (second with-mods run below): relief 8 on a six-tile park; the park town's counter held at 2 while the control climbed 3, 4, 5 |
 | A11 | Emigration enclave, host at war with the homeland: tension 3 a turn, a rising within about 8 turns, mistreatment text | needs Emigration | Open: no enclave formed in 21 turns of the with-mods game, so no tension could be watched; the reader's record shape is V2 |
 | A12 | Pop-3 settlement with one garrison survives a default band 5+ turns, each age | Antiquity: Hitachi (pop 4, one Warrior garrison, at the map's top edge so only two ring-2 plots were open): a 2-unit rebel band sat 2 tiles out for two turns, then dispersed by turn 16 without touching the town. Dazaifu (pop 3, one Warrior) fell at turn 12, 5 turns after its 3-unit band landed, but with a second 3-unit band (village 21's, from the burned Heijo) at its walls. Ungarrisoned pop-1 towns fell in 4 to 7 turns. Exploration and Modern: see their sessions below, both pass; `bandCap` unchanged (3, 3, 2) | Not repeated |
-| A13 | A capital is never targeted | "rising at 65,13 (misery) refused: capital" at turn 5; again at Ise (turn 33) once it had become the capital | Not repeated; the gate is the same code |
+| A13 | A rising never starts at a capital (the band, once landed, can still attack one: section 11) | "rising at 65,13 (misery) refused: capital" at turn 5; again at Ise (turn 33) once it had become the capital | Not repeated; the gate is the same code |
 | A14 | Age transition with an active rising and a muster | Watched (the short-age session below): cleared at the first pass, no marker in any city, no independent alive at the new age's first turn; the new age's first turn roll couldn't be driven | not run |
 | A15 | Save and reload mid-rising: counters, pending and the rebel mapping restore | `UI.reloadUI()` at turn 18 with risings active: cities, rebels, pending and age identical before and after; the boot line read the 7 records back. Three deploy reloads earlier kept the Dazaifu rising (start turn 7) through to its end. A full save-and-load from the main menu wasn't driven from the bench; the steps for it are in `devtools/README.md` | Three deploy reloads in the with-mods games kept the records (boot lines read them back) |
 | A16 | 40-turn run, every cause on, AI civs: no crash, the pass under 30 ms | Turns 1 to 41: 40 passes logged, 16 at 0 ms, 21 at 1 ms, 3 at 2 ms of bookkeeping; no script errors in UI.log; no new crash report. The bench's `cost` run: see below | 21 turns with the set on: passes 2 to 7 ms, no script error from any mod |

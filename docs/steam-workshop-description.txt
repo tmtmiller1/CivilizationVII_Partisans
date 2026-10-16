@@ -9,6 +9,8 @@ When a settlement's people have a reason to rise, armed partisans appear in the 
 [*][b]Long misery.[/b] Any settlement that stays at -10 Happiness or worse for twenty turns may rise, and the chance grows each turn it stays miserable. Works with no other mod.
 [/list]
 
+The band lands two to four tiles out from the settlement that rose, city or town. From there the game's independent AI decides where it goes: it can attack that settlement or move on to other settlements nearby, your capital included.
+
 Each civilization gets its own rebel people once per age, camped a few tiles from one of its settlements, with a small band that keeps respawning until someone disperses it. Hostile independent villages near a culture flip may send fighters of their own. With National Parks, a settlement's park tiles calm its countryside.
 
 [h2]What you see[/h2]

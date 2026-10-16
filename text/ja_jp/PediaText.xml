@@ -21,7 +21,7 @@
         <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_PARKS_TITLE" Language="ja_JP"><Text>国立公園</Text></Replace>
         <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_CAUSES_CHAPTER_PARKS_PARA_1" Language="ja_JP"><Text>National Parksがあると、探検の時代と近代では集落の公園タイルが生む幸福度を困窮に対してもう一度数えるため、公園のある集落は蜂起しにくくなります。原生地域は幸福度ではなく影響力を生むので、効果はありません。パルチザンが公園の土地に現れることはありません。</Text></Replace>
         <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_TITLE" Language="ja_JP"><Text>蜂起</Text></Replace>
-        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_CONTENT_PARA_1" Language="ja_JP"><Text>蜂起とは、集落から2〜4タイル離れた場所に置かれるパルチザンの一団で、集落の所有者に敵対する独立勢力の民に属します。一つの集落で同時に進む蜂起は一つまで、一つの文明に対しては二つまで、マップ全体では六つまでで、蜂起のあと集落は20ターン休みます。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_CONTENT_PARA_1" Language="ja_JP"><Text>蜂起とは、集落から2〜4タイル離れた場所に置かれるパルチザンの一団で、集落の所有者に敵対する独立勢力の民に属します。一団は蜂起した集落がどこであってもその周囲に現れ、その後どこへ向かうかは独立勢力のAIが決めます。その集落だけでなく、近くのほかの集落、あなたの首都も攻撃することがあります。一つの集落で同時に進む蜂起は一つまで、一つの文明に対しては二つまで、マップ全体では六つまでで、蜂起のあと集落は20ターン休みます。</Text></Replace>
         <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_WHO_TITLE" Language="ja_JP"><Text>戦うのは誰か</Text></Replace>
         <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_WHO_PARA_1" Language="ja_JP"><Text>各文明は時代ごとに一度、自らに対する最初の蜂起のときに独自の反乱者の民を得ます。反乱者はその文明の集落の一つから数タイル離れた隠れ家に集まり、誰かが追い散らすまで補充され続ける小さな一団を持ちます。その文明に対する以後の蜂起は同じ民を使います。反乱者がたまたまあなたに友好的なら、蜂起が始まると敵対を宣言します。AI文明に対しては、代わりに近くの敵対的な独立勢力の村が反乱者の側につくか、蜂起は立ち消えになります。反乱者の民は、ゲームに独立勢力の民をもう一つ入れる余地がある間しか現れません。探検の時代と近代では、その余地は時代の開始から1〜2ターンでなくなるため、その時点で反乱者を持たない文明の蜂起は12タイル以内の敵対的な村が担うか、立ち消えになります。</Text></Replace>
         <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_BAND_TITLE" Language="ja_JP"><Text>一団</Text></Replace>

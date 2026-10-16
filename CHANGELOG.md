@@ -18,6 +18,9 @@ settlement, which the game then removes from the map.
 - Each civilization gets its own rebel people once per age, camped a few tiles from one of its settlements; later
   risings use the same people. Rebels that happen to be friendly declare themselves against you when a rising starts.
   Hostile independent villages near a culture flip may send fighters of their own.
+- The band lands two to four tiles out from the settlement that rose, city or town. From there the game's
+  independent AI decides where it goes: it can attack that settlement or move on to other settlements nearby, your
+  capital included.
 - A notification titled with the place ("Partisan uprising near Mutsu", or "Partisan Greek loyalists near Mutsu"
   after a culture flip) says why the people rose, and a click on it jumps there. A Partisans section in the City
   Details panel shows the settlement's misery turns and enclave tension.

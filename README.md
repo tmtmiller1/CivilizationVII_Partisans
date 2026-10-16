@@ -28,8 +28,9 @@ them, take the settlement, which the game then removes from the map. Putting the
   friendly declare themselves against you when a rising starts; against an AI civilization a hostile independent
   village nearby takes the rebels' side instead, or the rising fizzles.
 - **The band.** Two to three units in the Antiquity and Exploration Ages, two in the Modern Age, two melee to one
-  ranged, from the age's ordinary infantry at the tier the age's progress allows. They land two to four tiles out,
-  so a garrison meets them. After a culture flip, hostile independent villages within six tiles may send a fighter or
+  ranged, from the age's ordinary infantry at the tier the age's progress allows. They land two to four tiles out
+  from the settlement that rose, city or town, so a garrison meets them. From there the game's independent AI decides
+  where they go: they can attack that settlement or move on to other settlements nearby, your capital included. After a culture flip, hostile independent villages within six tiles may send a fighter or
   two of their own.
 - **What you see.** A notification titled with the place ("Partisan uprising near Mutsu", or "Partisan Greek
   loyalists near Mutsu" after a culture flip) says why the people rose; click it to jump there. Others tell you when
