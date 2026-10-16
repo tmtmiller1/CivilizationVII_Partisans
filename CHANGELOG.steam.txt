@@ -1,0 +1,5 @@
+Steam Workshop change notes, one block per release, newest first.
+Generated from CHANGELOG.md by scripts/steam-changelog.mjs; release.sh uploads the block for the version it builds.
+To fix an old Workshop entry, paste the text under its ==== line into that entry's Edit box on the change-notes page.
+A block edited by hand is kept as-is. Delete a block to regenerate it from CHANGELOG.md.
+

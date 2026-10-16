@@ -20,8 +20,8 @@ them, take the settlement, which the game then removes from the map. Putting the
   allies or friends, a few times in a hundred between neutral civilizations, and about one time in three at war. A
   recognised enclave (with Emigration) may take up arms against how it's treated. A war with the community's homeland
   is the trigger, and the host's treatment card sets the risk: rare with no card, much likelier under one of
-  Emigration's suspicion cards, and a protective card lets the unrest settle. Any settlement that stays at -10 Happiness or worse for twenty turns may
-  rise, with the chance growing each turn, in any game.
+  Emigration's suspicion cards, and a protective card lets the unrest settle. Any settlement that stays at -10
+  Happiness or worse for twenty turns may rise, with the chance growing each turn, in any game.
 - **Who fights.** Each civilization gets its own rebel people once per age, the first time a rising happens against
   it: rebels gather in a hideout a few tiles from one of its settlements, with a small band that keeps respawning
   until someone disperses it. Later risings against that civilization use the same people. Rebels that happen to be
@@ -32,8 +32,9 @@ them, take the settlement, which the game then removes from the map. Putting the
   so a garrison meets them. After a culture flip, hostile independent villages within six tiles may send a fighter or
   two of their own.
 - **What you see.** A notification titled with the place ("Partisan uprising near Mutsu", or "Partisan Greek
-  loyalists near Mutsu" after a culture flip) says why the people rose; click it to jump there. Others tell you when neighbours send fighters, when a rising is over and when a settlement is lost. A
-  Partisans section in the City Details panel shows the settlement's misery turns and enclave tension.
+  loyalists near Mutsu" after a culture flip) says why the people rose; click it to jump there. Others tell you when
+  neighbours send fighters, when a rising is over and when a settlement is lost. A Partisans section in the City
+  Details panel shows the settlement's misery turns and enclave tension.
 - **National Parks.** In the Exploration and Modern Ages, the Happiness a settlement's park tiles pay counts a
   second time against misery, so a settlement with a park is slower to rise.
 - **The same rules for everyone.** AI civilizations rise and fight their own partisans. Capitals, city-states and
@@ -84,14 +85,16 @@ and Traditional Chinese. Corrections are welcome: see [text/README.md](text/READ
 
 ```sh
 npm install
-npm run verify      # lint, syntax check, tests
-npm run gen-data    # regenerate data/partisans-muster.sql from scripts/gen-data.mjs
-./release.sh        # the upload zip and the Workshop manifest
+npm run verify          # lint, syntax and module checks, tests (the Civilopedia page harness among them)
+npm run release:gate    # verify, then the tests again under c8 for the coverage figure
+npm run gen-data        # regenerate data/partisans-muster.sql from scripts/gen-data.mjs
+./release.sh            # the upload zip and the Workshop manifest
 ```
 
 The design, the engine facts it rests on and the acceptance checks are in [docs/DESIGN.md](docs/DESIGN.md); what the
 mod reads of other mods is in [docs/compatibility.md](docs/compatibility.md); the in-game harness is described in
-[devtools/README.md](devtools/README.md).
+[devtools/README.md](devtools/README.md). [CONTRIBUTING.md](CONTRIBUTING.md) has the checks and conventions, and
+[docs/release-checklist.md](docs/release-checklist.md) the steps for a release.
 
 ## License
 

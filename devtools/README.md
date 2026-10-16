@@ -29,3 +29,43 @@ first lab start after copying it in only registers it; the second loads it.
 
 The mod's log lines carry the `[Partisans]` prefix in `Logs/UI.log`. `debug` in the settings slice turns on the
 per-plot placement lines.
+
+## A15: save, quit to the main menu, load
+
+DESIGN's A15 has been watched through `UI.reloadUI()` and deploy reloads only. This is the full round trip, every step
+a bench `eval` or a harness step (`$B` is `node tools/tower-bench/tower-bench.mjs`, `$P` is
+`tower_mods/partisans/devtools/harness/p.sh`). Run it once with every other mod off and once with the usual set.
+
+1. Start a lab game with the probe mod in place, as above (`lab start --seed 4242 --age AGE_ANTIQUITY`).
+2. Make a rising: `$P found`, then `$P town '{"x":X,"y":Y}'` with the capital's plot, which gives a town about four
+   tiles out (capitals never rise). `$P rise '{"key":"TX,TY","cause":"misery","I":0.6}'` should land a band.
+3. Give the save something pending too: a second town, `$P setRandom '{"value":0}'`, then
+   `$P flip '{"x":T2X,"y":T2Y,"toPid":<an AI>}'`, so a flip rising is brewing with a due turn. `$P setRandom
+   '{"seed":null}'` afterwards.
+4. End one turn (`$B lab turns 1`) and write down the before-state:
+   `$B eval "JSON.stringify(globalThis.__towerPartisans.state())" > a15-before.json`, plus
+   `$B eval "JSON.stringify(globalThis.__towerPartisans.risings())"` and the band's unit ids,
+   `$B eval "Players.get(IP).Units.getUnits().map(u => u.id.id)"` with IP the rising's `ip`.
+5. Save: `$B eval "Network.saveGame({Location: SaveLocations.LOCAL_STORAGE, LocationCategories:
+   SaveLocationCategories.NORMAL, Type: GameStateStorage.getGameConfigurationSaveType(), ContentType:
+   SaveFileTypes.GAME_STATE, FileName: 'pt-a15', Overwrite: true})"`. It returns `true` at once and `SaveComplete`
+   fires with `result: 0` about a second later (`engine-closed.md`); wait for the file under `Saves/`.
+6. Quit: `$B eval "engine.call('exitToMainMenu')"`, the call the game's own end-game and system-message screens make.
+   Wait until `$B eval "UI.isInGame()"` reads false.
+7. Load from the main menu: `$B eval` the same object as step 5 without `Overwrite`, as
+   `Network.loadGame({...}, ServerType.SERVER_TYPE_NONE)`. If `GameStateStorage` isn't defined in the shell, the save
+   is the newest one, so the main menu's Continue loads it. At the loading screen, press Begin Game the way `lab start`
+   does: repeat `UI.notifyUIReady()` until `UI.getGameLoadingState() === 8`. A loaded save keeps the mods it was made
+   with.
+8. Check the boot line in `Logs/UI.log`: `[Partisans] v1.0.0 active: N settlement record(s), P pending, age
+   AGE_ANTIQUITY`, with N and P as in `a15-before.json`.
+9. Compare: `state().cities`, `rebels`, `pending`, `age` and `history` match `a15-before.json`, `risings()` matches,
+   and the band's unit ids are still the independent's (fewer only if combat took some in step 4).
+10. Carry on: end turns until the brewing rising's due turn. The rising from step 2 stays open in `risings()`, the pass
+    logs no "new age" line, and the flip rising lands with its notice on its due turn.
+11. Clean up: `$B eval "Network.deleteGame({Location: SaveLocations.LOCAL_STORAGE, LocationCategories:
+    SaveLocationCategories.NORMAL, Type: GameStateStorage.getGameConfigurationSaveType(), ContentType:
+    SaveFileTypes.GAME_STATE, FileName: 'pt-a15'})"`, then `lab stop`.
+
+Pass: steps 8 to 10 hold on both sides. A boot line with 0 records, or any difference in step 9 beyond combat losses,
+is a fail.

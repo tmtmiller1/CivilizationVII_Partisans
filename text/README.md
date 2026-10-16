@@ -7,7 +7,7 @@ scripts set no display text of their own, so a translation needs no code change.
 
 | File | Contents |
 | --- | --- |
-| `en_us/ModText.xml` | The source of truth for the game text: the mod's name and description, the Options rows, the muster building, the notifications, the banner pill and the City Details section. |
+| `en_us/ModText.xml` | The source of truth for the game text: the mod's name and description, the Options rows, the muster building, the notifications and the City Details section. |
 | `en_us/PediaText.xml` | The Civilopedia: the "Partisans" section and its five pages. |
 
 All eleven other languages ship as translations that use the game's own words for its terms. To correct one, edit
@@ -21,7 +21,7 @@ English uses an `EnglishText` block with `Row`:
 ```xml
 <Database>
     <EnglishText>
-        <Row Tag="LOC_PT_PILL_RISING"><Text>Rising</Text></Row>
+        <Row Tag="LOC_PT_PANEL_CALM"><Text>Calm</Text></Row>
     </EnglishText>
 </Database>
 ```
@@ -31,7 +31,7 @@ Every other language uses a `LocalizedText` block with `Replace` and a `Language
 ```xml
 <Database>
     <LocalizedText>
-        <Replace Tag="LOC_PT_PILL_RISING" Language="de_DE"><Text>Aufstand</Text></Replace>
+        <Replace Tag="LOC_PT_PANEL_CALM" Language="de_DE"><Text>Ruhig</Text></Replace>
     </LocalizedText>
 </Database>
 ```

@@ -1,22 +1,26 @@
 # Changelog
 
-All notable changes to Partisans are documented here. This project follows semantic versioning.
+All notable changes to the Partisans mod for Civilization VII. The format follows
+[Keep a Changelog](https://keepachangelog.com/) and Semantic Versioning. The Steam Workshop change note for each
+release is generated from the matching section below by `scripts/steam-changelog.mjs`.
 
-## [1.0.0] - 2026-10-15
+## [Unreleased]
 
-- First release. When a settlement's people have a reason to rise, armed partisans appear in the countryside around
-  it and fight under the game's own independent-power AI: they raid, besiege and, if nobody answers them, take the
-  settlement, which the game then removes from the map.
+First release. When a settlement's people have a reason to rise, armed partisans appear in the countryside around it
+and fight under the game's own independent-power AI: they raid, besiege and, if nobody answers them, take the
+settlement, which the game then removes from the map.
+
 - Three things start a rising. A settlement won over by a rival's culture (with Cultural Diffusion) may rise against
   its new owner, though that's rare: never between allies or friends, about one time in three at war. A recognised
   enclave (with Emigration) may take up arms against how it's treated: a war with the community's homeland is the
-  trigger, and the host's treatment card from Emigration sets the risk. Any
-  settlement that stays at -10 Happiness or worse for twenty turns may rise, with the chance growing each turn.
+  trigger, and the host's treatment card from Emigration sets the risk. Any settlement that stays at -10 Happiness or
+  worse for twenty turns may rise, with the chance growing each turn.
 - Each civilization gets its own rebel people once per age, camped a few tiles from one of its settlements; later
   risings use the same people. Rebels that happen to be friendly declare themselves against you when a rising starts.
   Hostile independent villages near a culture flip may send fighters of their own.
 - A notification titled with the place ("Partisan uprising near Mutsu", or "Partisan Greek loyalists near Mutsu"
-  after a culture flip) says why the people rose, and a click on it jumps there. A Partisans section in the City Details panel shows the settlement's misery turns and enclave tension.
+  after a culture flip) says why the people rose, and a click on it jumps there. A Partisans section in the City
+  Details panel shows the settlement's misery turns and enclave tension.
 - Other mods can read every rising this game through `globalThis.__towerPartisans.risings()`: Demographics draws
   them on its conflict timeline, and Emigration names the uprising refugees flee.
 - With National Parks, in the Exploration and Modern Ages, a settlement's park tiles calm its countryside.

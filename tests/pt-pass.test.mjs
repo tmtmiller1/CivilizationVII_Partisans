@@ -160,7 +160,10 @@ test("the pass bookkeeping is quick", async () => {
   const { w, ctx } = setup();
   for (let i = 2; i < 12; i++) addPlayer(w, { id: i, kind: "major", cities: [{ x: 3 * i, y: 20 + (i % 5), happiness: -11 }, { x: 3 * i, y: 5, happiness: 2 }] });
   const r = await runPass(ctx);
-  assert.ok(r.ms < 30, `${r.ms} ms`);
+  // Under c8 (which sets NODE_V8_COVERAGE) the instrumented pass ran 35 ms once with the other test files running
+  // alongside; the 30 ms budget is held by the plain `npm test` run in verify.
+  const budget = process.env.NODE_V8_COVERAGE ? 120 : 30;
+  assert.ok(r.ms < budget, `${r.ms} ms`);
 });
 
 test("a unit the engine puts somewhere else is removed and the plot counts as refused", async () => {

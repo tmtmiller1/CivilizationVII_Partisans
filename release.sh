@@ -51,10 +51,11 @@ mkdir -p "$TARGET_DIR"
 
 echo "==> Mirroring ./ -> $TARGET_DIR/ (excluding dev files)"
 rsync -a \
-    --exclude='.git' --exclude='.gitignore' --exclude='.DS_Store' --exclude='dist' \
+    --exclude='CHANGELOG.steam.txt' --exclude='.git' --exclude='.gitignore' --exclude='.DS_Store' --exclude='dist' \
     --exclude='release.sh' --exclude='*.bak' --exclude='node_modules' \
     --exclude='docs' --exclude='eslint.config.js' --exclude='package.json' --exclude='package-lock.json' \
     --exclude='tests' --exclude='steam_workshop_id.txt' --exclude='scripts' --exclude='devtools' \
+    --exclude='CONTRIBUTING.md' --exclude='.c8rc.json' \
     --exclude='coverage*' --exclude='reports' --exclude='*.log' --exclude='/text/README.md' \
     ./ "$TARGET_DIR"/
 
@@ -86,13 +87,13 @@ SIZE="$(du -h "$ZIP_PATH" | cut -f1)"
 # the upload is made with the no-preview manifest (previewfile uploads are refused for this account).
 VDF_PATH="$DIST_DIR/workshop_item.vdf"
 ABS_CONTENT="$(cd "$TARGET_DIR" && pwd)"
+# Change note: this release's block from CHANGELOG.steam.txt, which scripts/steam-changelog.mjs keeps in step with
+# CHANGELOG.md (that script documents Steam's change-note formatting rules). The block is VDF-safe: no straight
+# double quotes, no backslashes. Edit CHANGELOG.steam.txt to reword a note; a hand-edited block is kept.
 CHANGENOTE="$VERSION: first release."
 if [ -n "$PUBLISHED_FILE_ID" ]; then
-    CHANGENOTE="$(awk -v v="$VERSION" '
-        $0 ~ "^## \\[" v "\\]" { on = 1; next }
-        on && /^## \[/ { exit }
-        on { print }' CHANGELOG.md | sed -E 's/^- //; s/"//g; s/\\//g' | grep -v '^$' | head -8 | tr '\n' ' ')"
-    [ -n "$CHANGENOTE" ] || { echo "error: no CHANGELOG.md entry for $VERSION"; exit 1; }
+    CHANGENOTE="$(node scripts/steam-changelog.mjs note "$VERSION")" \
+        || { echo "error: could not build the Steam change note (see above)"; exit 1; }
 fi
 
 {

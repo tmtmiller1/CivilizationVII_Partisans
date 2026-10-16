@@ -38,5 +38,10 @@ export default [
   {
     files: ["tests/**/*.mjs"],
     rules: { "max-lines-per-function": "off", "max-statements": "off", "max-lines": "off", complexity: "off", "max-len": "off" }
+  },
+  {
+    // The Steam change-note script is the same file in every Tower mod; only the correctness rules apply to it here.
+    files: ["scripts/steam-changelog.mjs"],
+    rules: { "max-lines-per-function": "off", "max-statements": "off", complexity: "off" }
   }
 ];

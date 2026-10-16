@@ -2,16 +2,22 @@
   "name": "partisans-mod-dev",
   "version": "1.0.0",
   "private": true,
-  "description": "Lint, syntax check and tests for the Partisans Civ VII mod. Not shipped.",
+  "description": "Dev-only tooling for the Partisans Civ VII mod (lint, syntax and ESM checks, unit tests, Civilopedia page harness, coverage). Not shipped.",
   "type": "module",
   "scripts": {
     "lint": "eslint ui tests scripts",
-    "check": "for f in ui/*.js scripts/*.mjs; do node --check \"$f\" || exit 1; done",
+    "check:syntax": "for f in ui/*.js scripts/*.mjs; do node --check \"$f\" || exit 1; done",
+    "check:esm": "node ./scripts/check-esm.mjs",
+    "check": "npm run check:syntax && npm run check:esm",
     "test": "node --test tests/*.test.mjs",
+    "test:pedia": "node --test tests/pedia-pages.test.mjs",
+    "coverage": "c8 npm run test",
     "verify": "npm run lint && npm run check && npm run test",
+    "release:gate": "npm run verify && npm run coverage",
     "gen-data": "node scripts/gen-data.mjs"
   },
   "devDependencies": {
+    "c8": "^11.0.0",
     "eslint": "^9.0.0"
   }
 }

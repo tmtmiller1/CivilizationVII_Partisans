@@ -12,8 +12,8 @@ or watched in the game. Partisans never copies, imports or runs another mod's fi
 | Cultural Diffusion | A settlement changing hands by culture | Only the engine's `CityTransfered` event with `transferType` = `BY_CULTURAL_IDENTITY`; nothing of the mod's own | Watched 2026-10-14 (the event, with the probe marker) |
 | Emigration | Recognised enclaves | `EmigrationQuarters_v1`: `data.tiles["x,y"]` with `owner`, `civ`, `originCiv`, `recognized` | Read from code (`ui/emigration-quarter-state.js`); the key is readable from script, watched 2026-10-14 |
 | Emigration | A settlement's population by origin | `EmigrationEthnos_v1`: `data.cities["x,y"].byCiv` keyed by player id, `total` | Read from code (`ui/emigration-composition.js`) |
-| Emigration | The host's community treatment card | `Players.get(pid).Culture.isTraditionActive(Database.makeHash(type))` for `TRADITION_EMIG_PROTECT_{ANTIQUITY,EXPLORATION,MODERN}` and `TRADITION_EMIG_SUSPECT_*`, each only when `GameInfo.Traditions.lookup(type)` finds it | Read from code; the cards are new in Emigration and not yet watched in game |
-| Cultural Diffusion | Whether its flip notice carries the unrest | `globalThis.culturalDiffusion.tellsPartisanUnrest === true`; then Partisans sends no unrest notice of its own for that flip | The flag is a contract for Cultural Diffusion's settlement flip, which isn't built yet |
+| Emigration | The host's community treatment card | `Players.get(pid).Culture.isTraditionActive(Database.makeHash(type))` for `TRADITION_EMIG_PROTECT_{ANTIQUITY,EXPLORATION,MODERN}` and `TRADITION_EMIG_SUSPECT_*`, each only when `GameInfo.Traditions.lookup(type)` finds it | Watched 2026-10-15 (Antiquity, seed 4242, Emigration's working copy): the suspicion card slotted and `isTraditionActive` read true; tension climbed under Watched Quarters and settled with no card and under Guest Right (`DESIGN.md`, the integration session). A card during a war with the homeland isn't watched yet |
+| Cultural Diffusion | Whether its flip notice carries the unrest | `globalThis.culturalDiffusion.tellsPartisanUnrest === true`; then Partisans sends no unrest notice of its own for that flip | Watched 2026-10-15 from Cultural Diffusion's side (Antiquity, seed 4242, the usual set, its `docs/DESIGN.md`): Partisans didn't send a notice of its own, and the "has joined" notice carried its line. The settlement flip is on Cultural Diffusion's local main, not released yet |
 | National Parks | Park tiles | The constructible types on a settlement's plots, `IMPROVEMENT_NATIONAL_PARK*` and `IMPROVEMENT_WILDERNESS_AREA*`, through `MapConstructibles` | Read from code (`data/national-parks*.xml`) |
 | Mod Commons | A pending-plot registry, if it ever exposes one | `globalThis.ModCommons.pendingPlots` | Read from code; nothing exposes it today |
 | Tower Settings Keeper | Carried on board as `ui/settings-keeper.js`, unchanged | | Watched in the other Tower mods |
@@ -54,9 +54,10 @@ Parks, and culture flips still count unless the "flips from any mod" option is o
 - `risings()` returns copies of every rising this game, across ages, oldest first, at most 300:
   `{ id, at: "x,y", name, owner, cause: "flip" | "enclave" | "misery", from?, homeland?, policy?, ip, start, end?,
   outcome?: "dispersed" | "time" | "burned" | "age", age? }`. `start` and `end` are `Game.turn`, which restarts every
-  age, and `age` is the AgeType the rising began in; a running rising has no `end`. `from` is the civ that lost the settlement by culture, `homeland` the enclave's homeland, `policy` the host's
-  treatment card (a TraditionType) when one was in force. Demographics draws these on its conflict timeline and in its
-  Chronicle; Emigration uses open ones to name the uprising refugees flee and a burned one for its chronicle line.
+  age, and `age` is the AgeType the rising began in; a running rising has no `end`. `from` is the civ that lost the
+  settlement by culture, `homeland` the enclave's homeland, `policy` the host's treatment card (a TraditionType) when
+  one was in force. Demographics draws these on its conflict timeline and in its Chronicle; Emigration uses open ones
+  to name the uprising refugees flee and a burned one for its chronicle line.
 - `flipOutlook("x,y")` returns `null`, or `{ turns, from, owner, line }` for a settlement that just changed hands by
   culture and whose people are arming. `line` is ready to show: "Not everyone wanted this. Partisans are gathering
   near Mutsu." It's meant for Cultural Diffusion's "has joined" notice, read a moment after the `CityTransfered`
