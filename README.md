@@ -74,8 +74,10 @@ rebels have their hideout.
 
 ## Installing
 
-Subscribe on the Steam Workshop, or unzip the release into `Mods/` under the game's user folder and enable it in
-Additional Content. Works with Cultural Diffusion, Emigration and National Parks, each optional.
+Subscribe on the Steam Workshop, or unzip the
+[latest release](https://github.com/tmtmiller1/CivilizationVII_Partisans/releases/latest) into `Mods/` under the
+game's user folder and enable it in Additional Content. Works with Cultural Diffusion, Emigration and National Parks,
+each optional.
 
 ## Languages
 

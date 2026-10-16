@@ -4,7 +4,7 @@ All notable changes to the Partisans mod for Civilization VII. The format follow
 [Keep a Changelog](https://keepachangelog.com/) and Semantic Versioning. The Steam Workshop change note for each
 release is generated from the matching section below by `scripts/steam-changelog.mjs`.
 
-## [Unreleased]
+## [1.0.0] - 2026-10-16
 
 First release. When a settlement's people have a reason to rise, armed partisans appear in the countryside around it
 and fight under the game's own independent-power AI: they raid, besiege and, if nobody answers them, take the

@@ -22,4 +22,4 @@ Under Options, Mods, Partisans: each cause on or off, culture flips from other m
 [h2]Limits[/h2]
 Capitals, city-states and independent peoples never rise. The same rules run for the AI. Single-player and hotseat; in a network game the mod only shows what an earlier session recorded. A save made with the mod needs it to load.
 
-Eleven languages besides English. Source and issues on GitHub.
+Eleven languages besides English. Source and issues on GitHub: https://github.com/tmtmiller1/CivilizationVII_Partisans

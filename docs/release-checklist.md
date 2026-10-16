@@ -15,10 +15,10 @@ four are pushed and uploaded in one sitting (the bundle prompt in the workspace'
    `partisans.modinfo` and `version` in `package.json` already say 1.0.0.
 3. **Create the GitHub repo.** Make it public under `tmtmiller1` and leave it empty, without a README or license,
    since this repo has its own. The newer Tower mods are named like `civilizationvii_canals`, so
-   `civilizationvii_partisans` fits. Then:
+   `civilizationvii_partisans` fits (it was made as `CivilizationVII_Partisans`). Then:
 
    ```sh
-   git remote add origin https://github.com/tmtmiller1/civilizationvii_partisans.git
+   git remote add origin https://github.com/tmtmiller1/CivilizationVII_Partisans.git
    git push -u origin main
    git tag v1.0.0 && git push origin v1.0.0
    ```
