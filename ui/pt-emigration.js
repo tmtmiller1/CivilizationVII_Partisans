@@ -59,12 +59,20 @@ export function compositionAt(at) {
 }
 
 /**
- * Emigration's community treatment cards, by name. They exist in the game's data only when Emigration is on and in
- * that card's age; a card the database doesn't know reads as not slotted.
+ * Emigration's cards that set how a host treats the communities in its cities, by name: since Emigration 3.6.0 the
+ * Pro-Immigration Stance protects and the Anti-Immigration Stance watches; the separate treatment cards of 3.5.0
+ * still count in a save that holds one. They exist in the game's data only when Emigration is on and in that card's
+ * age; a card the database doesn't know reads as not slotted.
  */
 const TREATMENT = Object.freeze({
-  protect: ["TRADITION_EMIG_PROTECT_ANTIQUITY", "TRADITION_EMIG_PROTECT_EXPLORATION", "TRADITION_EMIG_PROTECT_MODERN"],
-  suspect: ["TRADITION_EMIG_SUSPECT_ANTIQUITY", "TRADITION_EMIG_SUSPECT_EXPLORATION", "TRADITION_EMIG_SUSPECT_MODERN"]
+  protect: [
+    "TRADITION_EMIG_OPEN_BORDERS_ANTIQUITY", "TRADITION_EMIG_OPEN_BORDERS_EXPLORATION", "TRADITION_EMIG_OPEN_BORDERS_MODERN",
+    "TRADITION_EMIG_PROTECT_ANTIQUITY", "TRADITION_EMIG_PROTECT_EXPLORATION", "TRADITION_EMIG_PROTECT_MODERN"
+  ],
+  suspect: [
+    "TRADITION_EMIG_CLOSED_BORDERS_ANTIQUITY", "TRADITION_EMIG_CLOSED_BORDERS_EXPLORATION", "TRADITION_EMIG_CLOSED_BORDERS_MODERN",
+    "TRADITION_EMIG_SUSPECT_ANTIQUITY", "TRADITION_EMIG_SUSPECT_EXPLORATION", "TRADITION_EMIG_SUSPECT_MODERN"
+  ]
 });
 
 /** @param {*} culture @param {string[]} types @returns {string|null} the first of the types slotted */

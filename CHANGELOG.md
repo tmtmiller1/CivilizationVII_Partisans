@@ -4,6 +4,13 @@ All notable changes to the Partisans mod for Civilization VII. The format follow
 [Keep a Changelog](https://keepachangelog.com/) and Semantic Versioning. The Steam Workshop change note for each
 release is generated from the matching section below by `scripts/steam-changelog.mjs`.
 
+## [1.0.1] - 2026-10-17
+
+### Changed
+- With Emigration 3.6.0, a host's immigration stance sets an enclave's unrest: a Pro-Immigration Stance lets it
+  settle even in wartime, an Anti-Immigration Stance builds it fast at war. The separate treatment cards of
+  Emigration 3.5.0 still count in a save that holds one.
+
 ## [1.0.0] - 2026-10-16
 
 First release. When a settlement's people have a reason to rise, armed partisans appear in the countryside around it

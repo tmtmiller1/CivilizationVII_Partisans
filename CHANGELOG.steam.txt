@@ -3,6 +3,12 @@ Generated from CHANGELOG.md by scripts/steam-changelog.mjs; release.sh uploads t
 To fix an old Workshop entry, paste the text under its ==== line into that entry's Edit box on the change-notes page.
 A block edited by hand is kept as-is. Delete a block to regenerate it from CHANGELOG.md.
 
+==== 1.0.1 | 2026-10-17 | src da8698be9994 | gen 8df4daa85866 ====
+[b]Version 1.0.1 · 17 October 2026[/b]
+
+[b]Changed[/b]
+• With Emigration 3.6.0, a host's immigration stance sets an enclave's unrest: a Pro-Immigration Stance lets it settle even in wartime, an Anti-Immigration Stance builds it fast at war. The separate treatment cards of Emigration 3.5.0 still count in a save that holds one.
+
 ==== 1.0.0 | 2026-10-16 | src cabe5c566bbb | gen 58afb84dbdee ====
 [b]Version 1.0.0 · 16 October 2026[/b]
 First release. When a settlement's people have a reason to rise, armed partisans appear in the countryside around it and fight under the game's own independent-power AI: they raid, besiege and, if nobody answers them, take the settlement, which the game then removes from the map.

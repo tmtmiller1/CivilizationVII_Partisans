@@ -7,7 +7,7 @@
         <Package>Partisans</Package>
         <PackageSortIndex>1000</PackageSortIndex>
         <ShowInBrowser>1</ShowInBrowser>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
         <!-- The muster marker and its modifiers are new database rows; a save made with the mod needs them. -->
         <AffectsSavedGames>1</AffectsSavedGames>
     </Properties>
