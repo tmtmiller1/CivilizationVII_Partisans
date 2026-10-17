@@ -99,6 +99,15 @@ mod reads of other mods is in [docs/compatibility.md](docs/compatibility.md); th
 [devtools/README.md](devtools/README.md). [CONTRIBUTING.md](CONTRIBUTING.md) has the checks and conventions, and
 [docs/release-checklist.md](docs/release-checklist.md) the steps for a release.
 
+## Civilopedia History Corrections
+
+This mod also carries Civilopedia History Corrections, a text patch for
+[Civilopedia Expanded: Independents](https://steamcommunity.com/sharedfiles/filedetails/?id=3815309882). With that mod
+on, six East Asian history pages (Goguryeo, the Oirat, two Ryukyu pages, Nanzhao and Balhae) give each side where
+historians in different countries disagree, and a few factual errors are fixed. With it off, the game's pages stay as
+they are. The text is in `history-corrections/`, in English, Simplified Chinese and Traditional Chinese. Every Tower mod
+that carries it writes the same text, so running several of them together is fine.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).

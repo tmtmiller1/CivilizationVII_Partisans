@@ -72,6 +72,7 @@ echo "==> Verifying zip contents against allow-list"
 ALLOW="^$MOD/($MOD\\.modinfo|README\\.md|LICENSE|CHANGELOG\\.md)\$"
 ALLOW="$ALLOW"'|^'"$MOD"'/ui/.+\.js$'
 ALLOW="$ALLOW"'|^'"$MOD"'/text/[a-z_]+/(ModText|PediaText)\.xml$'
+ALLOW="$ALLOW"'|^'"$MOD"'/history-corrections/[a-z-]+-text\.xml$'
 ALLOW="$ALLOW"'|^'"$MOD"'/data/.+\.(xml|sql)$'
 UNEXPECTED="$(unzip -Z1 "$ZIP_PATH" | grep -vE '/$' | grep -vE "$ALLOW" || true)"
 if [ -n "$UNEXPECTED" ]; then
