@@ -42,3 +42,12 @@ test("a read that throws refuses the write", () => {
   assert.equal(setOption("flipRisings", false), false);
   assert.equal(getOption("flipRisings"), false);
 });
+
+test("reloading the options keeps a change the store refused for the rest of the session", async () => {
+  const { reloadSettings } = await import("../ui/pt-settings.js");
+  globalThis.localStorage = { getItem: () => { throw new Error("getItem"); }, setItem: () => { throw new Error("setItem"); } };
+  resetSettings();
+  assert.equal(setOption("miseryRisings", false), false);
+  reloadSettings();
+  assert.equal(getOption("miseryRisings"), false);
+});

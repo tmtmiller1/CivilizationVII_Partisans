@@ -25,3 +25,16 @@ test("the version, id and AffectsSavedGames are set", () => {
   assert.match(modinfo, /<Version>\d+\.\d+\.\d+<\/Version>/);
   assert.match(modinfo, /<AffectsSavedGames>1<\/AffectsSavedGames>/);
 });
+
+test("the muster rows load after the mod's other game data, so leaders other mods add get them", () => {
+  const order = (id) => Number(new RegExp(`id="${id}"[^]*?<LoadOrder>(-?\\d+)</LoadOrder>`).exec(modinfo)[1]);
+  const group = modinfo.slice(modinfo.indexOf('id="partisans-game-muster"'));
+  assert.ok(group.slice(0, group.indexOf("</ActionGroup>")).includes("<Item>data/partisans-muster.sql</Item>"));
+  assert.equal(modinfo.match(/data\/partisans-muster\.sql/g).length, 1, "listed once");
+  assert.ok(order("partisans-game-muster") > order("partisans-game"));
+});
+
+test("the script's version is the modinfo's", () => {
+  const script = fs.readFileSync(path.join(root, "ui", "pt-bootstrap.js"), "utf8");
+  assert.equal(/const VERSION = "([^"]+)"/.exec(script)[1], /<Version>([^<]+)<\/Version>/.exec(modinfo)[1]);
+});

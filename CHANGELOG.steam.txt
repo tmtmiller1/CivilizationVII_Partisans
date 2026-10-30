@@ -3,6 +3,24 @@ Generated from CHANGELOG.md by scripts/steam-changelog.mjs; release.sh uploads t
 To fix an old Workshop entry, paste the text under its ==== line into that entry's Edit box on the change-notes page.
 A block edited by hand is kept as-is. Delete a block to regenerate it from CHANGELOG.md.
 
+==== 1.1.0 | 2026-10-29 | src 83055e42f6d3 | gen d1bce4edc7a8 ====
+[b]Version 1.1.0 · 29 October 2026[/b]
+
+[b]Fixed[/b]
+• A turn is counted once. In hotseat, or after loading a save made partway through a turn, a settlement's misery and enclave unrest could climb twice in one turn, so it rose in half the time.
+• The next turn's checks run even when you end the turn while partisans are still landing.
+• While partisans land, units the rebel camp raises on its own turn stay on the map.
+• When the limits turn a rising away, the settlement keeps its misery and unrest count.
+• In hotseat, each player hears about risings in their own settlements when their turn starts.
+• An option changed in a game stays changed for the session even when the game can't save settings.
+• Leaders added by other mods get their own rebel people too.
+• Rebels that come up friendly to the civilization they rise against now turn on it, whether a player or the AI leads it. Before, only your own rebels did, and an AI's rising went to a hostile village nearby or fizzled.
+• In the Exploration and Modern Ages, rebels can appear all age long. The age's villages used to take every place the game keeps for independent peoples within a turn or two, and after that a rising far from a hostile village fizzled. Partisans now keeps one spare place per civilization, the same as the Antiquity Age.
+
+[b]Changed[/b]
+• A rebel hideout keeps a few units at most: three in the Antiquity Age, four in Exploration, five in Modern, besides the partisans out on a rising. Before, it added more every six turns, and one hideout grew to eleven units.
+• The Civilopedia's page on who fights says how friendly rebels and the hideout work now, in every language.
+
 ==== 1.0.2 | 2026-10-17 | src d8f89c600513 | gen 7ef5a30025d0 ====
 [b]Version 1.0.2 · 17 October 2026[/b]
 

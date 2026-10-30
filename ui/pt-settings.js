@@ -73,5 +73,8 @@ export function getOption(key) {
   return typeof v === "boolean" ? v : !!DEFAULTS[key];
 }
 
+/** Read the store again at the next getOption, keeping the options changed this session over what it holds. */
+export function reloadSettings() { memory = null; }
+
 /** Test hook: forget the cached settings. */
 export function resetSettings() { memory = null; changed = {}; }

@@ -48,6 +48,6 @@ four are pushed and uploaded in one sitting (the bundle prompt in the workspace'
 
 ## Later releases
 
-Add the changes under `## [Unreleased]`, bump `<Version>` in `partisans.modinfo` and `version` in `package.json`, date
-the section, run `node scripts/steam-changelog.mjs sync`, then `./release.sh` and the same upload command. Paste a new
+Add the changes under `## [Unreleased]`, bump `<Version>` in `partisans.modinfo`, `version` in `package.json` and
+`VERSION` in `ui/pt-bootstrap.js` (`tests/modinfo.test.mjs` fails until the last two match), date the section, run `node scripts/steam-changelog.mjs sync`, then `./release.sh` and the same upload command. Paste a new
 description by hand only when it changed.

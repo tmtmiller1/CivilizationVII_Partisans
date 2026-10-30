@@ -7,8 +7,8 @@ import { closeChapter } from "./pt-history.js";
 import { CONFIG } from "./pt-config.js";
 import { brewDelay, flipChance, flipIntensity } from "./pt-model.js";
 import { cityRecord, logEvent } from "./pt-state.js";
-import { cityAtKey, cityKey, cityName, gameTurn, isAliveMajor, localId, pairRelationship, player, safe } from "./pt-engine.js";
-import { notify, text } from "./pt-notify.js";
+import { cityAtKey, cityKey, cityName, gameTurn, isAliveMajor, pairRelationship, player, safe } from "./pt-engine.js";
+import { humanOf, notify, text } from "./pt-notify.js";
 import { getOption } from "./pt-settings.js";
 import { log } from "./pt-log.js";
 import { describeBrewing } from "./pt-describe.js";
@@ -74,12 +74,12 @@ function scheduleFlip(state, f, roll, rand) {
   const req = { at: f.key, owner: f.to, cause: "flip", I: roll.I, dueTurn: gameTurn() + delay, stage: "brewing",
     from: f.from, pFlip: roll.p };
   state.pending.push(req);
-  const me = localId();
-  if (f.to !== me && f.from !== me) return;
+  const to = humanOf(f.to, f.from);
+  if (to < 0) return;
   // Cultural Diffusion folds this into its own "has joined" notice when it says so, so the player gets one notice.
   if (cdTellsUnrest()) { log(`brewing at ${f.key}: Cultural Diffusion's flip notice carries the unrest`); return; }
   notify("brewing", describeBrewing(req, f.city, delay).join("[N]"),
-    text("LOC_PT_NOTIFY_BREWING_TITLE_CITY", cityName(f.city)), f.city.location);
+    text("LOC_PT_NOTIFY_BREWING_TITLE_CITY", cityName(f.city)), f.city.location, to);
 }
 
 /**
@@ -114,7 +114,8 @@ export function onSettlementLost(state, key, name, from, at) {
   rec.cooling = 0;
   logEvent(state, { turn: gameTurn(), at: key, outcome: "burned" }, CONFIG.logEntries);
   log(`${key} (${name}) was taken by the rebels and removed`);
-  if (from === localId()) notify("lost", text("LOC_PT_LOST", name), undefined, at);
+  const to = humanOf(from);
+  if (to >= 0) notify("lost", text("LOC_PT_LOST", name), undefined, at, to);
   return true;
 }
 

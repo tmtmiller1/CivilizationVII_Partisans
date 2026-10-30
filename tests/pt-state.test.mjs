@@ -66,3 +66,9 @@ test("load and save go through the game's configuration store under Partisans_v1
   assert.deepEqual(loadState(3), emptyState(3));
   delete globalThis.Configuration;
 });
+
+test("the last pass's age and turn survive a save, and a malformed one is dropped", () => {
+  assert.equal(normalizeState({ lastPass: "-5:12" }, 7).lastPass, "-5:12");
+  assert.equal(normalizeState({ lastPass: "12" }, 7).lastPass, undefined);
+  assert.equal(normalizeState({ lastPass: 12 }, 7).lastPass, undefined);
+});

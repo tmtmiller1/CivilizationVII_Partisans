@@ -24,9 +24,10 @@ them, take the settlement, which the game then removes from the map. Putting the
   Happiness or worse for twenty turns may rise, with the chance growing each turn, in any game.
 - **Who fights.** Each civilization gets its own rebel people once per age, the first time a rising happens against
   it: rebels gather in a hideout a few tiles from one of its settlements, with a small band that keeps respawning
-  until someone disperses it. Later risings against that civilization use the same people. Rebels that happen to be
-  friendly declare themselves against you when a rising starts; against an AI civilization a hostile independent
-  village nearby takes the rebels' side instead, or the rising fizzles.
+  until someone disperses it; the hideout keeps three units at most in the Antiquity Age, four in Exploration and
+  five in Modern, besides the partisans out on a rising. Later risings against that civilization use the same people.
+  Rebels that happen to be friendly to the civilization they rise against declare themselves against it when a rising
+  starts, whether a player or the AI leads it.
 - **The band.** Two to three units in the Antiquity and Exploration Ages, two in the Modern Age, two melee to one
   ranged, from the age's ordinary infantry at the tier the age's progress allows. They land two to four tiles out
   from the settlement that rose, city or town, so a garrison meets them. From there the game's independent AI decides
@@ -63,10 +64,10 @@ independent people can't hold a settlement, so partisans that take one burn it. 
 the game's independent-power AI moves them and decides when they attack. Single-player and hotseat; in a network game
 the mod only shows what an earlier session recorded. A save made with the mod needs it to load.
 
-A rebel people can only appear while the game has a free slot for one more independent people. In the Antiquity Age
-that was the case well into the age; in the Exploration and Modern Ages the game fills its slots with the ordinary
-independents in the first turn or two, so a civilization that has no rebel people by then gets its risings from a
-hostile independent village within twelve tiles instead, or the rising fizzles.
+A rebel people takes one of the game's places for independent peoples. The Antiquity Age keeps a spare place for each
+civilization, and Partisans keeps one in the Exploration and Modern Ages too, where the ordinary villages used to fill
+every place in the first turn or two. So rebels can appear all age long. A mod that keeps more spare places keeps its
+number.
 
 A rebel people is spawned by the game's own crisis rule, which needs a marker: for one turn the settlement where the
 rising starts holds a hidden building, the Partisan Muster. It can't be built or bought and is removed as soon as the

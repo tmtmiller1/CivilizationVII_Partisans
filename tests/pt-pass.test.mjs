@@ -2,7 +2,7 @@
 // muster is detected, risings end, and the due-turn re-check of a flip.
 import test from "node:test";
 import assert from "node:assert/strict";
-import { makeWorld, addPlayer, addCamp, antiquityUnits, setRelation, slotCard } from "./_world.mjs";
+import { makeWorld, addPlayer, addCamp, addUnit, antiquityUnits, setRelation, slotCard } from "./_world.mjs";
 import { emptyState } from "../ui/pt-state.js";
 import { CONFIG, CONFIG_DEFAULTS } from "../ui/pt-config.js";
 import { runPass, __test } from "../ui/pt-pass.js";
@@ -253,4 +253,153 @@ test("enclave tension follows the host's treatment card, and a rising carries th
   const p = ctx.state.pending[0];
   assert.deepEqual([p.cause, p.homeland, p.policy, p.stage], ["enclave", 1, "TRADITION_EMIG_SUSPECT_ANTIQUITY", "muster"]);
   assert.equal(p.I, 0.8, "intensity from the tension at the roll");
+});
+
+test("a pass marks its turn, so a second seat's turn start or a reload can tell it already ran", async () => {
+  const { passedThisTurn } = await import("../ui/pt-pass.js");
+  const { w, ctx } = setup();
+  assert.equal(passedThisTurn(ctx.state), false);
+  await runPass(ctx);
+  assert.equal(passedThisTurn(ctx.state), true);
+  assert.equal(JSON.parse(w.store.Partisans_v1).lastPass, "100:10", "saved with the state");
+  w.turn++;
+  assert.equal(passedThisTurn(ctx.state), false);
+});
+
+test("a rising the gates refuse keeps the counter that rolled it", async () => {
+  const { w, ctx } = setup();
+  const { runRising } = await import("../ui/pt-rising.js");
+  ctx.state.cities["20,10"] = { owner: 0, M: 25, T: 0, cooling: 0, risings: [] };
+  w.multiplayer = true;
+  const out = await runRising(ctx, ctx.state, { key: "20,10", owner: 0, cause: "misery", I: 0.6, settle: true });
+  assert.equal(out, "refused: multiplayer");
+  assert.equal(ctx.state.cities["20,10"].M, 25, "kept");
+  w.multiplayer = false;
+  await runRising(ctx, ctx.state, { key: "20,10", owner: 0, cause: "misery", I: 0.6, settle: true });
+  assert.equal(ctx.state.cities["20,10"].M, 10, "halved once past the gates");
+});
+
+test("a settlement with a rising brewing there doesn't roll for another, and this pass's hits count toward the caps", () => {
+  const { ctx } = setup();
+  const s = { key: "20,10", owner: 0, capital: false };
+  const rec = { owner: 0, M: 25, T: 0, cooling: 0, risings: [] };
+  assert.equal(__test.mayRoll(ctx.state, rec, s, []), true);
+  ctx.state.pending.push({ at: "20,10", owner: 0, cause: "flip", I: 0.5, dueTurn: 12, stage: "brewing" });
+  assert.equal(__test.mayRoll(ctx.state, rec, s, []), false, "brewing here");
+  ctx.state.pending = [];
+  assert.equal(__test.mayRoll(ctx.state, rec, s, [{ key: "20,10", owner: 0 }]), false, "asked for here this pass");
+  assert.equal(__test.mayRoll(ctx.state, rec, s, [{ key: "1,1", owner: 0 }, { key: "2,2", owner: 0 }]), false, "per-civ cap");
+  assert.equal(__test.mayRoll(ctx.state, rec, s, [{ key: "1,1", owner: 1 }]), true);
+});
+
+test("a rebel hideout is trimmed to the age's cap, newest first, and its band's units stay", async () => {
+  const { w, ctx } = setup({ happiness: 5 });
+  addPlayer(w, { id: 24, kind: "independent" });
+  for (let id = 1; id <= 8; id++) addUnit(w, 24, { id, x: 23, y: 14 });
+  ctx.state.rebels["0"] = { ip: 24, age: 100, mustered: true };
+  ctx.state.cities["20,10"] = { owner: 0, M: 0, T: 0, cooling: 0,
+    risings: [{ cause: "misery", I: 0.6, start: 10, ip: 24, units: [{ owner: 24, id: 7 }, { owner: 24, id: 8 }], joiners: [] }] };
+  ctx.state.rebels["1"] = { ip: -1, age: 100, mustered: true };
+  await runPass(ctx);
+  assert.deepEqual(w.players.get(24).units.map((u) => u.id), [1, 2, 3, 7, 8], "three at the camp (the Antiquity cap) and the band");
+});
+
+test("a rebel people from an earlier age, or another independent, isn't trimmed", async () => {
+  const { w, ctx } = setup({ happiness: 5 });
+  addPlayer(w, { id: 24, kind: "independent" });
+  addPlayer(w, { id: 25, kind: "independent" });
+  for (let id = 1; id <= 6; id++) { addUnit(w, 24, { id, x: 23, y: 14 }); addUnit(w, 25, { id, x: 25, y: 14 }); }
+  ctx.state.rebels["0"] = { ip: 24, age: 99, mustered: true };
+  ctx.state.age = 100;
+  await runPass(ctx);
+  assert.equal(w.players.get(24).units.length, 6);
+  assert.equal(w.players.get(25).units.length, 6);
+});
+
+test("after a turn roll during the placement, a unit of the band's type off the plots is the independent's own and stays", async () => {
+  const { w, ctx } = setup({ happiness: 5 });
+  addPlayer(w, { id: 24, kind: "independent" });
+  addCamp(w, 24, 23, 14, "IMPROVEMENT_ENCAMPMENT");
+  w.hostility.set("24:0", "HOSTILE");
+  ctx.state.rebels["0"] = { ip: 24, age: 100, mustered: true };
+  // The turn rolls while the first unit is landing, and the camp respawns a Warrior of its own.
+  setTimeout(() => { w.turn++; addUnit(w, 24, { x: 23, y: 14, type: "UNIT_WARRIOR" }); }, 0);
+  const { runRising } = await import("../ui/pt-rising.js");
+  await runRising(ctx, ctx.state, { key: "20,10", owner: 0, cause: "misery", I: 0.6 });
+  assert.equal(ctx.state.cities["20,10"].risings[0].units.length, 3);
+  assert.ok(w.players.get(24).units.some((u) => u.x === 23 && u.y === 14), "the camp's Warrior is still there");
+  assert.equal(w.requests.filter((q) => q.kind === "DESTROY_ELEMENT").length, 0);
+});
+
+test("hotseat: a rising in the second seat's settlement is told to that seat when its turn starts", async () => {
+  const { flushNotices } = await import("../ui/pt-notify.js");
+  const { w, ctx } = setup({ happiness: 5 });
+  w.players.get(1).human = true;
+  addPlayer(w, { id: 24, kind: "independent" });
+  addCamp(w, 24, 33, 22, "IMPROVEMENT_ENCAMPMENT");
+  w.hostility.set("24:1", "HOSTILE");
+  ctx.state.rebels["1"] = { ip: 24, age: 100, mustered: true };
+  const { addCity } = await import("./_world.mjs");
+  addCity(w, 1, { x: 30, y: 26, population: 3 });
+  const { runRising } = await import("../ui/pt-rising.js");
+  assert.equal(await runRising(ctx, ctx.state, { key: "30,26", owner: 1, cause: "misery", I: 0.6 }), "rising");
+  assert.equal(w.notifications.length, 0, "seat 0's turn: nothing for seat 1 yet");
+  assert.equal(flushNotices(), 0, "nothing waits for seat 0");
+  w.local = 1;
+  assert.equal(flushNotices(), 1);
+  assert.deepEqual(w.notifications.map((n) => n.pid), [1]);
+});
+
+test("an AI's rising tells nobody", async () => {
+  const { w, ctx } = setup({ happiness: 5 });
+  addPlayer(w, { id: 24, kind: "independent" });
+  w.hostility.set("24:1", "HOSTILE");
+  ctx.state.rebels["1"] = { ip: 24, age: 100, mustered: true };
+  const { addCity } = await import("./_world.mjs");
+  addCity(w, 1, { x: 30, y: 26, population: 3 });
+  const { runRising } = await import("../ui/pt-rising.js");
+  assert.equal(await runRising(ctx, ctx.state, { key: "30,26", owner: 1, cause: "misery", I: 0.6 }), "rising");
+  w.local = 1;
+  const { flushNotices } = await import("../ui/pt-notify.js");
+  assert.equal(flushNotices(), 0);
+  assert.equal(w.notifications.length, 0);
+});
+
+test("an AI's friendly rebel people is turned against it and fields the band", async () => {
+  const { w, ctx } = setup({ happiness: 5 });
+  addPlayer(w, { id: 24, kind: "independent" });
+  addCamp(w, 24, 33, 22, "IMPROVEMENT_ENCAMPMENT");
+  ctx.state.rebels["1"] = { ip: 24, age: 100, mustered: true };
+  const { addCity } = await import("./_world.mjs");
+  addCity(w, 1, { x: 30, y: 26, population: 3 });
+  const { runRising } = await import("../ui/pt-rising.js");
+  assert.equal(w.hostility.get("24:1"), undefined, "friendly to start");
+  assert.equal(await runRising(ctx, ctx.state, { key: "30,26", owner: 1, cause: "misery", I: 0.6 }), "rising");
+  assert.deepEqual(w.levelChanges, [[24, 1, -3]], "its standing with the AI dropped to 0, nobody else's");
+  assert.equal(w.hostility.get("24:1"), "HOSTILE");
+  assert.equal(w.hostility.get("24:0"), undefined, "still friendly to the local player");
+  assert.equal(ctx.state.cities["30,26"].risings[0].ip, 24, "the band is the rebel people's");
+});
+
+test("the local player's friendly rebel people is turned the same way, with the war request as the fallback", async () => {
+  const { w, ctx } = setup({ happiness: 5 });
+  addPlayer(w, { id: 24, kind: "independent" });
+  addCamp(w, 24, 33, 22, "IMPROVEMENT_ENCAMPMENT");
+  ctx.state.rebels["0"] = { ip: 24, age: 100, mustered: true };
+  const { addCity } = await import("./_world.mjs");
+  addCity(w, 0, { x: 30, y: 26, population: 3 });
+  const { runRising } = await import("../ui/pt-rising.js");
+  assert.equal(await runRising(ctx, ctx.state, { key: "30,26", owner: 0, cause: "misery", I: 0.6 }), "rising");
+  assert.deepEqual(w.levelChanges, [[24, 0, -3]]);
+  assert.equal(ctx.state.cities["30,26"].risings[0].ip, 24);
+  // Without the standing call, the war request still does it for the local player.
+  const { w: w2, ctx: ctx2 } = setup({ happiness: 5 });
+  addPlayer(w2, { id: 24, kind: "independent" });
+  addCamp(w2, 24, 33, 22, "IMPROVEMENT_ENCAMPMENT");
+  ctx2.state.rebels["0"] = { ip: 24, age: 100, mustered: true };
+  addCity(w2, 0, { x: 30, y: 26, population: 3 });
+  globalThis.Game.IndependentPowers.getIndependentPlayerLevel = () => { throw new Error("no such method"); };
+  assert.equal(await runRising(ctx2, ctx2.state, { key: "30,26", owner: 0, cause: "misery", I: 0.6 }), "rising");
+  assert.equal(w2.hostility.get("24:0"), "HOSTILE", "the war request did it");
+  assert.equal(ctx2.state.cities["30,26"].risings[0].ip, 24);
 });

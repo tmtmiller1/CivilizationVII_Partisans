@@ -7,20 +7,20 @@ import { CONFIG } from "./pt-config.js";
 import { loadState, saveState } from "./pt-state.js";
 import { readHistory } from "./pt-history.js";
 import { ageHash, engineReady, gameTurn, isMultiplayer, localId, scanCamps, safe } from "./pt-engine.js";
-import { runPass } from "./pt-pass.js";
+import { passedThisTurn, runPass } from "./pt-pass.js";
 import { runRising } from "./pt-rising.js";
 import { flipOutlook, onCityTransfered, onCultureFlip } from "./pt-transfer.js";
 import { sweepMarkers } from "./pt-muster.js";
 import { parkReliefFor } from "./pt-parks.js";
-import { installClickHandler } from "./pt-notify.js";
+import { flushNotices, installClickHandler } from "./pt-notify.js";
 import { installPanel } from "./pt-panel.js";
-import { getOption, resetSettings } from "./pt-settings.js";
+import { getOption, reloadSettings } from "./pt-settings.js";
 import { cityAtKey } from "./pt-engine.js";
-import { log, setDebug } from "./pt-log.js";
+import { dlog, log, setDebug } from "./pt-log.js";
 
 const G = globalThis;
 const KEY = "__towerPartisans";
-const VERSION = "1.0.0";
+const VERSION = "1.1.0";
 const SETTLE_MS = 800;
 
 const ctx = {
@@ -35,6 +35,7 @@ const ctx = {
   },
   listeners: [],
   passing: null,
+  turnQueued: false,
   multiplayer: false
 };
 
@@ -49,8 +50,22 @@ function pass(why) {
     log(`pass (${why}): ${r.ms} ms bookkeeping, ${r.requests} rising(s)${r.outcomes.length ? ": " + r.outcomes.join("; ") : ""}`);
     return r;
   }).catch((e) => { log(`pass threw ${String(e && e.stack || e)}`); return null; })
-    .finally(() => { ctx.passing = null; });
+    .finally(() => {
+      ctx.passing = null;
+      // A turn that started while a band was still landing gets its pass now.
+      if (ctx.turnQueued) { ctx.turnQueued = false; turnPass(); }
+    });
   return ctx.passing;
+}
+
+/**
+ * The pass for a turn start, once a turn: in hotseat each seat's turn starts one, and a reload mid-turn can too.
+ * One asked for while a pass is running waits for it.
+ */
+function turnPass() {
+  if (ctx.passing) { ctx.turnQueued = true; return ctx.passing; }
+  if (passedThisTurn(ctx.state)) { dlog(`turn ${gameTurn()} already had its pass`); return Promise.resolve(null); }
+  return pass(`turn ${gameTurn()}`);
 }
 
 function onTransfer(data) {
@@ -61,7 +76,7 @@ function onTransfer(data) {
 }
 
 function applySettings() {
-  resetSettings();
+  reloadSettings();
   setDebug(getOption("debug"));
 }
 
@@ -78,6 +93,8 @@ function installConsole() {
     flipOutlook: (key) => flipOutlook(ctx.state, key),
     save: () => saveState(ctx.state),
     runNow: () => pass("manual"),
+    // The turn-start pass as the turn listener runs it: once a turn, and queued behind one still running.
+    turnPass,
     applySettings,
     setRandom: (fn) => { ctx.rand = typeof fn === "function" ? fn : Math.random; },
     placements: () => ({ ...ctx.placements }),
@@ -99,6 +116,12 @@ function installConsole() {
   };
 }
 
+/** A local turn starts: notices that waited for this seat, then the turn's pass. */
+function onLocalTurn() {
+  safe(() => flushNotices(), 0);
+  turnPass();
+}
+
 /** The panel section and the notification click handler. */
 function installUi() {
   installPanel(() => ctx.state);
@@ -113,7 +136,7 @@ function boot() {
   installUi();
   if (ctx.multiplayer) { log(`v${VERSION} in a network game: reads only, no risings`); return; }
   if (!engineReady()) { log("engine.on unavailable; the pass only runs from the console"); return; }
-  listen("PlayerTurnActivated", (d) => { if (d && (d.player ?? d.Player) === localId()) setTimeout(() => pass(`turn ${gameTurn()}`), SETTLE_MS); });
+  listen("PlayerTurnActivated", (d) => { if (d && (d.player ?? d.Player) === localId()) setTimeout(onLocalTurn, SETTLE_MS); });
   listen("CityTransfered", onTransfer);
   setTimeout(() => sweepMarkers(), 5000);
   log(`v${VERSION} active: ${Object.keys(ctx.state.cities).length} settlement record(s), ${ctx.state.pending.length} pending, age ${ctx.state.age}`);

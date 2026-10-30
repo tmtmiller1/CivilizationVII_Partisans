@@ -49,6 +49,7 @@ const MAX_PENDING = 256;
  * @property {{turn:number, at?:string, cause?:string, outcome:string, reason?:string}[]} log
  * @property {import("./pt-history.js").Chapter[]} history every rising this game, across ages
  * @property {number} nextId the next chapter id
+ * @property {string} [lastPass] "age:turn" of the last turn pass, so a turn is counted once
  */
 
 /** @param {*} v @param {number} fallback @returns {number} */
@@ -144,6 +145,7 @@ export function normalizeState(s, age) {
   out.log = (Array.isArray(s.log) ? s.log : []).filter((e) => e && typeof e === "object").slice(-50);
   out.history = normHistory(s.history);
   out.nextId = Math.max(Math.floor(num(s.nextId, 1)), ...out.history.map((c) => c.id + 1), 1);
+  if (typeof s.lastPass === "string" && /^-?\d+:-?\d+$/.test(s.lastPass)) out.lastPass = s.lastPass;
   return out;
 }
 

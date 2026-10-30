@@ -23,7 +23,7 @@
         <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_TITLE" Language="zh_Hans_CN"><Text>起义</Text></Replace>
         <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_CONTENT_PARA_1" Language="zh_Hans_CN"><Text>起义是一支部署在距定居点两到四格处的游击队，属于与定居点主人敌对的独立部族。游击队会出现在起义的定居点周围，无论是哪个定居点；之后由独立部族的AI决定其去向，它可以进攻该定居点或附近其他定居点，包括您的首都。一个定居点同时最多一场起义，针对一个文明最多两场，全地图最多六场，起义后定居点休整二十回合。</Text></Replace>
         <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_WHO_TITLE" Language="zh_Hans_CN"><Text>谁来作战</Text></Replace>
-        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_WHO_PARA_1" Language="zh_Hans_CN"><Text>每个文明每个时代获得一次属于自己的叛军部族，即在针对它的第一场起义时：叛军在距其某个定居点几格处的藏身处集结，并拥有一支会不断补充的小队，直到有人将其驱散。此后针对该文明的起义都使用同一个部族。如果叛军碰巧对您友好，起义开始时他们会宣布与您为敌；针对AI文明时，则由附近敌对的独立村落站到叛军一边，否则起义就此消散。叛军部族只有在游戏还有空位容纳一个新的独立部族时才会出现：在探索时代和现代，这个空位在时代开始后一两回合内就会用完，因此届时还没有叛军的文明，其起义由十二格内的敌对村落承担，否则就此消散。</Text></Replace>
+        <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_WHO_PARA_1" Language="zh_Hans_CN"><Text>每个文明每个时代获得一次属于自己的叛军部族，即在针对它的第一场起义时：叛军在距其某个定居点几格处的藏身处集结，并拥有一支会不断补充的小队，直到有人将其驱散。此后针对该文明的起义都使用同一个部族。藏身处除正在起义中的游击队外只保留少数单位。如果叛军碰巧对其起义所针对的文明友好，起义开始时他们会宣布与该文明为敌，无论该文明由玩家还是AI领导。</Text></Replace>
         <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_BAND_TITLE" Language="zh_Hans_CN"><Text>队伍</Text></Replace>
         <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_BAND_PARA_1" Language="zh_Hans_CN"><Text>队伍规模随起因强度和定居点人口增长，远古和探索时代最多三个单位，现代最多两个。两个近战配一个远程，取自该时代进度所允许等级的普通步兵：远古早期是勇士，探索中期是武装步兵，现代晚期是步兵。</Text></Replace>
         <Replace Tag="LOC_PEDIA_PARTISANS_PAGE_PT_RISING_CHAPTER_NEIGHBOURS_TITLE" Language="zh_Hans_CN"><Text>邻居加入</Text></Replace>

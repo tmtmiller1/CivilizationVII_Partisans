@@ -22,7 +22,7 @@ export function makeWorld(opt = {}) {
     width: opt.width ?? 40, height: opt.height ?? 30, turn: opt.turn ?? 5, age: opt.age ?? 100, local: opt.local ?? 0,
     players: new Map(), store: { ...(opt.store || {}) }, requests: [], slotted: new Set(), traditionDefs: new Set(), multiplayer: !!opt.multiplayer,
     speed: opt.speed ?? 100, progress: opt.progress ?? 0.1, nextUnit: 100, notifications: [], refuse: new Set(),
-    plotOwner: new Map(), constructibles: new Map(), water: new Set(), districts: new Map(), hostility: new Map(), stray: new Map(),
+    plotOwner: new Map(), constructibles: new Map(), water: new Set(), districts: new Map(), hostility: new Map(), levelChanges: [], stray: new Map(),
     relations: new Map(), wars: new Set(), allies: new Set(), unitTable: [], tagTable: [], constructibleDefs: new Map(),
     lagReads: 0, lagged: []
   };
@@ -96,7 +96,7 @@ function cityObject(world, c) {
 
 function playerObject(world, p) {
   return {
-    id: p.id, isAlive: p.alive, isMajor: p.kind === "major", isIndependent: p.kind === "independent", isMinor: p.kind === "minor",
+    id: p.id, isAlive: p.alive, isHuman: !!p.human, isMajor: p.kind === "major", isIndependent: p.kind === "independent", isMinor: p.kind === "minor",
     civilizationName: p.name, civilizationAdjective: p.adjective, civilizationType: p.civ,
     Cities: { getCities: () => p.cities.map((c) => cityObject(world, c)) },
     Units: { getUnitIds: () => { landLagged(world, p.id); return p.units.map((u) => ({ owner: p.id, id: u.id })); }, getUnits: () => p.units.map((u) => ({ ...u, id: { owner: p.id, id: u.id }, location: { x: u.x, y: u.y } })) },
@@ -154,7 +154,7 @@ function handleRequest(world, kind, args) {
 
 function install(world) {
   const g = globalThis;
-  g.GameContext = { localPlayerID: world.local };
+  g.GameContext = { get localPlayerID() { return world.local; } };
   g.IndependentRelationship = { HOSTILE: 2, NEUTRAL: 1, FRIENDLY: 0, NOT_APPLICABLE: -1 };
   g.CityTransferTypes = { BY_CULTURAL_IDENTITY: 7, BY_COMBAT: 1, BY_GIFT: 3 };
   g.DistrictTypes = { RURAL: 1, URBAN: 2, CITY_CENTER: 3, WONDER: 4, WILDERNESS: 5 };
@@ -167,6 +167,12 @@ function install(world) {
     IndependentPowers: {
       getIndependentRelationship: (ip, pid) => (world.hostility.get(`${ip}:${pid}`) === "HOSTILE" ? 2 : 0),
       getIndependentHostility: (ip, pid) => world.hostility.get(`${ip}:${pid}`) || "FRIENDLY",
+      // The standing behind the stance: 3 friendly, 0 hostile; a drop to 0 reads hostile (watched 2026-10-29).
+      getIndependentPlayerLevel: (ip, pid) => (world.hostility.get(`${ip}:${pid}`) === "HOSTILE" ? 0 : 3),
+      changeIndependentPlayerLevel: (ip, pid, delta) => {
+        world.levelChanges.push([ip, pid, delta]);
+        if (delta < 0) world.hostility.set(`${ip}:${pid}`, "HOSTILE"); else world.hostility.delete(`${ip}:${pid}`);
+      },
       independentName: (ip) => `People${ip}`
     },
     Notifications: { send: (n, pid) => world.notifications.push({ ...n, pid }), getIdsForPlayer: () => [], find: () => null, dismiss: () => {} },

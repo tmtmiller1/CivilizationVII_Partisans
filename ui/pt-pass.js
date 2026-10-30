@@ -5,19 +5,26 @@
 // on the engine.
 
 import { CONFIG } from "./pt-config.js";
-import { enclaveChance, enclaveIntensity, enclaveStep, flipChance, miseryChance, miseryIntensity, miseryNeed,
-  miseryStep, scaledTurns, speedScale } from "./pt-model.js";
+import { enclaveChance, enclaveIntensity, enclaveStep, flipChance, hideoutTrim, miseryChance, miseryIntensity,
+  miseryNeed, miseryStep, scaledTurns, speedScale } from "./pt-model.js";
 import { activeCounts, cityRecord, logEvent, rolloverAge, saveState } from "./pt-state.js";
 import { closeChapter } from "./pt-history.js";
-import { ageHash, cityAtKey, cityName, gameTurn, isAliveMajor, localId, majorSettlements, pairRelationship, player,
-  relationship, speedMultiplier, unitsAlive, safe } from "./pt-engine.js";
+import { ageHash, ageType, cityAtKey, cityName, destroyUnit, gameTurn, isAliveMajor, majorSettlements,
+  pairRelationship, player, relationship, speedMultiplier, unitIds, unitsAlive, safe } from "./pt-engine.js";
 import { emigrationPresent, enclavesOf, largestForeign, treatmentOf } from "./pt-emigration.js";
 import { parkReliefFor } from "./pt-parks.js";
 import { matchRebels, newRebelPeoples, removeMarkers, sweepMarkers } from "./pt-muster.js";
 import { runRising } from "./pt-rising.js";
-import { notify, text } from "./pt-notify.js";
+import { humanOf, notify, text } from "./pt-notify.js";
 import { getOption } from "./pt-settings.js";
 import { log, dlog } from "./pt-log.js";
+
+/** The pass's opening: the game speed, the age rollover, and this turn marked as passed. */
+function openPass(state) {
+  state.speed = speedScale(speedMultiplier());
+  rolloverIfNewAge(state);
+  state.lastPass = passKey();
+}
 
 /** @param {import("./pt-state.js").State} state */
 function rolloverIfNewAge(state) {
@@ -79,17 +86,52 @@ function endRising(state, key, rec, r, reason) {
   logEvent(state, { turn, at: key, cause: r.cause, outcome: "ended", reason }, CONFIG.logEntries);
   const city = cityAtKey(key);
   log(`rising at ${key} over (${reason})`);
-  if (city && rec.owner === localId()) notify("ended", text("LOC_PT_ENDED", cityName(city)), undefined, city.location);
+  const to = humanOf(rec.owner);
+  if (city && to >= 0) notify("ended", text("LOC_PT_ENDED", cityName(city)), undefined, city.location, to);
+}
+
+/**
+ * Keep each rebel people's hideout to the age's cap (CONFIG.hideoutCap): the crisis camp respawns with no limit, so
+ * the newest units above the cap are removed. Units in the bands of its active risings are left alone.
+ */
+function trimHideouts(state) {
+  const cap = CONFIG.hideoutCap[ageType()];
+  if (typeof cap !== "number") return;
+  const bands = bandUnitIds(state);
+  const ips = new Set(Object.values(state.rebels).filter((r) => r.age === state.age && r.ip >= 0).map((r) => r.ip));
+  for (const ip of ips) {
+    if (!player(ip)?.isAlive) continue;
+    const extra = hideoutTrim(unitIds(ip), bands.get(ip) || new Set(), cap);
+    for (const id of extra) destroyUnit({ owner: ip, id });
+    if (extra.length) log(`hideout of rebel people ${ip}: ${extra.length} unit(s) over the cap of ${cap} removed`);
+  }
+}
+
+/** The units in every active rising's band, joiners included, by owner. @returns {Map<number, Set<number>>} */
+function bandUnitIds(state) {
+  const out = new Map();
+  for (const rec of Object.values(state.cities)) {
+    for (const r of rec.risings) {
+      for (const u of r.units.concat(...r.joiners.map((j) => j.units))) {
+        if (!out.has(u.owner)) out.set(u.owner, new Set());
+        out.get(u.owner).add(u.id);
+      }
+    }
+  }
+  return out;
 }
 
 /**
  * Whether a settlement may roll for a rising now: not a capital (capitals never rise, so a roll would only burn the
- * counter), nothing active, not cooling, the civ and map under their caps.
+ * counter), nothing active, brewing or mustering there, no rising asked for there earlier in this pass, not cooling,
+ * and the civ and map under their caps with this pass's requests counted.
  */
-function mayRoll(state, rec, s) {
+function mayRoll(state, rec, s, requests) {
   const counts = activeCounts(state);
+  const forOwner = (counts.byOwner[s.owner] || 0) + requests.filter((q) => q.owner === s.owner).length;
   return !s.capital && !rec.risings.length && rec.cooling <= gameTurn()
-    && (counts.byOwner[s.owner] || 0) < CONFIG.maxActivePerCiv && counts.total < CONFIG.maxActiveTotal;
+    && !state.pending.some((p) => p.at === s.key) && !requests.some((q) => q.key === s.key)
+    && forOwner < CONFIG.maxActivePerCiv && counts.total + requests.length < CONFIG.maxActiveTotal;
 }
 
 /** The misery counter and its roll (SPEC 3.3). */
@@ -98,15 +140,15 @@ function stepMisery(ctx, state, s, rec, requests) {
   const hEff = s.happiness + relief;
   rec.M = miseryStep(CONFIG, rec.M, hEff);
   const need = miseryNeed(CONFIG, state.speed);
-  if (!getOption("miseryRisings") || !mayRoll(state, rec, s)) return;
+  if (!getOption("miseryRisings") || !mayRoll(state, rec, s, requests)) return;
   const chance = miseryChance(rec.M, need);
   if (chance <= 0) return;
   const hit = ctx.rand() < chance;
   log(`misery roll at ${s.key}: ${rec.M} of ${need} turns, chance ${chance.toFixed(2)}, ${hit ? "rises" : "holds"}`);
+  // The counter is halved when the rising gets past its gates (pt-rising.js), not here, so a refusal keeps it.
   if (hit) {
     requests.push({ key: s.key, owner: s.owner, cause: "misery", I: miseryIntensity(hEff),
-      detail: { happiness: s.happiness, turns: rec.M } });
-    rec.M = Math.floor(need / 2);
+      detail: { happiness: s.happiness, turns: rec.M }, settle: true });
   }
 }
 
@@ -131,12 +173,12 @@ function stepEnclave(ctx, state, s, rec, requests) {
   const rel = relationship(s.owner, homeland);
   const card = treatmentOf(s.owner);
   rec.T = enclaveStep(CONFIG, rec.T, rel, card.stance);
-  if (!getOption("enclaveRisings") || !mayRoll(state, rec, s)) return;
+  if (!getOption("enclaveRisings") || !mayRoll(state, rec, s, requests)) return;
   const chance = enclaveChance(CONFIG, rec.T);
   if (chance > 0 && ctx.rand() < chance) {
-    const I = enclaveIntensity(rec.T);
-    rec.T = 0;
-    requests.push({ key: s.key, owner: s.owner, cause: "enclave", I, homeland, policy: card.type || undefined });
+    // Tension goes to 0 when the rising gets past its gates (pt-rising.js).
+    requests.push({ key: s.key, owner: s.owner, cause: "enclave", I: enclaveIntensity(rec.T), homeland,
+      policy: card.type || undefined, settle: true });
   }
 }
 
@@ -187,6 +229,12 @@ function recheckFlip(ctx, p) {
   return hit;
 }
 
+/** @returns {string} "age:turn", the key of this turn's pass */
+export function passKey() { return `${ageHash()}:${gameTurn()}`; }
+
+/** Whether this turn has had its pass: in hotseat every seat's turn starts one, and a reload can start another. */
+export function passedThisTurn(state) { return !!state && state.lastPass === passKey(); }
+
 /**
  * Run the pass. Resolves when every rising it started has finished with the engine.
  * @param {{state:import("./pt-state.js").State, rand:()=>number, camps:()=>*[],
@@ -196,13 +244,13 @@ function recheckFlip(ctx, p) {
 export async function runPass(ctx) {
   const t0 = Date.now();
   const state = ctx.state;
-  state.speed = speedScale(speedMultiplier());
-  rolloverIfNewAge(state);
+  openPass(state);
   const turn = gameTurn();
   const musters = state.pending.filter((p) => p.stage === "muster" && p.dueTurn <= turn);
   state.pending = state.pending.filter((p) => !musters.includes(p));
   const requests = musters.length ? collectMusters(ctx, state, musters) : [];
   expireRisings(state);
+  trimHideouts(state);
   stepSettlements(ctx, state, requests);
   dueBrewing(ctx, state, requests);
   const ms = Date.now() - t0;
@@ -214,4 +262,4 @@ export async function runPass(ctx) {
   return { ms, requests: requests.length, outcomes };
 }
 
-export const __test = { recheckFlip, mayRoll, homelandOf };
+export const __test = { recheckFlip, mayRoll, homelandOf, trimHideouts };

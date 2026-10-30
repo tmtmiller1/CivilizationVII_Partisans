@@ -91,11 +91,12 @@ test("4 gates in the spec's order", () => {
 });
 
 test("5 owner order: rebel, declare, neighbour, muster, none", () => {
-  const base = { rebel: null, targetIsLocal: false, neighbours: [], mustered: false };
+  const base = { rebel: null, neighbours: [], mustered: false };
   assert.deepEqual(m.chooseOwner(cfg, { ...base, rebel: { ip: 9, alive: true, hostile: true } }), { step: "rebel", ip: 9 });
-  assert.deepEqual(m.chooseOwner(cfg, { ...base, rebel: { ip: 9, alive: true, hostile: false }, targetIsLocal: true }), { step: "declare", ip: 9 });
+  assert.deepEqual(m.chooseOwner(cfg, { ...base, rebel: { ip: 9, alive: true, hostile: false } }), { step: "declare", ip: 9 }, "a friendly rebel people is turned, whoever the owner is");
   const near = [{ ip: 5, d: 8, hostile: true, village: true }, { ip: 6, d: 3, hostile: true, village: true }];
-  assert.deepEqual(m.chooseOwner(cfg, { ...base, rebel: { ip: 9, alive: true, hostile: false }, neighbours: near }), { step: "neighbour", ip: 6 });
+  assert.deepEqual(m.chooseOwner(cfg, { ...base, rebel: { ip: 9, alive: true, hostile: false }, neighbours: near }), { step: "declare", ip: 9 }, "before a hostile neighbour");
+  assert.deepEqual(m.chooseOwner(cfg, { ...base, rebel: null, neighbours: near }), { step: "neighbour", ip: 6 });
   assert.deepEqual(m.chooseOwner(cfg, { ...base, neighbours: [{ ip: 5, d: 13, hostile: true, village: true }] }), { step: "muster" }, "outside borrowRange");
   assert.deepEqual(m.chooseOwner(cfg, { ...base, neighbours: [{ ip: 5, d: 2, hostile: false, village: true }] }), { step: "muster" }, "friendly neighbours don't count");
   assert.deepEqual(m.chooseOwner(cfg, { ...base, neighbours: [{ ip: 5, d: 2, hostile: true, village: false }] }), { step: "muster" }, "a city-state never");
@@ -177,4 +178,11 @@ test("6.7 game speed scale and scaled turns", () => {
   assert.equal(m.speedScale("x"), 1);
   assert.equal(m.scaledTurns(20, 0.5), 10);
   assert.equal(m.scaledTurns(1, 0.1), 1);
+});
+
+test("6.8 a hideout keeps its cap besides its bands, the newest going first", () => {
+  assert.deepEqual(m.hideoutTrim([1, 2, 3, 4, 5, 6, 7], new Set([6, 7]), 3), [5, 4]);
+  assert.deepEqual(m.hideoutTrim([1, 2], new Set(), 3), []);
+  assert.deepEqual(m.hideoutTrim([9, 1, 5], new Set([9]), 0), [5, 1]);
+  assert.deepEqual(cfg.hideoutCap, { AGE_ANTIQUITY: 3, AGE_EXPLORATION: 4, AGE_MODERN: 5 });
 });

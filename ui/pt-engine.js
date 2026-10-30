@@ -99,6 +99,20 @@ export function isHostile(ip, pid) {
   return /HOSTILE/i.test(name);
 }
 
+/**
+ * Turn an independent against a civ. Its standing with that civ (3 when friendly, 0 when hostile) goes to 0, and
+ * within a second it reads hostile and at war with that civ alone. Works for any civ, AI or hotseat seat, where the
+ * war request (`declareWarOn`) works for the local player only. Watched 2026-10-29 on a village and on a crisis
+ * rebel people. @param {number} ip @param {number} pid @returns {boolean} whether the change was sent
+ */
+export function turnAgainst(ip, pid) {
+  if (!player(ip) || !player(pid)) return false;
+  const level = safe(() => Game.IndependentPowers.getIndependentPlayerLevel(ip, pid), 0);
+  if (typeof level !== "number" || !(level > 0)) return false;
+  dlog(`standing of independent ${ip} with player ${pid}: ${level} -> 0`);
+  return safe(() => { Game.IndependentPowers.changeIndependentPlayerLevel(ip, pid, -level); return true; }, false);
+}
+
 /** @param {number} ip @param {number} pid @returns {string} the hostility's name, for the log */
 export function hostilityName(ip, pid) {
   if (!player(ip) || !player(pid)) return "?";

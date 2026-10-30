@@ -11,7 +11,7 @@ When a settlement's people have a reason to rise, armed partisans appear in the 
 
 The band lands two to four tiles out from the settlement that rose, city or town. From there the game's independent AI decides where it goes: it can attack that settlement or move on to other settlements nearby, your capital included.
 
-Each civilization gets its own rebel people once per age, camped a few tiles from one of its settlements, with a small band that keeps respawning until someone disperses it. Hostile independent villages near a culture flip may send fighters of their own. With National Parks, a settlement's park tiles calm its countryside.
+Each civilization gets its own rebel people once per age, camped a few tiles from one of its settlements, with a small band that keeps respawning, up to a few units, until someone disperses it. Rebels that happen to be friendly to the civilization they rise against turn on it when a rising starts, whether a player or the AI leads it. Hostile independent villages near a culture flip may send fighters of their own. With National Parks, a settlement's park tiles calm its countryside.
 
 [h2]What you see[/h2]
 A notification titled with the place, "Partisan uprising near Mutsu" or "Partisan Greek loyalists near Mutsu" after a culture flip, says why the people rose; click it to jump there. A Partisans section in the City Details panel shows the settlement's misery turns and enclave tension.

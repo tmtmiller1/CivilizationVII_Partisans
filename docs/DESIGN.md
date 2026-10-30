@@ -128,7 +128,9 @@ owner an alive major; not a capital; no rising active there; not cooling (20 tur
 ## 5. Who fights
 
 1. The owner's rebel people this age, if it's alive and reads hostile.
-2. If the owner is the local player and the rebel people reads friendly: declare war on it, re-read, use it.
+2. If the rebel people is alive and reads friendly: turn it against the owner (its standing with that civ drops to
+   0, which reads hostile within a second; for the local player the game's own war request is the fallback),
+   re-read, use it. Any owner: AI, hotseat seat or the local player.
 3. Else the nearest alive independent village (no suzerain) hostile to the owner with a camp within 12 tiles.
 4. Else, if the owner hasn't mustered this age: place the muster marker in the settlement, remember the alive
    independents, and come back next turn. At that pass the new encampment people is the owner's rebels (two civs
@@ -163,6 +165,13 @@ major leader from the `Leaders` table (so DLC leaders are covered), one hidden b
 (cost 1, no population, existing district only, a trait no civ has, never offered), and per leader a modifier
 `COLLECTION_OWNER` / `EFFECT_PLAYER_SPAWN_TRIBE_NEAR` (`TRIBE_CRISIS`, `NumCities 1`, `RunOnce 0`, `Permanent 1`)
 gated on `REQUIREMENT_PLAYER_HAS_CONSTRUCTIBLE`. A sweep at boot and at each age start removes any stray marker.
+Since 2026-10-29 the file loads in its own group, `partisans-game-muster`, at load order 10000, so leaders that other
+mods add at any ordinary load order get a trait too (not yet watched in a game).
+
+The camp the marker spawns is the crisis tribe's (`RespawnTime 6`, no limit on its units). Each pass trims every
+rebel people of this age to `hideoutCap` (Antiquity 3, Exploration 4, Modern 5) besides the units in its active
+risings' bands, removing the newest first (`hideoutTrim` in `ui/pt-model.js`). Added 2026-10-29 at the owner's ask,
+after the camps grew to eleven units and took ungarrisoned towns (section 12); not yet watched in a game.
 
 ## 8. What the player sees
 
@@ -173,7 +182,9 @@ from Greece by culture (an enclave rising stays an uprising: it is about how the
 says why: the misery turns and the settlement's Happiness, the flip and how the two civs stand, or the enclave and
 how its host and homeland stand. A click on any of the mod's notifications moves the camera to the settlement,
 through a handler registered on the train's model for the mod's types (the engine ignores a location given from
-script). The local player hears about settlements that are or were theirs; AI-versus-AI risings only reach the log.
+script). A human player hears about settlements that are or were theirs; AI-versus-AI risings only reach the log. In
+hotseat a notice for a seat other than the one whose turn ran the pass waits in memory and goes out when that seat's
+turn starts (2026-10-29, not yet watched).
 A Partisans section in the City Details panel's growth tab lists the rising's state, the misery turns of the need,
 and the enclave tension. (A banner pill was built and dropped on 2026-10-15: under the 1.5.0 banner it pushed the
 settlement's name up and crowded it.)
@@ -181,8 +192,9 @@ settlement's name up and crowded it.)
 ## 9. State
 
 One key, `Partisans_v1`: `{ v, age, cities: { "x,y": { owner, M, T, cooling, risings } }, rebels: { pid: { ip,
-age, mustered } }, pending: [ { at, owner, cause, I, dueTurn, stage, from?, pFlip? } ], musterSnapshot?, log }`.
-Written once per pass (and again after the risings it starts finish), read at boot. When the saved age differs from
+age, mustered } }, pending: [ { at, owner, cause, I, dueTurn, stage, from?, pFlip? } ], musterSnapshot?, log,
+lastPass? }`. Written once per pass (and again after the risings it starts finish), read at boot. `lastPass` is
+`"age:turn"` of the last pass; a turn start that finds its own turn there skips the pass. When the saved age differs from
 the game's, rebels, pending and risings clear, M and T halve, cooling clears. `Game.turn` restarts each age, and so
 do the turns stored.
 
@@ -203,8 +215,10 @@ do the turns stored.
   rate stays the 0.03 that A1 checks.
 - **Camps** are found by one scan of the map's plots owned by independents, cached per turn and only run when a
   rising or a muster needs it, so the bookkeeping pass stays cheap.
-- **A friendly rebel people against an AI civ** falls through to a hostile neighbour or a fizzle; the mod never
-  declares war on behalf of an AI (the engine refuses requests sent as another player).
+- **A friendly rebel people against an AI civ** is turned against it (2026-10-29). The engine refuses a war request
+  sent as another player, but `Game.IndependentPowers.changeIndependentPlayerLevel(ip, pid, -level)` drops the
+  people's standing with that civ alone (3 friendly, 0 hostile), and within a second it reads hostile and at war
+  with it; the other civs' standing with it stays. Before this it fell through to a hostile neighbour or a fizzle.
 - **The misery counter of a settlement that leaves the map** is dropped with its record; a settlement that changes
   hands keeps its counters under its new owner.
 - **Each placed unit is checked on its plot** (watched 2026-10-15): for a village that hadn't met the settlement's
@@ -230,6 +244,18 @@ do the turns stored.
   every player; the pass only drops a record whose settlement is gone when it read at least one settlement.
 - **A refused brewing rising is dropped**, not re-queued: the Unrest notice went out, the gate (a cap, a capital) said
   no, and the settlement cools.
+- **One pass a turn (2026-10-29).** A turn start runs the pass only when `lastPass` isn't this turn's, so a second
+  hotseat seat or a reload mid-turn doesn't count the turn again (offline: two passes in one turn took a town's
+  misery turns from 0 to 2). A turn start while a pass is still placing a band waits for it and then runs; before,
+  it was dropped (the pass for turn 21 that finished at turn 24, section 10 above, left turns 22 and 23 without one).
+  The console's `runNow()` still runs whenever it's called. A second seat's friendly rebels are turned against it
+  the same way an AI's are (section 5, step 2), so its rising keeps its own rebel people.
+- **A roll's counter is spent at the gates (2026-10-29).** A misery or enclave hit halves the misery turns or clears
+  the tension once the rising passes its gates, not at the roll, so a refusal keeps the counter. A settlement with a
+  rising brewing or mustering there doesn't roll, and the caps count the risings already asked for in the same pass.
+- **Strays after a turn roll stay (2026-10-29).** Once a turn has rolled during a placement, a new unit of the band's
+  type off the plots asked for is left alone: the independent has had its own turn, and a crisis camp respawns units
+  of those types.
 
 ## 11. Known limits
 
@@ -255,6 +281,30 @@ do the turns stored.
   the first turn or two; later, a rising against it uses a hostile independent village within 12 tiles, or fizzles
   with "muster spawned nothing" and the civ counts as mustered for the age. Antiquity's pool had room at turn 6.
   Whether an independent a civ disperses frees its slot wasn't watched.
+  **Fixed 2026-10-29: room for rebels.** The game keeps majors × (`INDEPENDENT_NUM_PER_MAJOR` +
+  `INDEPENDENT_EXTRAS_PER_MAJOR`) independents. Antiquity sets 3 + 1; Exploration and Modern leave the extras at 0,
+  which is why their pool was full. `data/partisans-room.sql` raises the extras to 1 in every age (only raised, so a
+  mod that sets more keeps it), loaded in `partisans-game-muster` after the age's own file. Watched on seed 4242,
+  every other mod off. With the raise, a bare marker at turn 5 spawned a 13th independent in Exploration and in Modern,
+  and a second marker in an AI capital spawned a 14th. Without it, the same marker spawned nothing in both ages. The
+  game still placed 12 ordinary villages, so the spare slots go to rebels. Then Partisans itself in Exploration:
+  a misery rising at Zabid (47,35), an Abbasid town 17 tiles from any camp, at turn 5: "mustering", and at turn 6
+  rebel people 18 matched to Abbasid and 3 of 3 units placed. The camp appears as soon as the marker goes in, not at
+  the turn roll; the pass's snapshot comparison catches it either way.
+  Second session, same day and seed. Modern, every other mod off: a rising at Goryeo's town (60,41), 16 tiles from
+  any camp, mustered at turn 5, and at turn 6 rebel people 18 was Goryeo's with 2 of 2 units placed; its hideout was
+  trimmed to the cap of 5 at turns 25 and 26. Usual set (the owner's registry, the local Partisans copy), `extras` read
+  1 in both ages: Exploration, Abbasid's town (55,30) mustered and 3 of 3 landed; Modern, Persia's town (15,36)
+  mustered and rebel people 18 spawned and was matched, then the rising fizzled with "no hostile people": the camp read
+  friendly to all six civs. No enabled mod touches independent relationships, so that's the engine's roll, the
+  friendly-rebels gap for AIs in section 5. Long games, vanilla: the independents stayed at 12 villages (10 after two
+  were taken, never refilled) plus the rebel people to Exploration turn 49 and Modern turn 31, when the lab's
+  undefended human seat lost its capital and the game ended. A longer count is on `WATCH_LIST.md`.
+  **Friendly rebels against an AI, closed (2026-10-29, same seed, every other mod off).** `forceDeclareWar` from either
+  side and `changeRelationshipLevel` did nothing to a village's stance. `Game.IndependentPowers.changeIndependentPlayerLevel
+  (ip, pid, -level)` did: village 14 read hostile to Persia and at war in 0.5 s, friendly to everyone else; village 6
+  the same for the local player; rebel people 18 (a crisis tribe) went friendly to Abbasid at +3 and hostile again at
+  -3. Then through the pipeline, A6 above. Section 5 step 2 now turns a friendly rebel people for any owner.
 - Network games: no writes. The City Details section shows what an earlier single-player session saved.
 - The alliance read and Emigration's record fields were read from code; V1 and V2 below say what was watched.
 
@@ -272,9 +322,9 @@ it only touches the camera. Settlements were founded by script (the lab game sta
 | A2 | Flip between hostile civs: brews, notice, band 3 tiles out 1 to 3 turns later | Thái Bình flipped from Đại Việt (level -60): chance 0.75 under the spec's old odds table (today's table gives 0.15 at that level), hit, Unrest notice at once, due in 2 turns; at the due turn 3 of 3 units landed on ring 3, 0 refusals, Rising notice | Naju (level -70): chance 0.83 under the old table (0.15 today), notice, 3 of 3 on ring 3 next turn, 0 refusals. Today's table was watched in the integration session: 0.03 at level 0, 0.15 at -70 |
 | A2b | War during the brewing delay: the due-turn re-roll uses the war chance | War couldn't be declared: the civs hadn't met ("You have not met the Diplomatic Action target Leader"), and `Diplomacy.forceDeclareWar` did nothing. The same code path was watched with relations worsened instead: Hà Tĩnh flipped at level 3, relations then set to -57; the pass logged "relations worse (chance 0.72 over 0.23), re-roll holds" and the band landed. Those two numbers are the spec's old odds table; today's gives 0.08 over 0.03 for the same levels, through the same re-roll. The war chance itself (0.35, `ui/pt-config.js`) is pinned by the unit tests. Open for a game where the civs have met | Not repeated |
 | A3 | Flip between allies: no rising | Blocked: an alliance needs two civs that met in play and an AI that agrees to it. The engine refuses a request sent as another player (section 10), so a script can't make an AI propose or accept one, and a meeting made by script early in a lab game doesn't give two civs a relationship (`engine-closed.md`). It needs a long natural game where two civs ally, or the player allying an AI by hand. The chance 0 for allies is pinned by the unit tests (V1 below) | Blocked, as vanilla |
-| A4 | First rising with no rebel people: marker, one new encampment people next turn, marker gone, band placed (needs a free independent slot, section 11) | Antiquity turn 6, Dazaifu (61,16), with the neighbour range set to 0 for this one rising: "muster marker placed", `BUILDING_PARTISANS_MUSTER` read in the city; at the next turn roll a new independent (player 24) appeared camped in an encampment at (65,17), 4 tiles from Dazaifu; "rebel people 24 belongs to player 0"; marker gone from the city; 3 of 3 units on ring 3, 0 refusals; "Rebels gather near Dazaifu" and the Rising notice | Exploration turn 6 and 19: the marker stood, nothing spawned (the pool was full, as in vanilla at turn 4); Modern vanilla turn 1 fired |
+| A4 | First rising with no rebel people: marker, one new encampment people next turn, marker gone, band placed (needs a free independent slot, section 11) | Antiquity turn 6, Dazaifu (61,16), with the neighbour range set to 0 for this one rising: "muster marker placed", `BUILDING_PARTISANS_MUSTER` read in the city; at the next turn roll a new independent (player 24) appeared camped in an encampment at (65,17), 4 tiles from Dazaifu; "rebel people 24 belongs to player 0"; marker gone from the city; 3 of 3 units on ring 3, 0 refusals; "Rebels gather near Dazaifu" and the Rising notice | Exploration turn 6 and 19: the marker stood, nothing spawned (the pool was full, as in vanilla at turn 4); Modern vanilla turn 1 fired. With the room rows (2026-10-29, section 11): Exploration and Modern turn 5 spawned, and the Exploration muster at Zabid landed 3 of 3 through the pipeline |
 | A5 | Rebel people friendly, target the local player: war declared, reads hostile, attacks | Watched in the vanilla Exploration session (below): rebel people 6 read friendly, the mod declared war on it, it then read hostile, "The rebels near Heijo have declared themselves against you" went out and 3 of 3 units landed on ring 3. In this Antiquity session the rebel people spawned hostile, so the branch didn't run here | Watched 2026-10-15 (overnight L6, Exploration, seed 4242, usual set): a misery rising at the new town Heijo at turn 1 mustered; at the turn roll "rebel people 6 belongs to player 0", "declared war on rebel people 6; it now reads LOC_INDEPENDENT_RELATIONSHIP_HOSTILE", "The rebels near Heijo have declared themselves against you", 3 of 3 units, 0 refusals |
-| A6 | Rebel people friendly, target an AI: a hostile neighbour or a logged fizzle | Open: every rebel people against an AI civ spawned hostile. Against an AI the mod never declares war (section 10), so the check is a watch of the hand-off to a hostile neighbour or the logged fizzle. The neighbour step itself was watched (Heijo: village 21 at 11 tiles took the band, "The Teouma people have taken the rebels' side") | Watched 2026-10-15 (overnight L6, Exploration, seed 4242, usual set): a misery rising at Machiavelli's new town Gwangju at turn 1 mustered rebel people 7, which read friendly to him; the mod declared no war on it (no line, `isAtWarWith` false) and the band went to village 13, 10 tiles off and hostile to him: "rising at 60,32 (misery, I 0.60): 3 of 3 units for 13 (neighbour)" |
+| A6 | Rebel people friendly, target an AI: turned against it, reads hostile, the band is its own | Before 2026-10-29 the mod never declared war for an AI, so the check was the hand-off to a hostile neighbour or the logged fizzle, watched 2026-10-15 (Gwangju: rebel people 7 friendly, village 13 at 10 tiles took the band) | Watched 2026-10-29 (Exploration, seed 4242, every other mod off): rebel people 18, set friendly to Abbasid by the probe (standing 3), a misery rising at al-Ahwāz (44,38), 13 tiles from any village: "turned rebel people 18 against player 2; it now reads LOC_INDEPENDENT_RELATIONSHIP_HOSTILE", `isAtWarWith` true, 3 of 3 units for 18, 0 refusals; two turns on, four of its units within 3 tiles of the town, two adjacent, and its stance to the other civs unchanged. Usual set, 2026-10-29 (Modern seed 4242, the owner's registry, the local copy): a rising at Persia's town (15,36) mustered rebel people 18, which rolled friendly to all six civs on its own (standing 3); the pass turned it against Persia, 2 of 2 units landed, and two turns later it was still at war, two units 2 and 3 tiles from the town, friendly to the other five. Hotseat, 2026-10-29 (`tools/crash-soak/runs/pths3`, Modern seed 4242, Small map, two human seats, every other mod off, 14 of 14 checks): seat 1's rebel people 18, set friendly to seat 1, was turned against it by a rising at seat 1's town (3,3) run during seat 0's turn; it read hostile and at war with seat 1, seat 0's stance stayed as it was, the band of 2 was its own, and the rising notice reached seat 1's train at its turn and not seat 0's |
 | A7 | Unsuzerained village 4 tiles from a flipped settlement, hostile to the new owner: its units appear between the two | Spártā flipped to us 4 tiles from village 11: "neighbours of 56,27: 21@4 hostile, 11@4 hostile; joining: 21x1, 11x1"; village 11's warrior landed at (57,29), between its camp (58,31) and the town; village 21's at (58,24), toward its camp | Naju: village 16 at 4 tiles took the band itself (the neighbour step); village 14 at 4 tiles was friendly and sent nothing |
 | A8 | The same village with a suzerain: nothing from it | Village 18 given Greece as suzerain (`setSuzerain`): it read `isMinor`, no longer independent. Hà Tĩnh flipped 4 tiles from it: "neighbours of 65,21: 24@4 hostile; joining: none"; nothing from 18 | Watched 2026-10-15 (Antiquity, seed 4242, usual set, overnight L1): village 23 given Vietnam as suzerain, a flip-cause rising at Asuka 4 tiles from it through the mod's `rise()` (no probe mod, so no real culture flip): "neighbours of 54,6: 24@3 hostile; joining: none"; nothing from 23. Control the same turn: Hakata, 4 tiles from the unsuzerained village 14, which took the band itself |
 | A8b | What joined neighbours' units do over 10 turns | Village 11's units besieged Spártā (district damage 21, 51, 76, 100 over turns 12 to 14) and took it at turn 15; the game removed it ("Spártā was burned by partisans"). Village 21's units hovered 3 to 6 tiles out. Earlier, village 21's band placed at Heijo (the neighbour step) moved about for two turns, then the rebel people's band from Dazaifu took Heijo at turn 8 | Village 16's 3-unit band took the ungarrisoned population-1 Naju two turns after landing |

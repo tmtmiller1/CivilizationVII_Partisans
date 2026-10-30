@@ -4,6 +4,28 @@ All notable changes to the Partisans mod for Civilization VII. The format follow
 [Keep a Changelog](https://keepachangelog.com/) and Semantic Versioning. The Steam Workshop change note for each
 release is generated from the matching section below by `scripts/steam-changelog.mjs`.
 
+## [1.1.0] - 2026-10-29
+
+### Fixed
+- A turn is counted once. In hotseat, or after loading a save made partway through a turn, a settlement's misery and
+  enclave unrest could climb twice in one turn, so it rose in half the time.
+- The next turn's checks run even when you end the turn while partisans are still landing.
+- While partisans land, units the rebel camp raises on its own turn stay on the map.
+- When the limits turn a rising away, the settlement keeps its misery and unrest count.
+- In hotseat, each player hears about risings in their own settlements when their turn starts.
+- An option changed in a game stays changed for the session even when the game can't save settings.
+- Leaders added by other mods get their own rebel people too.
+- Rebels that come up friendly to the civilization they rise against now turn on it, whether a player or the AI
+  leads it. Before, only your own rebels did, and an AI's rising went to a hostile village nearby or fizzled.
+- In the Exploration and Modern Ages, rebels can appear all age long. The age's villages used to take every place the
+  game keeps for independent peoples within a turn or two, and after that a rising far from a hostile village
+  fizzled. Partisans now keeps one spare place per civilization, the same as the Antiquity Age.
+
+### Changed
+- A rebel hideout keeps a few units at most: three in the Antiquity Age, four in Exploration, five in Modern, besides
+  the partisans out on a rising. Before, it added more every six turns, and one hideout grew to eleven units.
+- The Civilopedia's page on who fights says how friendly rebels and the hideout work now, in every language.
+
 ## [1.0.2] - 2026-10-17
 
 ### Changed

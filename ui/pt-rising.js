@@ -4,16 +4,16 @@
 
 import { openChapter } from "./pt-history.js";
 import { CONFIG } from "./pt-config.js";
-import { bandMix, bandSize, chooseOwner, joinPlan, risingGate, scaledTurns } from "./pt-model.js";
+import { bandMix, bandSize, chooseOwner, joinPlan, miseryNeed, risingGate, scaledTurns } from "./pt-model.js";
 import { activeCounts, cityRecord, logEvent } from "./pt-state.js";
 import { ageType, aliveIndependentIds, cityAtKey, cityName, civAdjective, declareWarOn, distance, gameTurn,
   hostilityName,
-  independentName, isAliveMajor, isHostile, isMultiplayer, isVillage, localId, parseKey, player, sleep, safe }
-  from "./pt-engine.js";
+  independentName, isAliveMajor, isHostile, isMultiplayer, isVillage, localId, parseKey, player, sleep, safe,
+  turnAgainst } from "./pt-engine.js";
 import { unitsForNow } from "./pt-units.js";
 import { placeBand } from "./pt-placement.js";
 import { markerAvailable, placeMarker } from "./pt-muster.js";
-import { notify, text } from "./pt-notify.js";
+import { humanOf, notify, text } from "./pt-notify.js";
 import { getOption } from "./pt-settings.js";
 import { log } from "./pt-log.js";
 import { whyLine } from "./pt-describe.js";
@@ -26,6 +26,7 @@ import { whyLine } from "./pt-describe.js";
  * @property {number} I
  * @property {number} [from] the civ that lost the settlement (flip)
  * @property {number} [pFlip]
+ * @property {boolean} [settle] a roll's hit: the cause's counter resets once the rising is past its gates
  */
 
 /** @param {string} cause @returns {boolean} the player's switch for the cause */
@@ -34,14 +35,21 @@ function causeOn(cause) {
   return cause === "enclave" ? getOption("enclaveRisings") : getOption("miseryRisings");
 }
 
-/** The notice goes to the local player when the settlement is theirs or was theirs. */
-function concernsLocal(req) { const me = localId(); return req.owner === me || req.from === me; }
+/** Who hears of the rising: the human whose settlement it is or was, or -1. */
+function noticeTo(req) { return humanOf(req.owner, req.from); }
 
 /**
- * Why the gates refuse the rising, or null.
+ * Why the gates refuse the rising, or null; a rising they let through spends its counter (settleCounters).
  * @param {import("./pt-state.js").State} state @param {Request} req @param {*} city
  */
 function gateReason(state, req, city) {
+  const reason = gateRefusal(state, req, city);
+  if (!reason) settleCounters(state, req);
+  return reason;
+}
+
+/** The gates themselves (SPEC 4). */
+function gateRefusal(state, req, city) {
   const rec = state.cities[req.key];
   const counts = activeCounts(state);
   return risingGate(CONFIG, {
@@ -60,6 +68,17 @@ function neighboursOf(ctx, c, owner) {
   return ctx.camps().map((camp) => ({ ip: camp.ip, d: distance(camp.x, camp.y, c.x, c.y),
     camp: { x: camp.x, y: camp.y }, hostile: isHostile(camp.ip, owner), village: isVillage(camp.ip) }))
     .sort((a, b) => a.d - b.d);
+}
+
+/**
+ * A rising past its gates spends the pressure that rolled it: misery falls to half the need, enclave tension to 0.
+ * Done here rather than at the roll, so a rising the gates refuse keeps its counter for the next turn.
+ */
+function settleCounters(state, req) {
+  if (!req.settle) return;
+  const rec = cityRecord(state, req.key, req.owner);
+  if (req.cause === "misery") rec.M = Math.floor(miseryNeed(CONFIG, state.speed || 1) / 2);
+  else if (req.cause === "enclave") rec.T = 0;
 }
 
 /** Put the settlement into cooling and log why the rising fizzled. */
@@ -92,13 +111,16 @@ function rebelInfo(state, owner) {
   return { ip: rebel.ip, alive: !!player(rebel.ip).isAlive, hostile: isHostile(rebel.ip, owner) };
 }
 
-/** The local player's war on a friendly rebel people (SPEC 5.2); true when it reads hostile afterwards. */
+/**
+ * A friendly rebel people turned against its civ (SPEC 5.2): its standing with the civ drops to hostile, for any
+ * civ; the local player's own war request is the fallback. True when it reads hostile afterwards.
+ */
 async function declareOnRebels(req, city, ip) {
-  declareWarOn(ip);
+  if (!turnAgainst(ip, req.owner) && req.owner === localId()) declareWarOn(ip);
   await sleep(1500);
   const hostile = isHostile(ip, req.owner);
-  log(`declared war on rebel people ${ip}; it now reads ${hostilityName(ip, req.owner)}`);
-  if (hostile && concernsLocal(req)) notify("rising", text("LOC_PT_DECLARED", cityName(city)));
+  log(`turned rebel people ${ip} against player ${req.owner}; it now reads ${hostilityName(ip, req.owner)}`);
+  if (hostile && noticeTo(req) >= 0) notify("rising", text("LOC_PT_DECLARED", cityName(city)), undefined, undefined, noticeTo(req));
   return hostile;
 }
 
@@ -109,13 +131,12 @@ async function declareOnRebels(req, city, ip) {
 async function pickOwner(ctx, state, req, city) {
   const rebel = state.rebels[req.owner];
   const info = rebelInfo(state, req.owner);
-  const r = { rebel: info, targetIsLocal: req.owner === localId(),
-    neighbours: neighboursOf(ctx, parseKey(req.key), req.owner),
+  const r = { rebel: info, neighbours: neighboursOf(ctx, parseKey(req.key), req.owner),
     mustered: !!(rebel && rebel.mustered && rebel.age === state.age) };
   let choice = chooseOwner(CONFIG, r);
   if (choice.step === "declare") {
     choice = await declareOnRebels(req, city, choice.ip) ? { step: "rebel", ip: choice.ip }
-      : chooseOwner(CONFIG, { ...r, rebel: { ...info, hostile: false }, targetIsLocal: false });
+      : chooseOwner(CONFIG, { ...r, rebel: null });
   }
   if (choice.step === "muster") return muster(state, req, city);
   if (choice.step === "none") return fizzle(state, req, "no hostile people");
@@ -136,7 +157,7 @@ async function joinNeighbours(ctx, state, req, rising, city) {
     if (!placed.units.length) { log(`neighbour ${j.ip} sent nobody: no plot took a unit`); continue; }
     rising.joiners.push({ ip: j.ip, units: placed.units });
     log(`neighbour ${j.ip} (${independentName(j.ip)}) sent ${placed.units.length} fighter(s) to ${req.key}`);
-    if (concernsLocal(req)) notify("join", text("LOC_PT_JOIN", independentName(j.ip), cityName(city)), undefined, center);
+    if (noticeTo(req) >= 0) notify("join", text("LOC_PT_JOIN", independentName(j.ip), cityName(city)), undefined, center, noticeTo(req));
   }
 }
 
@@ -163,13 +184,14 @@ function recordRising(state, req, owner, placed, name) {
  * takes the camera there.
  */
 function noticeRising(req, city) {
-  if (!concernsLocal(req)) return;
+  const to = noticeTo(req);
+  if (to < 0) return;
   // A settlement taken by culture rises for the civ that lost it: "Partisan Greek loyalists near Mutsu". Misery and
   // enclave risings are an uprising; an enclave's is about how it's treated, not loyalty to its homeland.
   const title = req.cause === "flip" && player(req.from)
     ? text("LOC_PT_NOTIFY_LOYALISTS_TITLE_CITY", cityName(city), civAdjective(req.from))
     : text("LOC_PT_NOTIFY_RISING_TITLE_CITY", cityName(city));
-  notify("rising", whyLine(req, city), title, parseKey(req.key));
+  notify("rising", whyLine(req, city), title, parseKey(req.key), to);
 }
 
 /** The placement tally the harness reads for the refusal rate (SPEC 12, V4). */

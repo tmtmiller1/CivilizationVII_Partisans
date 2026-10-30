@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Throwaway: room for one more independent per major civ in the Exploration and Modern Ages, as Antiquity has, to
+     test whether the crisis rebel spawn then fires after the age's independents are on the map. -->
+<Mod id="pt-probe-room" version="1" xmlns="ModInfo">
+    <Properties>
+        <Name>Partisans Probe: independent room (dev)</Name>
+        <Description>INDEPENDENT_EXTRAS_PER_MAJOR 1 in Exploration and Modern.</Description>
+        <Authors>Tower</Authors>
+        <Package>PartisansProbeRoom</Package>
+        <PackageSortIndex>9997</PackageSortIndex>
+        <Version>0.0.1</Version>
+        <AffectsSavedGames>1</AffectsSavedGames>
+    </Properties>
+    <Dependencies>
+        <Mod id="base-standard" title="LOC_MODULE_BASE_STANDARD_NAME" />
+    </Dependencies>
+    <ActionCriteria>
+        <Criteria id="later-ages" any="true">
+            <AgeInUse>AGE_EXPLORATION</AgeInUse>
+            <AgeInUse>AGE_MODERN</AgeInUse>
+        </Criteria>
+    </ActionCriteria>
+    <ActionGroups>
+        <ActionGroup id="pt-probe-room-game" scope="game" criteria="later-ages">
+            <Properties><LoadOrder>9000</LoadOrder></Properties>
+            <Actions><UpdateDatabase><Item>data/room.sql</Item></UpdateDatabase></Actions>
+        </ActionGroup>
+    </ActionGroups>
+</Mod>

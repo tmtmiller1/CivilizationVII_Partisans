@@ -149,16 +149,17 @@ export function risingGate(cfg, g) {
 // 5 owner
 
 /**
- * Which independent fights (SPEC 5), from what the pass read. Pure: the declare-war and the muster are actions the
- * caller takes on the "declare" and "muster" answers.
+ * Which independent fights (SPEC 5), from what the pass read. Pure: turning a friendly rebel people against its civ
+ * and the muster are actions the caller takes on the "declare" and "muster" answers. A living rebel people is always
+ * the owner's: friendly, it's turned, for an AI or a hotseat seat as much as for the local player.
  * @param {*} cfg
- * @param {{rebel:{alive:boolean, hostile:boolean}|null, targetIsLocal:boolean, neighbours:{ip:number, d:number,
- *   hostile:boolean, village:boolean}[], mustered:boolean}} r
+ * @param {{rebel:{alive:boolean, hostile:boolean}|null, neighbours:{ip:number, d:number, hostile:boolean,
+ *   village:boolean}[], mustered:boolean}} r
  * @returns {{step:"rebel"|"declare"|"neighbour"|"muster"|"none", ip?:number}}
  */
 export function chooseOwner(cfg, r) {
   if (r.rebel && r.rebel.alive && r.rebel.hostile) return { step: "rebel", ip: r.rebel.ip };
-  if (r.rebel && r.rebel.alive && r.targetIsLocal) return { step: "declare", ip: r.rebel.ip };
+  if (r.rebel && r.rebel.alive) return { step: "declare", ip: r.rebel.ip };
   const near = r.neighbours.filter((n) => n.hostile && n.village && n.d <= cfg.borrowRange)
     .sort((a, b) => a.d - b.d || a.ip - b.ip)[0];
   if (near) return { step: "neighbour", ip: near.ip };
@@ -282,6 +283,17 @@ export function joinPlan(cfg, pFlip, neighbours, bandOwner, rolls) {
     if ((rolls[i] ?? 1) < chance) out.push({ ip: n.ip, k: n.d <= 3 ? 2 : 1 });
   });
   return out;
+}
+
+/**
+ * Which of a rebel people's units go so its hideout keeps at most `cap` besides its bands: the newest first (the
+ * highest ids, the camp's latest respawns). A band's units are never picked.
+ * @param {number[]} ids every unit the people has @param {Set<number>} bandIds units in its active risings' bands
+ * @param {number} cap @returns {number[]}
+ */
+export function hideoutTrim(ids, bandIds, cap) {
+  const spare = ids.filter((id) => !bandIds.has(id)).sort((a, b) => b - a);
+  return spare.slice(0, Math.max(0, spare.length - Math.max(0, cap)));
 }
 
 // 6.7 game speed

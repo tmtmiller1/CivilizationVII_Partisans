@@ -42,6 +42,10 @@ export const CONFIG_DEFAULTS = Object.freeze({
   maxActiveTotal: 6,
   // 5 owner
   borrowRange: 12,
+  // The most units a rebel people keeps besides the bands of its active risings. The crisis camp respawns every six
+  // turns with no limit (eleven units by Antiquity turn 33); the pass trims the newest above this. The engine's
+  // starting bands were 2 (Antiquity), 4 (Exploration) and 5 (Modern).
+  hideoutCap: Object.freeze({ AGE_ANTIQUITY: 3, AGE_EXPLORATION: 4, AGE_MODERN: 5 }),
   // 6 band
   bandCap: Object.freeze({ AGE_ANTIQUITY: 3, AGE_EXPLORATION: 3, AGE_MODERN: 2 }),
   tierBreaks: Object.freeze([0.40, 0.75]),

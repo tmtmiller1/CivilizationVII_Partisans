@@ -16,6 +16,21 @@ test("the city army effect appears nowhere in the mod", () => {
   assert.deepEqual(offenders, []);
 });
 
+test("the room rows raise the spare independent slots to 1 and leave a higher value alone", async () => {
+  const { DatabaseSync } = await import("node:sqlite");
+  const run = (rows) => {
+    const db = new DatabaseSync(":memory:");
+    db.exec("CREATE TABLE GlobalParameters (Name TEXT PRIMARY KEY NOT NULL, Value TEXT NOT NULL)");
+    for (const [n, v] of rows) db.prepare("INSERT INTO GlobalParameters VALUES (?, ?)").run(n, v);
+    db.exec(read("data/partisans-room.sql"));
+    return db.prepare("SELECT Value FROM GlobalParameters WHERE Name = 'INDEPENDENT_EXTRAS_PER_MAJOR'").all().map((r) => r.Value);
+  };
+  assert.deepEqual(run([["INDEPENDENT_EXTRAS_PER_MAJOR", "0.0"]]), ["1"], "Exploration and Modern");
+  assert.deepEqual(run([]), ["1"], "no row");
+  assert.deepEqual(run([["INDEPENDENT_EXTRAS_PER_MAJOR", "1"]]), ["1"], "Antiquity");
+  assert.deepEqual(run([["INDEPENDENT_EXTRAS_PER_MAJOR", "3"]]), ["3"], "another mod's higher value");
+});
+
 test("the muster SQL is what the generator writes now", () => {
   const before = read("data/partisans-muster.sql");
   execFileSync(process.execPath, [path.join(root, "scripts/gen-data.mjs")], { stdio: "ignore" });

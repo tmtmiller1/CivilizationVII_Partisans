@@ -5,8 +5,8 @@
 
 import { CONFIG } from "./pt-config.js";
 import { placementOrder } from "./pt-model.js";
-import { createUnit, destroyUnit, distance, plotOpen, plotOwner, ring, sleep, unitIds, unitLocation, unitType, safe }
-  from "./pt-engine.js";
+import { createUnit, destroyUnit, distance, gameTurn, plotOpen, plotOwner, ring, sleep, unitIds, unitLocation, unitType,
+  safe } from "./pt-engine.js";
 import { isParkTile } from "./pt-parks.js";
 import { dlog } from "./pt-log.js";
 
@@ -60,10 +60,12 @@ function orderedPlots(center, cityOwner, opt) {
  * placement the engine answers late, and a unit read a plot or two later is still one the mod asked for (watched
  * 2026-10-16, block 1 L2: 14 refusals while three turns rolled). A unit of a type the band asked for that stands
  * elsewhere is one the engine put by the independent's own camp instead (watched 2026-10-15, eleven tiles off) and is
- * removed; any other new unit is the independent's own and left alone.
+ * removed; any other new unit is the independent's own and left alone. Once a turn has rolled since the placement
+ * began, the independent has had a turn of its own (a crisis camp respawns units of the band's types), so a unit off
+ * the plots is left alone too.
  * @returns {{owner:number, id:number}[]} the band's new units
  */
-function readNew(ip, asked, types, known) {
+function readNew(ip, asked, types, known, startTurn) {
   const landed = [];
   for (const id of unitIds(ip).filter((id) => !known.has(id))) {
     known.add(id);
@@ -71,6 +73,7 @@ function readNew(ip, asked, types, known) {
     const plot = at && asked.get(`${at.x},${at.y}`);
     if (plot) { landed.push({ owner: ip, id }); dlog(`${plot.type} for ${ip} landed at ${at.x},${at.y} (ring ${plot.ring})`); continue; }
     if (!types.includes(unitType(ip, id))) continue;
+    if (gameTurn() !== startTurn) { dlog(`a unit for ${ip} at ${at ? at.x + "," + at.y : "?"} after a turn roll; left alone`); continue; }
     dlog(`a unit for ${ip} came up at ${at ? at.x + "," + at.y : "?"}, off the plots asked for; removed`);
     destroyUnit({ owner: ip, id });
   }
@@ -82,7 +85,7 @@ async function tryPlot(ip, type, plot, band) {
   band.asked.set(`${plot.x},${plot.y}`, { ...plot, type });
   createUnit(type, plot, ip);
   await sleep(CONFIG.placementWaitMs);
-  const landed = readNew(ip, band.asked, band.types, band.known);
+  const landed = readNew(ip, band.asked, band.types, band.known, band.startTurn);
   if (!landed.length) dlog(`plot ${plot.x},${plot.y} refused a ${type}`);
   return landed;
 }
@@ -97,16 +100,17 @@ async function tryPlot(ip, type, plot, band) {
 export async function placeBand(center, cityOwner, ip, types, opt = {}) {
   const known = new Set(unitIds(ip));
   const asked = new Map();
+  const startTurn = gameTurn();
   const units = [];
   let attempts = 0;
   for (const plot of orderedPlots(center, cityOwner, opt)) {
     if (units.length >= types.length) break;
     attempts++;
-    units.push(...await tryPlot(ip, types[units.length], plot, { asked, types, known }));
+    units.push(...await tryPlot(ip, types[units.length], plot, { asked, types, known, startTurn }));
   }
   if (attempts > units.length) {
     await sleep(CONFIG.placementWaitMs);
-    units.push(...readNew(ip, asked, types, known));
+    units.push(...readNew(ip, asked, types, known, startTurn));
   }
   for (const extra of units.splice(types.length)) destroyUnit(extra);
   return { units, attempts, refused: Math.max(0, attempts - units.length) };

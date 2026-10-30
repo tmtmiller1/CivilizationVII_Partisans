@@ -7,7 +7,7 @@
         <Package>Partisans</Package>
         <PackageSortIndex>1000</PackageSortIndex>
         <ShowInBrowser>1</ShowInBrowser>
-        <Version>1.0.2</Version>
+        <Version>1.1.0</Version>
         <!-- The muster marker and its modifiers are new database rows; a save made with the mod needs them. -->
         <AffectsSavedGames>1</AffectsSavedGames>
     </Properties>
@@ -104,7 +104,6 @@
                     <Item locale="zh_Hant_HK">text/zh_hk/PediaText.xml</Item>
                 </UpdateText>
                 <UpdateDatabase>
-                    <Item>data/partisans-muster.sql</Item>
                     <Item>data/partisans-notifications.xml</Item>
                     <Item>data/pt-civilopedia.xml</Item>
                 </UpdateDatabase>
@@ -139,6 +138,19 @@
                     <Item>ui/pt-transfer.js</Item>
                     <Item>ui/pt-units.js</Item>
                 </ImportFiles>
+            </Actions>
+        </ActionGroup>
+        <!-- The muster marker's per-leader rows select through Leaders, so they load late enough to cover leaders other
+             mods add. The room rows come late too, after the age's own independents file. -->
+        <ActionGroup id="partisans-game-muster" scope="game" criteria="always">
+            <Properties>
+                <LoadOrder>10000</LoadOrder>
+            </Properties>
+            <Actions>
+                <UpdateDatabase>
+                    <Item>data/partisans-muster.sql</Item>
+                    <Item>data/partisans-room.sql</Item>
+                </UpdateDatabase>
             </Actions>
         </ActionGroup>
         <!-- Civilopedia History Corrections, loaded at 1000 to come after Civilopedia Expanded's groups (10, 100

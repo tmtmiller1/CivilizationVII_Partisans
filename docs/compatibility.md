@@ -28,7 +28,8 @@ Parks, and culture flips still count unless the "flips from any mod" option is o
 | `CREATE_ELEMENT {Kind:"UNIT", Owner: <independent>}` sent as the local player | The band | Watched 2026-10-14 |
 | `CREATE_ELEMENT` / `DESTROY_ELEMENT {Kind:"CONSTRUCTIBLE"}` | The muster marker | Watched 2026-10-14 |
 | `EFFECT_PLAYER_SPAWN_TRIBE_NEAR` on a leader trait, gated on `REQUIREMENT_PLAYER_HAS_CONSTRUCTIBLE` | The rebel people | Watched 2026-10-14 |
-| `DECLARE_WAR {Player1: local, Player2: <independent>}` | A friendly rebel people turned hostile, local player only | Watched 2026-10-14 |
+| `Game.IndependentPowers.getIndependentPlayerLevel` / `changeIndependentPlayerLevel(ip, pid, -level)` | A friendly rebel people turned hostile to its civ, any civ | Watched 2026-10-29 |
+| `DECLARE_WAR {Player1: local, Player2: <independent>}` | The same for the local player, as the fallback | Watched 2026-10-14 |
 | `Game.IndependentPowers.getIndependentRelationship` / `getIndependentHostility` | Hostility reads | Read from the game's UI source (`unit-flags-independent-powers.js`) |
 | `Players.get(ip).Influence.hasSuzerain` | A village against a city-state | Watched 2026-10-14 |
 | `city.Happiness.netHappinessPerTurn`, `Diplomacy.getRelationshipLevel`, `isAtWarWith`, `hasAllied` | The pressures | Watched (first three), read from code (`hasAllied`) |
